@@ -1,0 +1,693 @@
+/* < 1800px */ 
+@media only screen and (max-width: 112.5em){ 
+    .hero-container{
+        width: 1150px
+    }
+
+    .hero-image{
+        top: -114px;
+        left: -95px;
+    }
+
+    .aboutus-section{
+        width: 1100px;
+    }
+
+    .contactus-container .container{
+        padding: 2rem 5rem;
+    }
+
+    .laptop-image-container img{
+        height: 400px !important;
+    }
+} 
+
+/* < 1200px */
+@media only screen and (max-width: 75em){ 
+    .hero-container{
+        width: 90%;
+    }
+
+    .hero-image-container{
+        flex: 0 0 45%;
+    }
+
+    .hero-image-container img{
+        width: 100%;
+        top: -158px;
+        left: 0px;
+    }
+
+    .aboutus-section{
+        width: 90%;
+    }
+
+    .aboutus-gallery .img2{
+        width: 250px;
+        height: 250px;
+    }
+
+    .laptop-image-container img{
+        height: 200px !important;
+    }
+}
+
+/* < 1040px */
+@media only screen and (max-width: 65em){ 
+    .hero-title{
+        font-size: 8.8rem;
+    }
+
+    .hero-image-container{
+        flex: 0 0 49%;
+    }
+
+    .hero-image-container img{
+        height: 530px;
+        top: -147px;
+        left: 0px;
+    }
+
+    .aboutus-gallery .img1{
+        top: 20px;
+    }
+
+    .aboutus-gallery .img2{
+        width: 200px;
+        height: 200px;
+    }
+
+    .aboutus-gallery .img3{
+        bottom: 80px;
+    }
+
+    .you-need-it-description{
+        width: 80%;
+    }
+}
+
+/* < 900px */ 
+@media only screen and (max-width: 56.25em){
+    header{
+        background-color: transparent;
+    }
+
+    .header-container{
+        padding: 20px 40px;
+    }
+
+    .nav-link-container{
+        display: none;
+    }
+
+    .burger-menu{
+        flex: 0 0 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mobile-menu{
+        display: block;
+    }
+
+    .hero-image-container img{
+        height: 500px;
+        top: -146px;
+        left: 0px;
+    }
+
+    .aboutus-section{
+        padding-left: 7rem;
+    }
+
+    .main-brands-text{
+        width: 60%;
+    }
+
+    .consumables-container{
+        padding: 4rem 3rem;
+    }
+} 
+
+/* < 815px */ 
+@media only screen and (max-width: 50.9375em){ 
+    .hero-title{
+        font-size: 8rem;
+    }
+
+    .hero-image-container img{
+        height: 450px;
+        top: -115px;
+        left: 0px;
+    }
+
+    .services-section{
+        margin-bottom: 50px;
+    }
+
+    .row{
+        flex-direction: column;
+    }
+
+    .col3.col-sm-12{
+        flex: 0 0 auto;
+    }
+
+
+    .footer-col3.col-sm-12{
+        flex: 0 0 auto;
+    }
+
+    .col2.col-sm-12{
+        flex: 0 0 auto;
+    }
+
+    .service-group .service-group-image{
+        display: block;
+        width: 380px;
+        margin: 0 auto;
+        height: 400px;
+        margin-bottom: 20px;
+    }
+
+    .col3.col-sm-12:not(:last-child){
+        margin-bottom: 60px;
+    }
+
+    .footer-col3.col-sm-12:not(:last-child){
+        margin-bottom: 20px;
+    }
+
+    .col2.col-sm-12:not(:last-child){
+        margin-bottom: 40px;
+    }
+
+    .reasons-list-item{
+        font-size: 2.5rem;
+    }
+
+    .benefits-container .benefits-title{
+        font-size: 2rem;
+    }
+
+    .benefits-list{
+        font-size: 1.5rem;
+    }
+
+    .you-need-it-container .title{
+        font-size: 6rem;
+    }
+} 
+
+/* < 750px */ 
+@media only screen and (max-width: 46.875em){ 
+    .hero-title{
+        font-size: 7rem;
+    }
+
+    .hero-image-container img{
+        height: 450px;
+        top: -139px;
+        left: 0px;
+    }
+
+    .aboutus-text-box .title{
+        font-size: 5rem;
+    }
+
+    .contactus-submit-btn{
+        width: 75px;
+    }
+
+    .slider{
+        width: 95%;
+    }
+
+    .laptop-batch-slider{
+        height: auto;
+    }
+
+    .laptop-object{
+        flex: 0 0 48%;
+    }
+
+    .divider{
+        width: 80%;
+    }
+
+    .testimonial-slider-container{
+        width: 60%;
+    }
+
+    .benefits-container{
+        margin-left: 5%;
+    }
+
+    .you-need-it-text{
+        width: 75%;
+    }
+
+    .you-need-it-description{
+        width: 90%;
+    }
+
+    .proud-partners-container .proud-partners{
+        height: 250px;
+    }
+
+    .proud-partners img{
+        flex: 0 0 20%;
+    }
+    
+    .proud-partners span{
+        flex: 0 0 20%;
+    }
+
+    .consumables-container .item-group{
+        flex: 0 0 48%;
+    }
+
+    .address-block{
+        flex-direction: column;
+        height: auto;
+    }
+
+    .address-container{
+        flex: initial;
+        margin-bottom: 40px;
+    }
+
+    .address-container .title{
+        text-align: center;
+    }
+
+    .hot-offer-container{
+        width: 1000px;
+    }
+} 
+
+/* < 665px */ 
+@media only screen and (max-width: 41.5625em){ 
+    .hero-title{
+        font-size: 6rem;
+    }
+
+    .hero-image-container img{
+        height: 400px;
+        top: -113px;
+        left: 0px;
+    }
+    
+    .portfolio-section{
+        margin-bottom: 100px;
+    }
+
+    .slider{
+        height: 300px;
+    }
+
+    .laptop-batch-slider{
+        height: auto;
+    }
+
+    .brands-slider{
+        height: auto;
+    }
+
+    .slider div img{
+        height: 300px;
+    }
+
+    .aboutus-section{
+        height: auto;
+        padding-left: 5rem;
+    }
+    .aboutus-gallery .aboutus-img{
+        width: 100px;
+        height: 100px;
+    }
+
+    .aboutus-gallery .img3{
+        top: 130px;
+    }
+
+    .contactus-text{
+        flex: 0 0 35%;
+    }
+
+    .main-brands-text{
+        width: 80%;
+    }
+
+    .testimonial-and-benefits-container{
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .testimonial-and-benefits-container::after{
+        display: none;
+    }
+
+    .testimonial-slider{
+        height: auto;
+    }
+
+    .testimonial-slider-container{
+        float: none;
+        border-bottom: 3px solid var(--primary-color);
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .benefits-container{
+        float: none;
+        margin-left: 0;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .savings-and-loan-container .title{
+        font-size: 5rem;
+    }
+
+    .how-it-works-container img{
+        width: 100%;
+        height: 550px;
+    }
+} 
+
+@media only screen and (max-width: 38.125em){  } /* < 610px */ 
+@media only screen and (max-width: 37.5em){  } /* < 600px */
+
+/* < 580px */ 
+@media only screen and (max-width: 36.25em){ 
+    .hero-title{
+        font-size: 5rem;
+    }
+
+
+    .hero-image-container img{
+        height: 400px;
+        top: -136px;
+        left: -30px;
+    }
+
+    .contactus-container .container{
+        padding: 2rem;
+    }
+
+    .contactus-container .title{
+        font-size: 6rem;
+        width: 100%;
+    }
+
+    .contactus-form{
+        flex: 0 0 60%;    
+    }
+
+    .hero-btn{
+        width: 50%;
+    }
+
+    .testimonial-and-benefits-container{
+        width: 100%;
+    }
+
+    .proud-partners-container .proud-partners{
+        flex-direction: column;
+        justify-content: space-between;
+        height: auto;
+    }
+
+    .proud-partners-container .proud-partners{
+        margin-bottom: 100px;
+    }
+
+    .proud-partners img{
+        margin-bottom: 40px;
+    }
+
+    .consumables-container .item-group{
+        flex: 0 0 100%;
+    }
+
+    .item-group figure img{
+        height: 350px;
+    }
+
+    .contact-container .contact-text{
+        width: 85%;
+    }
+
+    .address-info{
+        width: 80%;
+    }
+
+    .how-it-works-section{
+        padding: 0 4rem;
+    }
+
+    .how-it-works-container img{
+        height: 450px;
+    }
+
+    .enquiries-textbox .title{
+        font-size: 2.5rem;
+    }
+}
+
+
+/* < 500px */ 
+@media only screen and (max-width: 31.25em){ 
+    .hero-text-box{
+        padding-right: 10px;
+    }
+
+    .hero-title{
+        font-size: 4rem;
+    }
+
+    .hero-text{
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .hero-btn{
+        width: 60%;
+        font-size: 1.2rem;
+    }
+
+    .hero-image-container img{
+        height: 350px;
+        top: -135px;
+        left: 0px;
+    }
+
+    .title{
+        font-size: 4rem;
+    }
+
+    .aboutus-text-box .title{
+        font-size: 3.5rem;
+    }
+
+    .aboutus-gallery .img3{
+        top: 180px;
+    }
+
+     .contactus-container .container{
+        flex-direction: column;
+    }
+    .contactus-form{
+        order: 1;
+    }
+
+    .contactus-text{
+        order: 0;
+        margin-bottom: 20px;
+    }
+
+    .service-group .service-group-image{
+        width: 250px;
+        height: 250px;
+        margin-bottom: 20px;
+    }
+
+    .contactus-submit-btn{
+        width: 30%;
+    }
+
+    .consumables-gallery-title{
+        top: -25px;
+    }
+
+    .enquiry-image-container{
+        flex: 0 0 80px;
+    }
+
+    .enquiry-image-container img{
+        width: 100%;
+        height: 100%;
+    }
+
+    .enquiries-textbox{
+        flex: 0 0 200px;
+    }
+
+    .container-404{
+        flex: 0 0 90%;
+    }
+
+    .number-404{
+        font-size: 15rem;
+    }
+
+    .whoops{
+        font-size: 2.5rem;
+    }
+
+    .redirect-container a{
+        font-size: 1.5rem;
+        width: 70%;
+    }
+}
+
+/* < 400px */
+@media only screen and (max-width: 25em){ 
+    .header-container{
+        padding: 2rem 2rem;
+    }
+
+    .hero-image-container img{
+        height: 300px;
+        top: -117px;
+        left: 0px;
+    }
+
+    .mobile-menu{
+        top: 85px;
+    }
+
+    .service-group .service-group-image{
+        width: 200px;
+        height: 200px;
+    }
+
+    .slider{
+        height: 250px;
+    }
+
+    .slider div img{
+        height: 250px;
+    }
+
+    .aboutus-gallery{
+        flex: 0 0 200px;
+    }
+
+    .aboutus-container{
+        flex-direction: column;
+    }
+
+    .aboutus-text-box{
+        margin-bottom: 10px;
+    }
+
+    .aboutus-gallery .img1{
+        top: 20px;
+        left: 10px;
+    }
+
+    .aboutus-gallery .img2{
+        top: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .aboutus-gallery .img3{
+        top: 120px;
+        right: 10px;
+    }
+
+    .laptop-batch-slider{
+        height: auto;
+    }
+
+    .laptop-image-container img{
+        height: 100px !important;
+    }
+    
+    .main-brands-section{
+        margin-bottom: 100px;
+    }
+
+    .testimonial-slider{
+        width: 100%;
+    }
+
+    .item-group figure img{
+        height: 250px;
+    }
+
+    .contact-container .contact-text{
+        font-size: 2rem;
+    }
+
+    .how-it-works-container img{
+        height: 350px;
+    }
+
+    .enquiries-text{
+        width: 100%;
+    }
+
+    .enquiries-textbox{
+        width: 200px;
+    }
+}
+
+/* > 1800px */ 
+@media only screen and (min-width: 112.5em){ 
+    .hero-container{
+        width: 1400px;
+    }
+
+    .hero-text-box{
+        padding: 10px;
+    }
+
+    .hero-image-container{
+        flex: 0 0 45%;
+        text-align: center;
+    }
+
+    .hero-image-container img{
+        width: 100%;
+        position: static;
+        top: 0px;
+        left: 0px;
+    }
+
+    .aboutus-section{
+        width: 1200px;
+    }
+
+    .contactus-container .container{
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+    }
+
+    .contactus-text{
+        margin-right: 30px;
+    }
+
+    .laptop-image-container img{
+        height: 400px !important;
+    }
+}
+
+
+
+ 
