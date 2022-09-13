@@ -13,6 +13,15 @@
     }
 }
 
+@keyframes spin{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
 *, *::after, *::before{
     margin: 0;
     padding: 0;
@@ -515,9 +524,17 @@ html{
     cursor: pointer;
 }
 
+.contactus-submit-btn.spin i{
+    animation: spin 1s infinite;
+}
+
 .contactus-text{
     flex: 0 0 30%;
     font-size: 1.8rem;
+}
+
+.just-validate-error-label{
+    font-size: 10px;
 }
 
 /* CONTACT US SECTION END */
