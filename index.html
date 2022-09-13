@@ -479,6 +479,8 @@
           .onSuccess((event) => {
             const contactForm = document.getElementById("contact-form");
             const contactUsBtn = $("contatcus-submit-btn");
+            const formInputs = $(".form-group input");
+            const formTextarea = $(".form-group textarea");
 
             const formData = new FormData(contactForm);
 
@@ -506,6 +508,14 @@
                     title: "Thank you for contacting us",
                     text: "We've recieved your message and we will get back to you in no time.",
                   });
+
+                  // Clear form fields
+                  formInputs.each(function(){
+                    $(this).val("");
+                  });
+
+                  formTextarea.val("");
+                  
                 } else {
                   // ALERT THE USER UPON FAILED SUBMISSION
                   Swal.fire({
