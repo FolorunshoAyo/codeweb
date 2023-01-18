@@ -12,6 +12,8 @@
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> -->
     <!-- Custom Fonts (KyivType Sans and Inter) -->
     <link rel="stylesheet" href="assets/css/fonts.css">
+    <!-- initial config css file -->
+    <link rel="stylesheet" href="assets/css/base.css">
     <!-- Slick plugin stylesheet -->
     <link rel="stylesheet" href="assets/css/slick/slick.css">
     <!-- CUSTOM SLIDER STYLING -->
@@ -21,7 +23,7 @@
      <!-- OUR SCHOOL STYLESHEET -->
      <link rel="stylesheet" href="assets/css/ourschool.css" type="text/css">
     <!-- MEDIA QUERIES -->
-    <link rel="stylesheet" href="assets/css/mediaquery.css">
+    <link rel="stylesheet" href="assets/css/media-queries/main-mediaquery.css">
     <style>
         .nav-link-item a{
             color: var(--black);
@@ -38,7 +40,7 @@
     <header>
         <div class="header-container">
             <div class="logo-container">
-                <a href="index.html">
+                <a href="./">
                     <img src="assets/images/logo.jpg" alt="Logo" class="logo image">
                 </a>
             </div>
@@ -46,16 +48,16 @@
             <nav class="nav-link-container">
                 <ul class="nav-links">
                     <li class="nav-link-item">
-                        <a href="ourschool.html" class="nav-link active">our school</a>
+                        <a href="ourschool" class="nav-link active">our school</a>
                     </li>
                     <li class="nav-link-item">
-                        <a href="laptopsales.html" class="nav-link">laptop sales</a>
+                        <a href="laptopsales" class="nav-link">laptop sales</a>
                     </li>
                     <li class="nav-link-item">
-                        <a href="#" class="nav-link">studentXtra</a>
+                        <a href="studentxtra" class="nav-link">studentXtra</a>
                     </li>
                     <li class="nav-link-item">
-                        <a href="itconsumables.html" class="nav-link">IT consumables</a>
+                        <a href="itconsumables" class="nav-link">IT consumables</a>
                     </li>
                 </ul>
             </nav>
@@ -69,22 +71,25 @@
             <div class="mobile-menu">
                 <ul class="mobile-list">
                     <li class="mobile-list-item">
-                        <a href="ourschool.html" class="mobile-nav-link">our school</a>
+                        <a href="ourschool" class="mobile-nav-link">our school</a>
                     </li>
                     <li class="mobile-list-item">
-                        <a href="laptopsales.html" class="mobile-nav-link">laptop sales</a>
+                        <a href="laptopsales" class="mobile-nav-link">laptop sales</a>
                     </li>
                     <li class="mobile-list-item">
-                        <a href="#" class="mobile-nav-link">studentXtra</a>
+                        <a href="studentxtra" class="mobile-nav-link">studentXtra</a>
                     </li>
                     <li class="mobile-list-item">
-                        <a href="itconsumables.html" class="mobile-nav-link">IT consumables</a>
+                        <a href="itconsumables" class="mobile-nav-link">IT consumables</a>
                     </li>
                 </ul>
             </div>
         </div>
     </header>
     <main>
+        <div class="scrollup-btn-container">
+            <button class="scrollup-btn"><i class="fa fa-arrow-up"></i></button>
+        </div>
         <section class="learn-with-us-section">
             <div class="learn-with-us-container">
                 <h1 class="title">Learn with us</h1>
@@ -280,6 +285,7 @@
        $(function(){
             const burgerMenu = $(".burger-menu");
             const mobileNav = $(".mobile-menu");
+            const scrollUpBtnCnt = $(".scrollup-btn-container");
             
             $('.slider').slick({
                 dots: true,
@@ -298,9 +304,21 @@
             //HEADER STICKY FUNCTIONALITY
             // Jquery handler for displaying sticky header upon scroll.
             $(window).on("scroll", () => {
-                let header = $("header");
+            let header = $("header");
+            let currentPagePosition = $(window).scrollTop();
 
-                header[0].classList.toggle("sticky", $(window)[0].scrollY > 180);
+            if(currentPagePosition > 400){
+                scrollUpBtnCnt.fadeIn();
+            }else{
+                scrollUpBtnCnt.fadeOut();
+            }
+
+            header[0].classList.toggle("sticky", $(window)[0].scrollY > 180);
+            });
+
+            $('.scrollup-btn').on('click', function() {
+            $('html, body').animate({scrollTop : 0},800);
+            return false;
             });
 
             // Event Handler for Burger Menu Toggle

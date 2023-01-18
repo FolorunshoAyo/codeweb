@@ -16,7 +16,7 @@
     <!-- 404 STYLESHEET -->
     <link rel="stylesheet" href="assets/css/404.css" type="text/css">
     <!-- MEDIA QUERIES -->
-    <link rel="stylesheet" href="assets/css/mediaquery.css">
+    <link rel="stylesheet" href="assets/css/media-queries/main-mediaquery.css">
     <title>404 page - Codeweb</title>
 </head>
 <body>

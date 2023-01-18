@@ -5,7 +5,7 @@
     }
 
     .hero-image{
-        top: -114px;
+        top: -103px;
         left: -95px;
     }
 
@@ -34,7 +34,7 @@
 
     .hero-image-container img{
         width: 100%;
-        top: -158px;
+        top: -153px;
         left: 0px;
     }
 
@@ -50,6 +50,21 @@
     .laptop-image-container img{
         height: 200px !important;
     }
+
+    .address-block{
+        margin-top: 20px;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .address-container{
+        margin-bottom: 50px;
+    }
+
+    .map-image-container{
+        flex: 0 0 auto;
+    }
 }
 
 /* < 1040px */
@@ -64,7 +79,7 @@
 
     .hero-image-container img{
         height: 530px;
-        top: -147px;
+        top: -141px;
         left: 0px;
     }
 

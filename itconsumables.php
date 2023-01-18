@@ -12,6 +12,8 @@
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> -->
     <!-- Custom Fonts (KyivType Sans and Inter) -->
     <link rel="stylesheet" href="assets/css/fonts.css">
+    <!-- initial config css file -->
+    <link rel="stylesheet" href="assets/css/base.css">
     <!-- Slick plugin stylesheet -->
     <link rel="stylesheet" href="assets/css/slick/slick.css">
     <!-- CUSTOM SLIDER STYLING -->
@@ -21,7 +23,7 @@
     <!-- IT CONSUMMABLES STYLESHEET -->
     <link rel="stylesheet" href="assets/css/itconsumables.css" type="text/css">
     <!-- MEDIA QUERIES -->
-    <link rel="stylesheet" href="assets/css/mediaquery.css">
+    <link rel="stylesheet" href="assets/css/media-queries/main-mediaquery.css">
     <style>
         .nav-link-item a {
             color: var(--black);
@@ -38,7 +40,7 @@
     <header>
         <div class="header-container">
             <div class="logo-container">
-                <a href="index.html">
+                <a href="./">
                     <img src="assets/images/logo.jpg" alt="Logo" class="logo image">
                 </a>
             </div>
@@ -46,16 +48,16 @@
             <nav class="nav-link-container">
                 <ul class="nav-links">
                     <li class="nav-link-item">
-                        <a href="ourschool.html" class="nav-link">our school</a>
+                        <a href="ourschool" class="nav-link">our school</a>
                     </li>
                     <li class="nav-link-item">
-                        <a href="laptopsales.html" class="nav-link">laptop sales</a>
+                        <a href="laptopsales" class="nav-link">laptop sales</a>
                     </li>
                     <li class="nav-link-item">
-                        <a href="studentxtra.html" class="nav-link">studentXtra</a>
+                        <a href="studentxtra" class="nav-link">studentXtra</a>
                     </li>
                     <li class="nav-link-item">
-                        <a href="itconsumables.html" class="nav-link active">IT consumables</a>
+                        <a href="itconsumables" class="nav-link active">IT consumables</a>
                     </li>
                 </ul>
             </nav>
@@ -69,22 +71,25 @@
             <div class="mobile-menu">
                 <ul class="mobile-list">
                     <li class="mobile-list-item">
-                        <a href="ourschool.html" class="mobile-nav-link">our school</a>
+                        <a href="ourschool" class="mobile-nav-link">our school</a>
                     </li>
                     <li class="mobile-list-item">
-                        <a href="laptopsales.html" class="mobile-nav-link">laptop sales</a>
+                        <a href="laptopsales" class="mobile-nav-link">laptop sales</a>
                     </li>
                     <li class="mobile-list-item">
-                        <a href="studentxtra.html" class="mobile-nav-link">studentXtra</a>
+                        <a href="studentxtra" class="mobile-nav-link">studentXtra</a>
                     </li>
                     <li class="mobile-list-item">
-                        <a href="itconsumables.html" class="mobile-nav-link">IT consumables</a>
+                        <a href="itconsumables" class="mobile-nav-link">IT consumables</a>
                     </li>
                 </ul>
             </div>
         </div>
     </header>
     <main>
+        <div class="scrollup-btn-container">
+            <button class="scrollup-btn"><i class="fa fa-arrow-up"></i></button>
+        </div>
         <section class="you-need-it-section">
             <div class="you-need-it-container">
                 <h1 class="title">You Need it, We Supply it.</h1>
@@ -183,9 +188,7 @@
                     </div>
                     <div class="address-map">
                         <div class="map-image-container">
-                            <a href="#">
-                                <img src="assets/images/google-map.png" alt="#">
-                            </a>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.2212122221085!2d3.508265014449789!3d6.619418423878078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bef6a38287927%3A0x1d0603c6a5bfa317!2sCodeWeb%20Coding%20Academy!5e0!3m2!1sen!2sng!4v1673872992209!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
@@ -243,6 +246,7 @@
         $(function () {
             const burgerMenu = $(".burger-menu");
             const mobileNav = $(".mobile-menu");
+            const scrollUpBtnCnt = $(".scrollup-btn-container");
 
             // $('.slider').slick({
             //     dots: true,
@@ -262,8 +266,20 @@
             // Jquery handler for displaying sticky header upon scroll.
             $(window).on("scroll", () => {
                 let header = $("header");
+                let currentPagePosition = $(window).scrollTop();
+
+                if(currentPagePosition > 400){
+                    scrollUpBtnCnt.fadeIn();
+                }else{
+                    scrollUpBtnCnt.fadeOut();
+                }
 
                 header[0].classList.toggle("sticky", $(window)[0].scrollY > 180);
+            });
+
+            $('.scrollup-btn').on('click', function() {
+            $('html, body').animate({scrollTop : 0},800);
+            return false;
             });
 
             // Event Handler for Burger Menu Toggle
