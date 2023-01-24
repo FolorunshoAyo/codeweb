@@ -20,6 +20,10 @@
     .laptop-image-container img{
         height: 400px !important;
     }
+
+    .form-group.animate label{
+        font-size: 1.2rem;
+    }
 } 
 
 /* < 1200px */
@@ -64,6 +68,10 @@
 
     .map-image-container{
         flex: 0 0 auto;
+    }
+
+    .form-group.animate label{
+        font-size: 1.5rem;
     }
 }
 
@@ -143,6 +151,14 @@
 
     .consumables-container{
         padding: 4rem 3rem;
+    }
+
+    .form-group-container{
+        flex: 0 0 48%;
+    }
+
+    .just-validate-error-label{
+        font-size: 1.5rem;
     }
 } 
 
@@ -300,6 +316,14 @@
 
     .hot-offer-container{
         width: 1000px;
+    }
+
+    .registeration-container .title{
+        font-size: 4.5rem;
+    }
+
+    .registeration-notice{
+        font-size: 2rem;
     }
 } 
 
@@ -471,6 +495,14 @@
     .enquiries-textbox .title{
         font-size: 2.5rem;
     }
+
+    .registeration-section{
+        padding: 0 4rem;
+    }
+
+    .registeration-form-container .form-title{
+        margin-left: -5px;
+    }
 }
 
 
@@ -567,6 +599,22 @@
         font-size: 1.5rem;
         width: 70%;
     }
+
+    .form-group-container{
+        flex: 0 0 100% !important;
+    }
+
+    .form-groupings.last .form-group-container{
+        flex: 0 0 100% !important;
+    }
+
+    .success-container{
+        flex: 0 0 90%;
+    }
+
+    .checkboxs label{
+        flex: 0 0 48%;
+    }
 }
 
 /* < 400px */
@@ -661,6 +709,51 @@
     .enquiries-textbox{
         width: 200px;
     }
+
+    .registeration-container .title{
+        font-size: 4rem;
+    }
+
+    .registeration-notice{
+        margin-bottom: 60px;
+    }
+
+    .form-group.animate label{
+        font-size: 2rem;
+        top: 2.5rem;
+    }
+
+    .password-form-group label{
+        font-size: 2rem;
+        top: 1.5rem;
+    }
+
+    .form-group select{
+        font-size: 2rem;
+    }
+
+    .form-group input[type="file"]{
+        font-size: 2rem;
+        padding-top: 2.5rem;
+    }
+
+    .agreement-container{
+        font-size: 2rem;
+    }
+
+    .register-container button {
+        font-size: 2rem;
+        width: 40%;
+    }
+
+    .register-container p{
+        font-size: 2rem;
+    }
+
+    .otp-group{
+        width: 250px;
+        margin: 0 auto;
+    }
 }
 
 /* > 1800px */ 
@@ -700,6 +793,34 @@
 
     .laptop-image-container img{
         height: 400px !important;
+    }
+
+    .form-group.animate label{
+        font-size: 1.2rem;
+    }
+
+    .form-group.animate label{
+        top: 15px !important;
+    }
+
+    .form-group.animate input:focus + label, .form-group.animate select:focus + label{
+        top: -0.5rem !important;
+    }
+
+    .form-input:not(:placeholder-shown).form-input:not(:focus) + label{
+        top: -0.5rem !important;
+    }
+
+    .password-form-group label{
+        top: 1px !important
+    }
+
+    .password-form-group input:focus + label{
+        top: -1.8rem !important;
+    }
+
+    .password-form-input:not(:placeholder-shown).password-form-input:not(:focus) + label{
+        top: -1.8rem !important;
     }
 }
 

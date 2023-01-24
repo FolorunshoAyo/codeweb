@@ -11,6 +11,8 @@
          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> -->
     <!-- Custom Fonts (KyivType Sans and Inter) -->
     <link rel="stylesheet" href="assets/css/fonts.css">
+    <!-- initial config css file -->
+    <link rel="stylesheet" href="assets/css/base.css">
     <!-- Custom CSS (HOME) -->
     <link rel="stylesheet" href="assets/css/home.css" type="text/css">
     <!-- 404 STYLESHEET -->
