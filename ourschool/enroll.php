@@ -289,7 +289,7 @@
     <!-- JQUERY MIGRATE SCRIPT (FOR OLDER JQUERY PACKAGES SUPPORT)-->
     <script src="../assets/js/jquery/jquery-migrate-1.4.1.min.js"></script>
     <!-- TOASTER PLUGIN -->
-    <!-- <script src="../auth-library/vendor/dist/sweetalert2.all.min.js"></script> -->
+    <script src="../auth-library/vendor/dist/sweetalert2.all.min.js"></script>
     <!-- JUST VALIDATE LIBRARY -->
     <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
     <script>
@@ -306,12 +306,12 @@
                 errorMessage: "Field is required"
             },
             {
-            rule: 'minLength',
-            value: 3,
+                rule: 'minLength',
+                value: 3,
             },
             {
-            rule: 'maxLength',
-            value: 30,
+                rule: 'maxLength',
+                value: 30,
             },
         ])
         .addField('#oname', [
@@ -320,12 +320,12 @@
                 errorMessage: "Field is required"
             },
             {
-            rule: 'minLength',
-            value: 3,
+                rule: 'minLength',
+                value: 3,
             },
             {
-            rule: 'maxLength',
-            value: 30,
+                rule: 'maxLength',
+                value: 30,
             },
         ])
         .addField('#lname', [
@@ -344,12 +344,12 @@
         ])
         .addField('#email', [
             {
-            rule: 'required',
-            errorMessage: 'Field is required',
+                rule: 'required',
+                errorMessage: 'Field is required',
             },
             {
-            rule: 'email',
-            errorMessage: 'Email is invalid!',
+                rule: 'email',
+                errorMessage: 'Email is invalid!',
             },
         ])
         .addField('#phoneno', [
@@ -358,12 +358,12 @@
                 errorMessage: "Field is required"
             },
             {
-            rule: 'minLength',
-            value: 11,
+                rule: 'minLength',
+                value: 11,
             },
             {
-            rule: 'maxLength',
-            value: 11,
+                rule: 'maxLength',
+                value: 11,
             },
         ])
         .addField('#address', [
@@ -537,13 +537,13 @@
             },
             {
                 validator: (value, fields) => {
-                if (fields['#pwd'] && fields['#pwd'].elem) {
-                    const repeatPasswordValue = fields['#pwd'].elem.value;
+                    if (fields['#pwd'] && fields['#pwd'].elem) {
+                        const repeatPasswordValue = fields['#pwd'].elem.value;
 
-                    return value === repeatPasswordValue;
-                }
+                        return value === repeatPasswordValue;
+                    }
 
-                return true;
+                    return true;
                 },
                 errorMessage: 'Passwords should be the same',
             }
@@ -564,7 +564,7 @@
             //SENDING FORM DATA TO THE SERVER
             $.ajax({
                 type: "post",
-                url: 'authentication/register.php',
+                url: 'controller/enroll-process.php',
                 data: formData,
                 cache: false,
                 contentType: false,
@@ -572,18 +572,18 @@
                 processData: false,
                 dataType: 'json',
                 beforeSend: function () {
-                    $(".register-container button").html("Registering...");
+                    $(".register-container button").html("Enrolling...");
                     $(".register-container button").attr("disabled", true);
                 },
                 success: function (response) {
                 setTimeout(() => {
                         if (response.success === 1) {
                             // REDIRECT USER TO THE VERIFICATION PAGE
-                            window.location = "authentication/send-code?a=send";
+                            window.location = "success";
 
                         } else {
-                            $(".register-container button").setAttr("disabled", false);
-                            $(".register-container button").html("Register");
+                            $(".register-container button").attr("disabled", false);
+                            $(".register-container button").html("Submit");
 
                             if(response.error_title === "fatal"){
                                 // REFRESH CURRENT PAGE
@@ -597,6 +597,9 @@
                                     allowOutsideClick: false,
                                     allowEscapeKey: false,
                                 });
+                                // alert(`There was an error processing your form\n
+                                // Error title: ${response.error_title}\n 
+                                // Error message: ${response.error_message}\n`);
                             }
                         }
                     }, 1500);
