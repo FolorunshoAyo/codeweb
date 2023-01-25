@@ -20,10 +20,10 @@
     <link rel="stylesheet" href="assets/css/base.css">
     <!-- Codeweb Form -->
     <link rel="stylesheet" href="assets/css/fonts.css">
-    <!-- Enroll stylesheet -->
-    <link rel="stylesheet" href="assets/css/register.css">
     <!-- HOME STYLESHEET -->
     <link rel="stylesheet" href="assets/css/home.css">
+    <!-- Enroll stylesheet -->
+    <link rel="stylesheet" href="assets/css/register.css">
     <!-- MEDIA QUERIES -->
     <link rel="stylesheet" href="assets/css/media-queries/main-mediaquery.css">
     <style>
