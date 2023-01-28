@@ -101,7 +101,6 @@ CREATE TABLE `students` (
   `user_id` int(11) NOT NULL,
   `sex` varchar(1) NOT NULL,
   `dob` date NOT NULL,
-  `nationality` varchar(255) NOT NULL,
   `g_name` varchar(255) NOT NULL,
   `g_phone_no` varchar(255) NOT NULL,
   `g_address` varchar(255) NOT NULL,
