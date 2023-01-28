@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="assets/css/slick/slick.css">
     <!-- CUSTOM SLIDER STYLING -->
     <link rel="stylesheet" href="assets/css/slider-theme.css" type="text/css">
+    <!-- Header CSS -->
+    <link rel="stylesheet" href="assets/css/sections/header.css" type="text/css" />
+    <!-- FOOTER CSS -->
+    <link rel="stylesheet" href="assets/css/sections/footer.css" type="text/css" />
     <!-- CUSTOM CSS (HOME)-->
     <link rel="stylesheet" href="assets/css/home.css" type="text/css">
     <!-- IT CONSUMMABLES STYLESHEET -->
@@ -92,7 +96,7 @@
         </div>
         <section class="you-need-it-section">
             <div class="you-need-it-container">
-                <h1 class="title">You Need it, We Supply it.</h1>
+                <h1 class="main-title">You Need it, We Supply it.</h1>
                 <p class="you-need-it-text">
                     We provide only the best quality of high-end tech products, to ensure your business keeps running
                     smartly and smoothly
@@ -121,7 +125,7 @@
         </section>
        <section class="consumables-gallery-section">
             <div class="consumables-gallery-container">
-                <h1 class="title consumables-gallery-title">
+                <h1 class="main-title consumables-gallery-title">
                     Gallery
                 </h1>
                 <div class="consumables-container">
@@ -172,7 +176,7 @@
 
                 <div class="address-block">
                     <div class="address-container">
-                        <h2 class="title">Contact</h2>
+                        <h2 class="main-title">Contact</h2>
 
                         <div class="address-info">
                             <div class="contact-info">

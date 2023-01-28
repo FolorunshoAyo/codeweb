@@ -21,7 +21,7 @@
     <!-- Codeweb Form -->
     <link rel="stylesheet" href="../assets/css/fonts.css">
     <!-- ENROLL STYLESHEET  -->
-    <link rel="stylesheet" href="../assets/css/register.css" type="text/css">
+    <link rel="stylesheet" href="../assets/css/form.css" type="text/css">
     <!-- HOME STYLESHEET -->
     <link rel="stylesheet" href="../assets/css/home.css" type="text/css">
     <!-- make payment css -->

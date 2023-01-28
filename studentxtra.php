@@ -20,6 +20,10 @@
     <link rel="stylesheet" href="assets/css/slick/slick.css">
     <!-- CUSTOM SLIDER STYLING -->
     <link rel="stylesheet" href="assets/css/slider-theme.css" type="text/css">
+    <!-- Header CSS -->
+    <link rel="stylesheet" href="assets/css/sections/header.css" type="text/css" />
+    <!-- FOOTER CSS -->
+    <link rel="stylesheet" href="assets/css/sections/footer.css" type="text/css" />
     <!-- Custom CSS (HOME) -->
     <link rel="stylesheet" href="assets/css/home.css" type="text/css">
     <!-- STUDENT XTRA STYLESHEET -->
@@ -109,7 +113,7 @@
         </section>
         <section class="savings-and-loan-section">
             <div class="savings-and-loan-container">
-                <h1 class="title">Savings and Loans at your Fingertips</h1>
+                <h1 class="main-title">Savings and Loans at your Fingertips</h1>
 
                 <p class="savings-and-loan-text">
                     Start saving today with any one of our saving tiers and qualify for loans to help you pay your fees,
@@ -139,7 +143,7 @@
                     </div>
 
                     <div class="enquiries-textbox">
-                        <h1 class="title">For more enquiries</h2>
+                        <h1 class="main-title">For more enquiries</h2>
 
                         <p class="enquiries-text">Get in touch with us and we would be sure to get back to you</p>
 

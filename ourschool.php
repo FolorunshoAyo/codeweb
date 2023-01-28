@@ -6,24 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon Icon -->
-    <link rel="icon" href="../assets/images/logo.jpg">
+    <link rel="icon" href="assets/images/logo.jpg">
     <!-- Bootstrap 5 stylesheet-->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> -->
     <!-- Custom Fonts (KyivType Sans and Inter) -->
-    <link rel="stylesheet" href="../assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/fonts.css">
     <!-- initial config css file -->
-    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/base.css">
     <!-- Slick plugin stylesheet -->
-    <link rel="stylesheet" href="../assets/css/slick/slick.css">
+    <link rel="stylesheet" href="assets/css/slick/slick.css">
     <!-- CUSTOM SLIDER STYLING -->
-    <link rel="stylesheet" href="../assets/css/slider-theme.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/slider-theme.css" type="text/css">
+    <!-- Header CSS -->
+    <link rel="stylesheet" href="assets/css/sections/header.css" type="text/css" />
+    <!-- FOOTER CSS -->
+    <link rel="stylesheet" href="assets/css/sections/footer.css" type="text/css" />
     <!-- CUSTOM CSS (HOME)-->
-    <link rel="stylesheet" href="../assets/css/home.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/home.css" type="text/css">
      <!-- OUR SCHOOL STYLESHEET -->
-     <link rel="stylesheet" href="../assets/css/ourschool.css" type="text/css">
+     <link rel="stylesheet" href="assets/css/ourschool.css" type="text/css">
     <!-- MEDIA QUERIES -->
-    <link rel="stylesheet" href="../assets/css/media-queries/main-mediaquery.css">
+    <link rel="stylesheet" href="assets/css/media-queries/main-mediaquery.css">
     <style>
         .nav-link-item a{
             color: var(--black);
@@ -41,7 +45,7 @@
         <div class="header-container">
             <div class="logo-container">
                 <a href="./">
-                    <img src="../assets/images/logo.jpg" alt="Logo" class="logo image">
+                    <img src="assets/images/logo.jpg" alt="Logo" class="logo image">
                 </a>
             </div>
     
@@ -92,7 +96,7 @@
         </div>
         <section class="learn-with-us-section">
             <div class="learn-with-us-container">
-                <h1 class="title">Learn with us</h1>
+                <h1 class="main-title">Learn with us</h1>
                 <p class="learn-with-us-text">
                     Codeweb coding academy brings you the best quality trainings in various IT skillsets at extremely
                     affordable rates.
@@ -104,19 +108,19 @@
             <!-- Slide show here-->
             <div class="slider"> 
                 <div>
-                    <img src="../assets/images/modern-wooden-kitchen-interior-steel-kitchen-faucet 2.png" alt="A lady training a student using a system">
+                    <img src="assets/images/modern-wooden-kitchen-interior-steel-kitchen-faucet 2.png" alt="A lady training a student using a system">
                 </div>
                 <div>
-                    <img src="../assets/images/student-6.png" alt="A student smiling in front of a laptop" class="rounded">
+                    <img src="assets/images/student-6.png" alt="A student smiling in front of a laptop" class="rounded">
                 </div>
                 <div>
-                    <img src="../assets/images/student-7.png" alt="A thinking in front of his laptop" class="rounded">
+                    <img src="assets/images/student-7.png" alt="A thinking in front of his laptop" class="rounded">
                 </div>
             </div>
         </section>
         <section class="courses-section">
             <div class="courses-container">
-                <h1 class="title">Browse Our Courses</h1>
+                <h1 class="main-title">Browse Our Courses</h1>
                 <div class="hot-offer-wrapper">
                     <div class="hot-offer-container">
                         <div>
@@ -134,7 +138,7 @@
                     <div class="row">
                         <div class="col3 col-sm-12">
                             <div class="service-group">
-                                <img src="../assets/images/old-wood-grain-background 2.png"
+                                <img src="assets/images/old-wood-grain-background 2.png"
                                     alt="A lady training a student using a system" class="service-group-image">
                                 <h3 class="service-group-title">Software Development</h3>
 
@@ -156,7 +160,7 @@
                         </div>
                         <div class="col3 col-sm-12">
                             <div class="service-group">
-                                <img src="../assets/images/wood-texture-design-decoration 1.png"
+                                <img src="assets/images/wood-texture-design-decoration 1.png"
                                     alt="A lady training a student using a system" class="service-group-image">
                                 <h3 class="service-group-title">Graphic design</h3>
 
@@ -178,7 +182,7 @@
                         </div>
                         <div class="col3 col-sm-12">
                             <div class="service-group">
-                                <img src="../assets/images/pale-oak-wood-texture-design-background 1.png"
+                                <img src="assets/images/pale-oak-wood-texture-design-background 1.png"
                                     alt="A lady training a student using a system" class="service-group-image">
                                 <h3 class="service-group-title">Tech Consumables</h3>
 
@@ -204,7 +208,7 @@
         </section>
         <section class="enroll-section">
             <div class="enroll-container">
-               <h1 class="title">Enroll now</h1>
+               <h1 class="main-title">Enroll now</h1>
                <p class="enroll-text">With us, you can:</p>
 
                <div class="enrollment-reasons-container">
@@ -239,7 +243,7 @@
             <div class="row">
                 <div class="footer-col3 col-sm-12">
                     <div class="footer-logo-container">
-                        <img src="../assets/images/logo.jpg" alt="Footer Logo" class="footer-logo">
+                        <img src="assets/images/logo.jpg" alt="Footer Logo" class="footer-logo">
                     </div>
                 </div>
                 <div class="footer-col3 col-sm-12">
@@ -277,10 +281,10 @@
     <!-- FONT AWESOME JIT SCRIPT-->
     <script src="https://kit.fontawesome.com/3ae896f9ec.js" crossorigin="anonymous"></script>
     <!-- JQUERY SCRIPT -->
-    <script src="../assets/js/jquery/jquery-3.6.min.js"></script>
+    <script src="assets/js/jquery/jquery-3.6.min.js"></script>
     <!-- JQUERY MIGRATE SCRIPT (FOR OLDER JQUERY PACKAGES SUPPORT)-->
-    <script src="../assets/js/jquery/jquery-migrate-1.4.1.min.js"></script>
-    <script src="../assets/js/slick/slick.js"></script>
+    <script src="assets/js/jquery/jquery-migrate-1.4.1.min.js"></script>
+    <script src="assets/js/slick/slick.js"></script>
     <script>
        $(function(){
             const burgerMenu = $(".burger-menu");
