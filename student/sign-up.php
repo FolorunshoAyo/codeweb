@@ -10,26 +10,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon Icon -->
-    <link rel="icon" href="assets/images/logo.jpg">
+    <link rel="icon" href="../assets/images/logo.jpg">
     <!-- Bootstrap 5 stylesheet-->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> -->
     <!-- Custom Fonts (KyivType Sans and Inter) -->
-    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="../assets/css/fonts.css">
     <!-- initial config css file -->
-    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
     <!-- Codeweb Form -->
-    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="../assets/css/fonts.css">
     <!-- Enroll stylesheet -->
-    <link rel="stylesheet" href="assets/css/sign-up.css">
+    <link rel="stylesheet" href="../assets/css/sign-up.css">
     <!-- MEDIA QUERIES -->
-    <link rel="stylesheet" href="assets/css/media-queries/main-mediaquery.css">
+    <link rel="stylesheet" href="../assets/css/media-queries/main-mediaquery.css">
 </head>
 
 <body>
     <section class="registeration-section">
         <header>
-            Have an account? <a href="#">Sign in</a>
+            Have an account? <a href="./sign-in">Sign in</a>
         </header>
         <div class="registeration-wrapper">
             <div class="registeration-container">
@@ -98,7 +98,7 @@
     </section>
     <section class="hero-section-container">
         <div class="text-wrapper">
-            <img src="assets/images/c-pole.png" />
+            <img src="../assets/images/c-pole.png" />
             <div class="text-container">
                 <h1> Welcome to <br> Codeweb </h1>
                 <p>Let's get you all set-up so you can verify <br> your personal account and begin setting <br> up your profile</p>
@@ -109,9 +109,9 @@
     <!-- FONT AWESOME JIT SCRIPT-->
     <script src="https://kit.fontawesome.com/3ae896f9ec.js" crossorigin="anonymous"></script>
     <!-- JQUERY SCRIPT -->
-    <script src="assets/js/jquery/jquery-3.6.min.js"></script>
+    <script src="../assets/js/jquery/jquery-3.6.min.js"></script>
     <!-- JQUERY MIGRATE SCRIPT (FOR OLDER JQUERY PACKAGES SUPPORT)-->
-    <script src="assets/js/jquery/jquery-migrate-1.4.1.min.js"></script>
+    <script src="../assets/js/jquery/jquery-migrate-1.4.1.min.js"></script>
     <!-- TOASTER PLUGIN -->
     <!-- <script src="../auth-library/vendor/dist/sweetalert2.all.min.js"></script> -->
     <!-- JUST VALIDATE LIBRARY -->

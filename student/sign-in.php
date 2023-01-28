@@ -29,7 +29,7 @@
 <body>
     <section class="registeration-section">
         <header>
-            Not a member yet? <a href="#">Create an account</a>
+            Not a member yet? <a href="./sign-up">Create an account</a>
         </header>
         <div class="registeration-wrapper login">
             <div class="registeration-container">

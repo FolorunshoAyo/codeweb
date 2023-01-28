@@ -22,129 +22,105 @@
     <link rel="stylesheet" href="../assets/css/fonts.css">
     <!-- ENROLL STYLESHEET  -->
     <link rel="stylesheet" href="../assets/css/form.css" type="text/css">
+    <!-- STUDENT HEADER STYLESHEET -->
+    <link rel="stylesheet" href="../assets/css/student/sections/header.css" type="text/css">
+    <!-- FOOTER STYLESHEET -->
+    <link rel="stylesheet" href="../assets/css/sections/footer.css" type="text/css">
     <!-- HOME STYLESHEET -->
     <link rel="stylesheet" href="../assets/css/home.css" type="text/css">
     <!-- make payment css -->
     <link rel="stylesheet" href="../assets/css/make-payment.css" type="text/css">
     <!-- MEDIA QUERIES -->
     <link rel="stylesheet" href="../assets/css/media-queries/main-mediaquery.css">
-    <style>
-        .title{
-            color: var(--primary-color);
-            font-size: 5rem;
-            margin-bottom: 20px;
-            text-align: center;
-            letter-spacing: 2px;
-            font-family: 'KyivType Sans', sans-serif;
-        }
-
-        .nav-link-item a{
-            color: var(--black);
-        }
-
-        .nav-link.active{
-            color: var(--primary-color);
-        }
-    </style>
 </head>
 
 <body>
-<header>
-        <div class="header-container">
-            <div class="logo-container">
-                <a href="./">
-                    <img src="../assets/images/logo.jpg" alt="Logo" class="logo image">
-                </a>
+    <header>
+        <div class="person-container">
+            <i class="fa fa-user-circle"></i>
+            Damilola
+        </div>
+        
+        <div class="progress-container">
+            <div class="progress progress-1">
+                <div class="progress-circle">
+                    1
+                </div>
+                <span class="progress-text">Make payment for Application</span>
             </div>
-    
-            <nav class="nav-link-container">
-                <ul class="nav-links">
-                    <li class="nav-link-item">
-                        <a href="ourschool" class="nav-link active">our school</a>
-                    </li>
-                    <li class="nav-link-item">
-                        <a href="laptopsales" class="nav-link">laptop sales</a>
-                    </li>
-                    <li class="nav-link-item">
-                        <a href="studentxtra" class="nav-link">studentXtra</a>
-                    </li>
-                    <li class="nav-link-item">
-                        <a href="itconsumables" class="nav-link">IT consumables</a>
-                    </li>
-                </ul>
-            </nav>
-    
-            <div class="burger-menu">
-                <div class="line line1"></div>
-                <div class="line line2"></div>
-                <div class="line line3"></div>
+            <div class="progress-line progress-line-1">
+                <div class="progress-thumb"></div>
             </div>
+            <div class="progress progress-2">
+                <div class="progress-circle">
+                    2
+                </div>
+                <span class="progress-text">Fill application form</span>
+            </div>
+            <div class="progress-line progress-line-2">
+                <div class="progress-thumb"></div>
+            </div>
+            <div class="progress progress-2">
+                <div class="progress-circle">
+                    3
+                </div>
+                <span class="progress-text">Select a course</span>
+            </div>
+        </div>
 
-            <div class="mobile-menu">
-                <ul class="mobile-list">
-                    <li class="mobile-list-item">
-                        <a href="ourschool" class="mobile-nav-link">our school</a>
-                    </li>
-                    <li class="mobile-list-item">
-                        <a href="laptopsales" class="mobile-nav-link">laptop sales</a>
-                    </li>
-                    <li class="mobile-list-item">
-                        <a href="studentxtra" class="mobile-nav-link">studentXtra</a>
-                    </li>
-                    <li class="mobile-list-item">
-                        <a href="itconsumables" class="mobile-nav-link">IT consumables</a>
-                    </li>
-                </ul>
-            </div>
+        <div class="status-container">
+            Status: Appliciant
         </div>
     </header>
-    <section class="registeration-section">
-        <div class="registeration-container">
-            <h1 class="title">Make payment</h1>
+    <main>
+        <section class="registeration-section">
+            <div class="registeration-container">
+                <h1 class="title">Make payment</h1>
 
-            <p class="registeration-notice">Pay form fee to enroll</p>
+                <p class="registeration-notice">Pay form fee to enroll</p>
 
-            <div class="user-details">
-                <h2><b>User Details</b></h2>
+                <div class="user-details">
+                    <h2><b>User Details</b></h2>
 
-                <p>
-                    First name and Last name <br>
-                    Address <br>
-                    Phone no <br>
-                    Email
-                </p>
-            </div>
+                    <p>
+                        First name and Last name <br>
+                        Address <br>
+                        Phone no <br>
+                        Email
+                    </p>
+                </div>
 
-            <div class="order-details">
-                <div class="order-info">
-                    <div class="label">
-                        <i class="fa fa-plus"></i>
-                        <span>Form Fee:</span>
+                <div class="order-details">
+                    <div class="order-info">
+                        <div class="label">
+                            <i class="fa fa-plus"></i>
+                            <span>Form Fee:</span>
+                        </div>
+                        <div class="value">
+                            <span># 1,500</span>
+                        </div>
                     </div>
-                    <div class="value">
-                        <span># 1,500</span>
+                    <div class="handling-info">
+                        <div class="label">
+                            <i class="fa fa-hand"></i>
+                            <span>Handling Fee:</span>
+                        </div>
+                        <div class="value">
+                            <span>500</span>
+                        </div>
+                    </div>
+                    <div class="total">
+                        <span><b>Total:</b></span>
+                        <span>#2,000</span>
                     </div>
                 </div>
-                <div class="handling-info">
-                    <div class="label">
-                        <i class="fa fa-hand"></i>
-                        <span>Handling Fee:</span>
-                    </div>
-                    <div class="value">
-                        <span>500</span>
-                    </div>
-                </div>
-                <div class="total">
-                    <span><b>Total:</b></span>
-                    <span>#2,000</span>
-                </div>
-            </div>
 
-            <div class="pay-btn-container">
-                <button>Pay Securely <i class="fa fa-lock"></i></button>
+                <div class="pay-btn-container">
+                    <button>Pay Securely <i class="fa fa-lock"></i></button>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
     <footer>
         <div class="container">
             <div class="row">
