@@ -177,6 +177,26 @@
     .registeration-section{
         padding: 0 5rem;
     }
+
+    .status-container{
+        font-size: 1.5rem;
+    }
+
+    .make-payment-header{
+        height: auto;
+        flex-flow: row wrap;
+    }
+
+    .progress-container{
+        margin: 20px auto 0;
+        order: 1;
+        flex: 0 0 80%;
+    }
+
+    .make-payment-container{
+        margin-top: 3rem;
+    }
+    
 } 
 
 /* < 815px */ 
@@ -255,6 +275,11 @@
     body{
         overflow-x: hidden;
         overflow-y: auto;
+        background-color: #fafafa;
+    }
+
+    .form-group.animate input:focus + label{
+        background-color: rgba(255, 255, 255);
     }
 
     .title{
@@ -267,12 +292,41 @@
     }
 
     .registeration-container{
+        position: relative;
         width: 80%;
         padding: 3rem;
         box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
         border-radius: 5px;
-        background-color: rgba(255, 255, 255, .15);
+        background-color: rgba(255, 255, 255, .8);
         /* backdrop-filter: blur(5px); */
+    }
+
+    .registeration-container::before,
+    .register-container::after{
+        content: "C";
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: var(--primary-color);
+        font-size: 40px;
+        color: var(--white);
+        z-index: -1;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "monserrat";
+        filter: blur(2px);
+    }
+
+    .registeration-container::before{
+        top: 30px;
+        left: -30px;
+    }
+
+    .register-container::after{
+        bottom: 30px;
+        right: -20px;
     }
 } 
 
@@ -455,6 +509,10 @@
     .registeration-container{
         width: 100%;
     }
+
+    .progress-container{
+        flex: 0 0 95%;
+    }
 } 
 
 @media only screen and (max-width: 38.125em){  } /* < 610px */ 
@@ -483,7 +541,7 @@
     }
 
     .main-title{
-        font-size: 6rem;
+        font-size: 5rem;
     }
 
     .contactus-form{
@@ -538,6 +596,23 @@
 
     .enquiries-textbox .main-title{
         font-size: 2.5rem;
+    }
+
+    .person-container{
+        flex: 0 0 100px;
+    }
+
+    .make-payment-container{
+        padding: 0 5rem;
+    }
+
+    .progress-container{
+        flex: 0 0 100%;
+    }
+
+    .make-payment-container .main-title{
+        font-size: 4rem;
+        margin-bottom: 20px;
     }
 }
 
@@ -680,6 +755,10 @@
     .registeration-wrapper.login{
         height: calc(100% - 120px);
     }
+
+    aside.copy-sign{
+        display: none;
+    }
 }
 
 /* < 400px */
@@ -808,7 +887,7 @@
 
     .register-container button {
         font-size: 2rem;
-        width: 40%;
+        width: 60%;
     }
 
     .register-container p{

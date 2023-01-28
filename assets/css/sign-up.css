@@ -63,13 +63,13 @@ body{
     margin-bottom: 0px;
 }
 
-.form-group-container{
-    flex: 0 0 32%;
-    margin-bottom: 30px;
-}
-
 .form-groupings .form-group-container{
     flex: 0 0 48%;
+    margin-bottom: 20px;
+}
+
+.form-groupings .form-group-container.w-100{
+    flex: 0 0 100%;
 }
 
 .form-group{

@@ -18,228 +18,190 @@
     <link rel="stylesheet" href="../assets/css/fonts.css">
     <!-- initial config css file -->
     <link rel="stylesheet" href="../assets/css/base.css">
-    <!-- Codeweb Form -->
+    <!-- CODEWEB Form -->
     <link rel="stylesheet" href="../assets/css/form.css">
+    <!-- STUDENT HEADER CSS -->
+    <link rel="stylesheet" href="../assets/css/student/sections/header.css">
+    <!-- FOOTER CSS -->
+    <link rel="stylesheet" href="../assets/css/sections/footer.css">
     <!-- HOME STYLESHEET -->
     <link rel="stylesheet" href="../assets/css/home.css" type="text/css">
     <!-- MEDIA QUERIES -->
     <link rel="stylesheet" href="../assets/css/media-queries/main-mediaquery.css">
-    <style>
-        .title{
-            color: var(--primary-color);
-            font-size: 6rem;
-            margin-bottom: 20px;
-            text-align: center;
-            letter-spacing: 2px;
-            font-family: 'KyivType Sans', sans-serif;
-        }
-
-        .nav-link-item a{
-            color: var(--black);
-        }
-
-        .nav-link.active{
-            color: var(--primary-color);
-        }
-    </style>
 </head>
 
 <body>
-<header>
-        <div class="header-container">
-            <div class="logo-container">
-                <a href="./">
-                    <img src="../assets/images/logo.jpg" alt="Logo" class="logo image">
-                </a>
+    <header class="make-payment-header">
+        <div class="person-container">
+            <i class="fa fa-user-circle"></i>
+            Damilola
+        </div>
+        
+        <div class="progress-container">
+            <div class="progress progress-1">
+                <div class="progress-circle active">
+                    1
+                </div>
+                <span class="progress-text">Buy Application Form</span>
             </div>
-    
-            <nav class="nav-link-container">
-                <ul class="nav-links">
-                    <li class="nav-link-item">
-                        <a href="ourschool" class="nav-link active">our school</a>
-                    </li>
-                    <li class="nav-link-item">
-                        <a href="laptopsales" class="nav-link">laptop sales</a>
-                    </li>
-                    <li class="nav-link-item">
-                        <a href="studentxtra" class="nav-link">studentXtra</a>
-                    </li>
-                    <li class="nav-link-item">
-                        <a href="itconsumables" class="nav-link">IT consumables</a>
-                    </li>
-                </ul>
-            </nav>
-    
-            <div class="burger-menu">
-                <div class="line line1"></div>
-                <div class="line line2"></div>
-                <div class="line line3"></div>
+            <div class="progress-line progress-line-1">
+                <div class="progress-thumb active"></div>
             </div>
+            <div class="progress progress-2">
+                <div class="progress-circle active">
+                    2
+                </div>
+                <span class="progress-text">Fill application form</span>
+            </div>
+            <div class="progress-line progress-line-2">
+                <div class="progress-thumb"></div>
+            </div>
+            <div class="progress progress-3">
+                <div class="progress-circle">
+                    3
+                </div>
+                <span class="progress-text">Select a course</span>
+            </div>
+        </div>
 
-            <div class="mobile-menu">
-                <ul class="mobile-list">
-                    <li class="mobile-list-item">
-                        <a href="ourschool" class="mobile-nav-link">our school</a>
-                    </li>
-                    <li class="mobile-list-item">
-                        <a href="laptopsales" class="mobile-nav-link">laptop sales</a>
-                    </li>
-                    <li class="mobile-list-item">
-                        <a href="studentxtra" class="mobile-nav-link">studentXtra</a>
-                    </li>
-                    <li class="mobile-list-item">
-                        <a href="itconsumables" class="mobile-nav-link">IT consumables</a>
-                    </li>
-                </ul>
-            </div>
+        <div class="status-container">
+            Status: Appliciant
         </div>
     </header>
-    <section class="form-section">
-        <div class="form-container">
-            <h1 class="title">Application form</h1>
+    <main>
+        <section class="form-section">
+            <div class="form-container">
+                <h1 class="main-title">Application form</h1>
 
-            <p class="form-notice">Fill in your Information</p>
+                <p class="form-notice">Fill in your Information</p>
 
-            <div class="registeration-form-container">
-                <form id="registeration-form">
-                    <h2 class="form-title">Primary Information</h2>
+                <div class="form-container">
+                    <form id="enroll-form">
+                        <h2 class="form-title">Primary Information</h2>
 
-                    <div class="personal-info-container form-groupings">
+                        <div class="personal-info-container form-groupings">
 
-                        <div class="form-group-container">
-                            <div class="form-group animate">
-                                <input type="text" name="fname" id="fname" class="form-input" placeholder=" " required>
-                                <label for="fname">First name</label>
+                            <div class="form-group-container">
+                                <div class="form-group animate">
+                                    <input type="text" name="fname" id="fname" class="form-input" placeholder=" " required>
+                                    <label for="fname">First name</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group-container">
+                                <div class="form-group animate">
+                                    <input type="text" name="lname" id="lname" class="form-input"  placeholder=" " required>
+                                    <label for="lname">Last name</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group-container">
+                                <div class="form-group animate">
+                                    <input type="date" name="dob" id="dob" class="form-input"  placeholder=" " required>
+                                    <label for="dob">Date of Birth</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group-container">
+                                <div class="form-group animate">
+                                    <select name="sex" id="sex" class="form-input" required>
+                                        <option value="">Choose sex</option>
+                                        <option value="M">Male</option>
+                                        <option value="F">Female</option>
+                                    </select>
+                                    <label for="sex">Sex</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group-container">
+                                <div class="form-group animate">
+                                    <input type="email" name="email" id="email" class="form-input"  placeholder=" " required>
+                                    <label for="email">Email</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group-container">
+                                <div class="form-group animate">
+                                    <input type="number" name="phoneno" id="phoneno" class="form-input"  placeholder=" " required>
+                                    <label for="phoneno">Phone number</label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <h2 class="form-title">Residential Information</h2>
+
+                        <div class="address-info-container form-groupings">
+                            <div class="form-group-container">
+                                <div class="form-group animate">
+                                    <input type="text" name="address" id="address" class="form-input"  placeholder=" " required>
+                                    <label for="address">Address line (home)</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group-container">
+                                <div class="form-group animate">
+                                    <input type="text" name="city" id="city" class="form-input"  placeholder=" " required>
+                                    <label for="city">City</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group-container">
+                                <div class="form-group animate">
+                                    <select name="state" id="state" class="form-input"  placeholder=" " required>
+                                        <option value="">Select residential state</option>
+                                    </select>
+                                    <label for="state">State</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group-container">
+                                <div class="form-group animate">
+                                    <input type="text" name="pcode" id="pcode" class="form-input"  placeholder=" " required>
+                                    <label for="pcode">Postal Code</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group-container">
+                                <div class="form-group animate">
+                                    <select name="country" id="country" class="form-input"  placeholder=" " required>
+                                        <option value="">Select country of residence</option>
+                                    </select>
+                                    <label for="country">Country</label>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group-container">
-                            <div class="form-group animate">
-                                <input type="text" name="lname" id="lname" class="form-input"  placeholder=" " required>
-                                <label for="lname">Last name</label>
-                            </div>
+                        <h2 class="form-title">How did you hear about us?</h2>
+
+                        <div class="personal-info-container form-groupings checkboxs">
+                            <label id="check-1"><input type="checkbox" id="check-1">Education Agent</label>
+                            <label id="check-2"><input type="checkbox" id="check-2">Career/Education fair</label>
+                            <label id="check-3"><input type="checkbox" id="check-3">Friends</label>
+                            <label id="check-4"><input type="checkbox" id="check-4">Family Member</label>
+                            <label id="check-5"><input type="checkbox" id="check-5">Career Adviser</label>
+                            <label id="check-6"><input type="checkbox" id="check-6">Billboard</label>
+                            <label id="check-7"><input type="checkbox" id="check-7">Google</label>
+                            <label id="check-8"><input type="checkbox" id="check-8">Print/Newspaper</label>
+                            <label id="check-9"><input type="checkbox" id="check-9">Social Media</label>
+                            <label id="check-10"><input type="checkbox" id="check-10">Word of mouth</label>
+                            <label id="check-11"><input type="checkbox" id="check-11">Other search engine</label>
+                            <label id="check-12"><input type="checkbox" id="check-12">Embassy</label>
+                            <label id="check-13"><input type="checkbox" id="check-13">Others</label>
                         </div>
 
-                        <div class="form-group-container">
-                            <div class="form-group animate">
-                                <input type="text" name="uname" id="uname" class="form-input"  placeholder=" " required>
-                                <label for="uname">Username</label>
-                            </div>
+                        <!-- <div class="agreement-container">
+                            <label for="agree"><input type="checkbox" id="agree_to_terms">Agree to terms and conditions</label>
+                        </div> -->
+
+                        <div class="register-container">
+                            <button type="submit">Submit</button>
                         </div>
-                    </div>
-
-                    <div class="personal-info-container">
-                        <div class="form-group-container flex-100p no-margin    ">
-                            <div class="form-group animate">
-                                <input type="date" name="dob" id="dob" class="form-input"  placeholder=" " required>
-                                <label for="dob">Date of Birth</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="personal-info-container form-groupings">
-                        <div class="form-group-container flex-100p no-margin">
-                            <div class="form-group animate">
-                                <select name="cob" id="cob" class="form-input" required>
-                                    <option value="">Select county of birth</option>
-                                </select>
-                                <label for="cob">Country of birth</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="personal-info-container form-groupings">
-                        <div class="form-group-container flex-45p no-margin">
-                            <div class="form-group animate">
-                                <input type="email" name="email" id="email" class="form-input"  placeholder=" " required>
-                                <label for="email">Email</label>
-                            </div>
-                        </div>
-
-                        <div class="form-group-container flex-45p no-margin">
-                            <div class="form-group animate">
-                                <input type="number" name="phoneno" id="phoneno" class="form-input"  placeholder=" " required>
-                                <label for="phoneno">Phone number</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h2 class="form-title">Residential Information</h2>
-
-                    <div class="address-info-container form-groupings">
-                        <div class="form-group-container flex-100p no-margin">
-                            <div class="form-group animate">
-                                <input type="text" name="address" id="address" class="form-input"  placeholder=" " required>
-                                <label for="address">Address line (home)</label>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="address-info-container form-groupings">
-                        <div class="form-group-container flex-45p no-margin">
-                            <div class="form-group animate">
-                                <input type="text" name="city" id="city" class="form-input"  placeholder=" " required>
-                                <label for="city">City</label>
-                            </div>
-                        </div>
-
-                        <div class="form-group-container flex-45p no-margin">
-                            <div class="form-group animate">
-                                <select name="state" id="state" class="form-input"  placeholder=" " required>
-                                    <option value="">Select residential state</option>
-                                </select>
-                                <label for="state">State</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="address-info-container form-groupings">
-                        <div class="form-group-container flex-45p no-margin">
-                            <div class="form-group animate">
-                                <input type="text" name="pcode" id="pcode" class="form-input"  placeholder=" " required>
-                                <label for="pcode">Postal Code</label>
-                            </div>
-                        </div>
-
-                        <div class="form-group-container flex-45p no-margin">
-                            <div class="form-group animate">
-                                <select name="country" id="country" class="form-input"  placeholder=" " required>
-                                    <option value="">Select country of residence</option>
-                                </select>
-                                <label for="country">Country</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h2 class="form-title">How did you hear about us?</h2>
-
-                    <div class="personal-info-container form-groupings checkboxs">
-                        <label id="check-1"><input type="checkbox" id="check-1">Education Agent</label>
-                        <label id="check-2"><input type="checkbox" id="check-2">Career/Education fair</label>
-                        <label id="check-3"><input type="checkbox" id="check-3">Friends</label>
-                        <label id="check-4"><input type="checkbox" id="check-4">Family Member</label>
-                        <label id="check-5"><input type="checkbox" id="check-5">Career Adviser</label>
-                        <label id="check-6"><input type="checkbox" id="check-6">Billboard</label>
-                        <label id="check-7"><input type="checkbox" id="check-7">Google</label>
-                        <label id="check-8"><input type="checkbox" id="check-8">Print/Newspaper</label>
-                        <label id="check-9"><input type="checkbox" id="check-9">Social Media</label>
-                        <label id="check-10"><input type="checkbox" id="check-10">Word of mouth</label>
-                        <label id="check-11"><input type="checkbox" id="check-11">Other search engine</label>
-                        <label id="check-12"><input type="checkbox" id="check-12">Embassy</label>
-                        <label id="check-13"><input type="checkbox" id="check-13">Others</label>
-                    </div>
-
-                    <div class="agreement-container">
-                        <label for="agree"><input type="checkbox" id="agree_to_terms">Agree to terms and conditions</label>
-                    </div>
-
-                    <div class="register-container">
-                        <button type="submit">Submit</button>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
     <footer>
         <div class="container">
             <div class="row">
