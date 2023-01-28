@@ -19,8 +19,12 @@
     <link rel="stylesheet" href="assets/css/slick/slick.css" />
     <!-- CUSTOM SLIDER STYLING -->
     <link rel="stylesheet" href="assets/css/slider-theme.css" type="text/css" />
-    <!-- Custom CSS (HOME) -->
-    <link rel="stylesheet" href="assets/css/home.css" type="text/css" />
+    <!-- Header CSS -->
+    <link rel="stylesheet" href="assets/css/sections/header.css" type="text/css" />
+    <!-- FOOTER CSS -->
+    <link rel="stylesheet" href="assets/css/sections/footer.css" type="text/css" />
+    <!-- HOME CSS -->
+    <link rel="stylesheet" href="assets/css/home.css" type="text/css">
     <!-- MEDIA QUERIES -->
     <link rel="stylesheet" href="assets/css/media-queries/main-mediaquery.css" />
     <title>Codeweb : Home Page</title>
@@ -58,9 +62,10 @@
           <div class="line line3"></div>
         </div>
 
-        <div class="person logged_in">
+        <!-- User Icon -->
+        <!-- <div class="person logged_in">
           <a href="./login"><i class="fa fa-user-circle"></i> Joseph</a>
-        </div>
+        </div> -->
 
         <div class="mobile-menu">
           <ul class="mobile-list">

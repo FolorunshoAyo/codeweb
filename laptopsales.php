@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="assets/css/slick/slick.css">
     <!-- CUSTOM SLIDER STYLING -->
     <link rel="stylesheet" href="assets/css/slider-theme.css" type="text/css">
+    <!-- Header CSS -->
+    <link rel="stylesheet" href="assets/css/sections/header.css" type="text/css" />
+    <!-- FOOTER CSS -->
+    <link rel="stylesheet" href="assets/css/sections/footer.css" type="text/css" />
     <!-- CUSTOM CSS (HOME)-->
     <link rel="stylesheet" href="assets/css/home.css" type="text/css">
     <!-- LAPTOP SALES STYLESHEET -->
@@ -92,7 +96,7 @@
         </div>
         <section class="get-laptop-section">
             <div class="get-laptop-container">
-                <h1 class="title">Get a laptop today</h1>
+                <h1 class="main-title">Get a laptop today</h1>
 
                 <div class="laptop-chain-container">
                     <img src="assets/images/circles.png" alt="">
@@ -101,7 +105,7 @@
         </section>
         <section class="laptops-slider-section">
             <div class="laptop-slider-container">
-                <h1 class="title">Laptops</h1>
+                <h1 class="main-title">Laptops</h1>
 
                 <div class="divider"></div>
 
@@ -294,7 +298,7 @@
         </section>
         <section class="main-brands-section">
             <div class="main-brands-container">
-                <h1 class="title">Shop our main brands</h1>
+                <h1 class="main-title">Shop our main brands</h1>
 
                 <p class="main-brands-text">
                     Get the brand of your choice from any one of our selected top brands
@@ -516,10 +520,10 @@
 
             //CHANGING ALL ARROW BUTTONS TO ARROWS
             $(".slick-next").each(function () {
-                $(this)("<i class='fas fa-arrow-right'></i>");
+                $(this).html("<i class='fas fa-arrow-right'></i>");
             });
             $(".slick-prev").each(function () {
-                $(this)("<i class='fas fa-arrow-left'></i>")
+                $(this).html("<i class='fas fa-arrow-left'></i>")
             });
 
            //HEADER STICKY FUNCTIONALITY

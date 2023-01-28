@@ -244,7 +244,7 @@
         font-size: 1.5rem;
     }
 
-    .you-need-it-container .title{
+    .you-need-it-container .main-title{
         font-size: 6rem;
     }
 
@@ -288,7 +288,7 @@
         left: 0px;
     }
 
-    .aboutus-text-box .title{
+    .aboutus-text-box .main-title{
         font-size: 5rem;
     }
 
@@ -354,7 +354,7 @@
         margin-bottom: 40px;
     }
 
-    .address-container .title{
+    .address-container .main-title{
         text-align: center;
     }
 
@@ -443,7 +443,7 @@
         margin-bottom: 20px;
     }
 
-    .savings-and-loan-container .title{
+    .savings-and-loan-container .main-title{
         font-size: 5rem;
     }
 
@@ -477,9 +477,13 @@
         padding: 2rem;
     }
 
-    .contactus-container .title{
+    .contactus-container .main-title{
         font-size: 6rem;
         width: 100%;
+    }
+
+    .main-title{
+        font-size: 6rem;
     }
 
     .contactus-form{
@@ -532,7 +536,7 @@
         height: 450px;
     }
 
-    .enquiries-textbox .title{
+    .enquiries-textbox .main-title{
         font-size: 2.5rem;
     }
 }
@@ -568,7 +572,7 @@
         font-size: 4rem;
     }
 
-    .aboutus-text-box .title{
+    .aboutus-text-box .main-title{
         font-size: 3.5rem;
     }
 
@@ -599,7 +603,8 @@
     }
 
     .consumables-gallery-title{
-        top: -25px;
+        top: -40px;
+        width: 250px;
     }
 
     .enquiry-image-container{
