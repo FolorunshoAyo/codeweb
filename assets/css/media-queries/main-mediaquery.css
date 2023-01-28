@@ -107,6 +107,14 @@
     .you-need-it-description{
         width: 80%;
     }
+
+    .text-wrapper img{
+        left: -100px;
+    }
+
+    .text-container{
+        margin-left: 50px;
+    }
 }
 
 /* < 900px */ 
@@ -124,7 +132,7 @@
     }
 
     .burger-menu{
-        flex: 0 0 80px;
+        flex: 0 0 30px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -153,12 +161,21 @@
         padding: 4rem 3rem;
     }
 
-    .form-group-container{
-        flex: 0 0 48%;
-    }
-
     .just-validate-error-label{
         font-size: 1.5rem;
+    }
+
+    .person{
+        top: 40px;
+        right: 11rem 
+    }
+
+    .person.logged_in a{
+        font-size: 13px;
+    }
+
+    .registeration-section{
+        padding: 0 5rem;
     }
 } 
 
@@ -229,6 +246,33 @@
 
     .you-need-it-container .title{
         font-size: 6rem;
+    }
+
+    .registeration-section{
+        flex: 0 0 100%;
+    }
+
+    body{
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .title{
+        margin-bottom: 30px;
+        font-size: 5rem;
+    }
+
+    .registeration-wrapper{
+        align-items: center;
+    }
+
+    .registeration-container{
+        width: 80%;
+        padding: 3rem;
+        box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, .15);
+        /* backdrop-filter: blur(5px); */
     }
 } 
 
@@ -316,14 +360,6 @@
 
     .hot-offer-container{
         width: 1000px;
-    }
-
-    .registeration-container .title{
-        font-size: 4.5rem;
-    }
-
-    .registeration-notice{
-        font-size: 2rem;
     }
 } 
 
@@ -415,6 +451,10 @@
         width: 100%;
         height: 550px;
     }
+
+    .registeration-container{
+        width: 100%;
+    }
 } 
 
 @media only screen and (max-width: 38.125em){  } /* < 610px */ 
@@ -494,14 +534,6 @@
 
     .enquiries-textbox .title{
         font-size: 2.5rem;
-    }
-
-    .registeration-section{
-        padding: 0 4rem;
-    }
-
-    .registeration-form-container .form-title{
-        margin-left: -5px;
     }
 }
 
@@ -614,6 +646,34 @@
 
     .checkboxs label{
         flex: 0 0 48%;
+    }
+
+    .registeration-wrapper{
+        height: 90%;
+    }
+
+    .title{
+        margin-bottom: 15px;
+    }
+
+    .form-groupings{
+        margin-bottom: 0px;
+    }
+
+    .register-container{
+        margin-top: 15px;
+    }
+
+    .register-container button{
+        margin-bottom: 0px;
+    }
+
+    .registeration-wrapper{
+        height: 700px;
+    }
+
+    .registeration-wrapper.login{
+        height: calc(100% - 120px);
     }
 }
 

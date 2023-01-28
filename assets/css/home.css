@@ -33,13 +33,12 @@
 
 /* HEADER START */
 
-
 .header-container{
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 3rem;
+    padding: 2rem 12rem 2rem 4rem;
 }
 
 .logo-container{
@@ -64,7 +63,7 @@
 .nav-link-container .nav-links{
     list-style-type: none;
     margin-left: auto;
-    width: 80%;
+    width: 90%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -72,12 +71,31 @@
 }
 
 .nav-links .nav-link-item{
-    flex: 0 0 23%;
+    flex: 0 0 18%;
     text-align: center;
     font-size: 1.4rem;
 }
 
-.nav-link-item a{
+
+.person{
+    position: absolute;
+    right: 3rem;
+    top: calc(2rem + 20px);
+    cursor: pointer;  
+    font-size: 15px;
+}
+
+.person.logged_in a i{
+    margin-right: 5px;
+}
+
+.person.logged_in a{
+    display: flex;
+    align-items: center;
+}
+
+
+.nav-link-item a, .person a{
     text-decoration: none;
     color: var(--primary-color);
     text-transform: capitalize;
@@ -85,7 +103,6 @@
 }
 
 .burger-menu{
-    padding: 0 20px;
     display: none;
 }
 
@@ -95,8 +112,8 @@
 
 .burger-menu .line{
     width: 100%;
-    height: 5px;
-    border-radius: 30px;
+    height: 4px;
+    border-radius: 10px;
     background-color: var(--primary-color);
 }
 

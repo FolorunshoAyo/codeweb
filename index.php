@@ -58,6 +58,10 @@
           <div class="line line3"></div>
         </div>
 
+        <div class="person logged_in">
+          <a href="./login"><i class="fa fa-user-circle"></i> Joseph</a>
+        </div>
+
         <div class="mobile-menu">
           <ul class="mobile-list">
             <li class="mobile-list-item">
