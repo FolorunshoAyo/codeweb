@@ -128,9 +128,9 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `phone_no` varchar(255) NOT NULL,
-  `has_paid_form` varchar(1) NOT NULL,
-  `is_applicant` varchar(1) NOT NULL,
-  `is_student` varchar(1) NOT NULL,
+  `has_paid_form` varchar(1) NOT NULL DEFAULT "0",
+  `is_applicant` varchar(1) NOT NULL DEFAULT "0",
+  `is_student` varchar(1) NOT NULL DEFAULT "0",
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

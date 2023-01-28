@@ -36,7 +36,7 @@
                 <h1 class="title">Sign in</h1>
 
                 <div class="registeration-form-container">
-                    <form id="registeration-form">
+                    <form action="controllers/sign-up-process.php" method="post" id="registeration-form">
                         
                         <div class="form-group-container">
                             <div class="form-group animate">
