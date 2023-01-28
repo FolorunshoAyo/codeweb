@@ -19,11 +19,9 @@
     <!-- initial config css file -->
     <link rel="stylesheet" href="../assets/css/base.css">
     <!-- Codeweb Form -->
-    <link rel="stylesheet" href="../assets/css/fonts.css">
+    <link rel="stylesheet" href="../assets/css/form.css">
     <!-- HOME STYLESHEET -->
     <link rel="stylesheet" href="../assets/css/home.css" type="text/css">
-    <!-- ENROLL STYLESHEET  -->
-    <link rel="stylesheet" href="../assets/css/register.css" type="text/css">
     <!-- MEDIA QUERIES -->
     <link rel="stylesheet" href="../assets/css/media-queries/main-mediaquery.css">
     <style>
@@ -96,11 +94,11 @@
             </div>
         </div>
     </header>
-    <section class="registeration-section">
-        <div class="registeration-container">
+    <section class="form-section">
+        <div class="form-container">
             <h1 class="title">Application form</h1>
 
-            <p class="registeration-notice">Application Information</p>
+            <p class="form-notice">Fill in your Information</p>
 
             <div class="registeration-form-container">
                 <form id="registeration-form">
@@ -108,21 +106,21 @@
 
                     <div class="personal-info-container form-groupings">
 
-                        <div class="form-group-container no-margin">
+                        <div class="form-group-container">
                             <div class="form-group animate">
                                 <input type="text" name="fname" id="fname" class="form-input" placeholder=" " required>
                                 <label for="fname">First name</label>
                             </div>
                         </div>
 
-                        <div class="form-group-container no-margin">
+                        <div class="form-group-container">
                             <div class="form-group animate">
                                 <input type="text" name="lname" id="lname" class="form-input"  placeholder=" " required>
                                 <label for="lname">Last name</label>
                             </div>
                         </div>
 
-                        <div class="form-group-container no-margin">
+                        <div class="form-group-container">
                             <div class="form-group animate">
                                 <input type="text" name="uname" id="uname" class="form-input"  placeholder=" " required>
                                 <label for="uname">Username</label>
@@ -130,7 +128,7 @@
                         </div>
                     </div>
 
-                    <div class="personal-info-container form-groupings">
+                    <div class="personal-info-container">
                         <div class="form-group-container flex-100p no-margin    ">
                             <div class="form-group animate">
                                 <input type="date" name="dob" id="dob" class="form-input"  placeholder=" " required>
