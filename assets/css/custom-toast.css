@@ -1,0 +1,78 @@
+@keyframes fadeInDown {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(-50%, -100%, 0);
+      transform: translate3d(-50%, -100%, 0);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: translate3d(-50%, 0, 0);
+      transform: translate3d(-50%, 0, 0);
+    }
+}
+
+@keyframes fadeInDownReverse {
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(-50%, 0, 0);
+        transform: translate3d(-50%, 0, 0);
+    }
+
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(-50%, -100%, 0);
+      transform: translate3d(-50%, -100%, 0);
+    }
+}
+
+
+.alert-box{
+    display: none;
+    top: 10px;
+    right: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    width: max-content;
+    height: 50px;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255);
+    z-index: 1000;
+}
+
+.alert-content{
+    padding: 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.alert-content i.success{
+    color: #28a745;
+}
+
+.alert-content i.danger{
+    color: #dc3545;
+}
+
+.alert-content i{
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.alert-content{
+    font-family: "monserrat";
+    font-size: 15px;
+}
+
+.alert-box.active{
+    display: block;
+    animation: fadeInDown .5s ease-in;
+}
+
+.alert-box.remove{
+    animation: fadeInDownReverse .5s ease-out;
+}
+

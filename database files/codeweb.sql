@@ -101,7 +101,6 @@ CREATE TABLE `students` (
   `user_id` int(11) NOT NULL,
   `sex` varchar(1) NOT NULL,
   `dob` date NOT NULL,
-  `nationality` varchar(255) NOT NULL,
   `g_name` varchar(255) NOT NULL,
   `g_phone_no` varchar(255) NOT NULL,
   `g_address` varchar(255) NOT NULL,
@@ -128,9 +127,9 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `phone_no` varchar(255) NOT NULL,
-  `has_paid_form` varchar(1) NOT NULL,
-  `is_applicant` varchar(1) NOT NULL,
-  `is_student` varchar(1) NOT NULL,
+  `has_paid_form` varchar(1) NOT NULL DEFAULT "0",
+  `is_applicant` varchar(1) NOT NULL DEFAULT "0",
+  `is_student` varchar(1) NOT NULL DEFAULT "0",
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

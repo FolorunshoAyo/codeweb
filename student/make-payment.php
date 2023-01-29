@@ -29,13 +29,13 @@
     <!-- HOME STYLESHEET -->
     <link rel="stylesheet" href="../assets/css/home.css" type="text/css">
     <!-- make payment css -->
-    <link rel="stylesheet" href="../assets/css/make-payment.css" type="text/css">
+    <link rel="stylesheet" href="../assets/css/student/make-payment.css" type="text/css">
     <!-- MEDIA QUERIES -->
     <link rel="stylesheet" href="../assets/css/media-queries/main-mediaquery.css">
 </head>
 
 <body>
-    <header>
+    <header class="make-payment-header">
         <div class="person-container">
             <i class="fa fa-user-circle"></i>
             Damilola
@@ -43,10 +43,10 @@
         
         <div class="progress-container">
             <div class="progress progress-1">
-                <div class="progress-circle">
+                <div class="progress-circle active">
                     1
                 </div>
-                <span class="progress-text">Make payment for Application</span>
+                <span class="progress-text">Buy Application Form</span>
             </div>
             <div class="progress-line progress-line-1">
                 <div class="progress-thumb"></div>
@@ -73,11 +73,11 @@
         </div>
     </header>
     <main>
-        <section class="registeration-section">
-            <div class="registeration-container">
-                <h1 class="title">Make payment</h1>
+        <section class="make-payment-section">
+            <div class="make-payment-container">
+                <h1 class="main-title">Make payment</h1>
 
-                <p class="registeration-notice">Pay form fee to enroll</p>
+                <p class="make-payment-notice">Pay form fee to enroll</p>
 
                 <div class="user-details">
                     <h2><b>User Details</b></h2>
@@ -97,7 +97,7 @@
                             <span>Form Fee:</span>
                         </div>
                         <div class="value">
-                            <span># 1,500</span>
+                            <span>NGN 1,500</span>
                         </div>
                     </div>
                     <div class="handling-info">
@@ -106,12 +106,12 @@
                             <span>Handling Fee:</span>
                         </div>
                         <div class="value">
-                            <span>500</span>
+                            <span>NGN 500</span>
                         </div>
                     </div>
                     <div class="total">
                         <span><b>Total:</b></span>
-                        <span>#2,000</span>
+                        <span>NGN 2,000</span>
                     </div>
                 </div>
 
@@ -171,269 +171,74 @@
     <!-- <script src="../auth-library/vendor/dist/sweetalert2.all.min.js"></script> -->
     <!-- JUST VALIDATE LIBRARY -->
     <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+    <!-- Flutterwave script -->
+    <script src="https://checkout.flutterwave.com/v3.js"></script>
     <script>
-        //FORM VALIDATION WITH VALIDATE.JS
+        function makePayment(x, final_amt) {
+            FlutterwaveCheckout({
+                public_key: "FLWPUBK_TEST-9907ef66591a80edfb5c7ea51208031d-X",
+                tx_ref: x,
+                amount: final_amt,
+                currency: "NGN",
+                payment_options: "card, banktransfer, ussd",
+                redirect_url: `https://localhost/codeweb/student/controllers/auth-form-payment`,
 
-        const validation = new JustValidate('#registeration-form', {
-            errorFieldCssClass: 'is-invalid',
+                customer: {
+                    email: "info@codeweb.ng",
+                    phone_number: "123456789",
+                    name: "CODEWEB",
+                },
+                customizations: {
+                    title: "Form Payment",
+                    description: '',
+                    logo: "https://localhost/codeweb/assets/images/logo.jpg",
+                },
+            });
+        }
+
+        function generateTransaction_ref() {
+            var randm = Math.floor((Math.random() * 100000000) + 1);
+            var tran = "TRX-";
+            return tran + randm;
+        }
+
+        $(".pay-btn-container button").on("click", function () {
+            // GENERATING TRANSACTION REF:
+            const tranx_ref = generateTransaction_ref();
+
+            const formData = new FormData();
+
+            formData.append("submit", true);
+            formData.append("tx_ref", tranx_ref);
+
+
+            makePayment(tranx_ref, "2000");
+
+            // $.ajax({
+            //     url: 'controllers/initiate-payment.php',
+            //     type: 'post',
+            //     data: formData,
+            //     processData: false,
+            //     contentType: false,
+            //     beforeSend: function () {
+            //         $(this).html("loading...");
+            //     },
+            //     success: function (response) {
+            //         response = JSON.parse(response);
+
+            //         if (response.success === 1) {
+
+            //             makePayment(tranx_ref, "2000");
+
+            //         } else {
+            //             // ALERT THE USER UPON FAILED REQUEST/RESPONSE
+            //             console.error(response.error_message);
+            //         }
+            //     }
+            // });
         });
 
-        validation
-        .addField('#fname', [
-            {
-                rule: 'required',
-                errorMessage: "Field is required"
-            },
-            {
-            rule: 'minLength',
-            value: 3,
-            },
-            {
-            rule: 'maxLength',
-            value: 30,
-            },
-        ])
-        .addField('#oname', [
-            {
-                rule: 'required',
-                errorMessage: "Field is required"
-            },
-            {
-            rule: 'minLength',
-            value: 3,
-            },
-            {
-            rule: 'maxLength',
-            value: 30,
-            },
-        ])
-        .addField('#lname', [
-            {
-                rule: 'required',
-                errorMessage: "Field is required"
-            },
-            {
-            rule: 'minLength',
-            value: 3,
-            },
-            {
-            rule: 'maxLength',
-            value: 30,
-            },
-        ])
-        .addField('#email', [
-            {
-            rule: 'required',
-            errorMessage: 'Field is required',
-            },
-            {
-            rule: 'email',
-            errorMessage: 'Email is invalid!',
-            },
-        ])
-        .addField('#phoneno', [
-            {
-                rule: 'required',
-                errorMessage: "Field is required"
-            },
-            {
-            rule: 'minLength',
-            value: 11,
-            },
-            {
-            rule: 'maxLength',
-            value: 11,
-            },
-        ])
-        .addField('#address', [
-            {
-                rule: 'required',
-                errorMessage: "Field is required"
-            },
-        ])
-        // .addField('#school_name', [
-        //     {
-        //         rule: 'required',
-        //         errorMessage: "Field is required"
-        //     },
-        // ])
-        // .addField('#aletter', [
-        //     {
-        //         rule: 'minFilesCount',
-        //         value: 1
-        //     },
-        //     {
-        //         rule: 'maxFilesCount',
-        //         value: 1
-        //     },
-        //     {
-        //         rule: 'files',
-        //         value: {
-        //         files: {
-        //             extensions: ['pdf'],
-        //             maxSize: 500000,
-        //             minSize: 1000,
-        //             types: ['application/pdf'],
-        //         },
-        //         },
-        //     },
-        // ])
-        // .addField('#dept', [
-        //     {
-        //         rule: 'required',
-        //         errorMessage: "Field is required"
-        //     },
-        // ])
-        // .addField('#level', [
-        //     {
-        //         rule: 'required',
-        //         errorMessage: "Field is required"
-        //     },
-        // ])
-        // .addField('#matricno', [
-        //     {
-        //         rule: 'required',
-        //         errorMessage: "Field is required"
-        //     },
-        // ])
-        // .addField('#school_id', [
-        //     {
-        //         rule: 'minFilesCount',
-        //         value: 1
-        //     },
-        //     {
-        //         rule: 'maxFilesCount',
-        //         value: 1
-        //     },
-        //     {
-        //         rule: 'files',
-        //         value: {
-        //         files: {
-        //             extensions: ['pdf'],
-        //             maxSize: 500000,
-        //             minSize: 1000,
-        //             types: ['application/pdf'],
-        //         },
-        //         }
-        //     },
-        // ])
-        // .addField('#gfullname', [
-        //     {
-        //         rule: 'required',
-        //         errorMessage: "Field is required"
-        //     }
-        // ])
-        // .addField('#goccupation', [
-        //     {
-        //         rule: 'required',
-        //         errorMessage: "Field is required"
-        //     },
-        // ])
-        // .addField('#grelationship', [
-        //     {
-        //         rule: 'required',
-        //         errorMessage: "Field is required"
-        //     }
-        // ])
-        // .addField('#gemail', [
-        //     {
-        //         rule: 'required',
-        //         errorMessage: 'Field is required',
-        //     },
-        //     {
-        //         rule: 'email',
-        //         errorMessage: 'Email is invalid!',
-        //     },
-        // ])
-        // .addField('#gphoneno', [
-        //     {
-        //         rule: 'minLength',
-        //         value: 11,
-        //     },
-        //     {
-        //         rule: 'maxLength',
-        //         value: 11,
-        //     },
-        //     {
-        //         rule: 'required',
-        //         errorMessage: "Field is required"
-        //     },
-        // ])
-        // .addField('#gaddress', [
-        //     {
-        //         rule: 'required',
-        //         errorMessage: "Field is required"
-        //     },
-        // ])
-        // .addField('#hfullname', [
-        //     {
-        //         rule: 'required',
-        //         errorMessage: "Field is required"
-        //     }
-        // ])
-        // .addField('#hemail', [
-        //     {
-        //         rule: 'required',
-        //         errorMessage: 'Field is required',
-        //     },
-        //     {
-        //         rule: 'email',
-        //         errorMessage: 'Email is invalid!',
-        //     },
-        // ])
-        // .addField('#hphoneno', [
-        //     {
-        //         rule: 'minLength',
-        //         value: 11,
-        //     },
-        //     {
-        //         rule: 'maxLength',
-        //         value: 11,
-        //     },
-        //     {
-        //         rule: 'required',
-        //         errorMessage: "Field is required"
-        //     }
-        // ])
-        .addField('#pwd', [
-            {
-                rule: 'minLength',
-                value: 6,
-            },
-            {
-                rule: 'required',
-                errorMessage: "Please provide a password"
-            }
-        ])
-        .addField('#cpwd', [
-            {
-                rule: 'minLength',
-                value: 6,
-            },
-            {
-                rule: 'required',
-                errorMessage: "Field is required"
-            },
-            {
-                validator: (value, fields) => {
-                if (fields['#pwd'] && fields['#pwd'].elem) {
-                    const repeatPasswordValue = fields['#pwd'].elem.value;
-
-                    return value === repeatPasswordValue;
-                }
-
-                return true;
-                },
-                errorMessage: 'Passwords should be the same',
-            }
-        ])
-        .addField('#agree_to_terms', [
-            {
-                rule: 'required',
-                errorMessage: 'Please agree to the terms'
-            }
-        ])
-        .onSuccess(() => {
+        function sendData(){
             const form = document.getElementById('registeration-form');
 
             // GATHERING FORM DATA
@@ -481,36 +286,15 @@
                     }, 1500);
                 },
             });
-        });
+        };
 
-        //SCRIPT TO FETCH ALL SCHOOLS ACCROSS ALL STATES IN NIGERIA
-        // fetch("schools.json")
-        //     .then(data => data.json())
-        //     .then(result => {
-        //         updateSelect(result);
-        //     });
-
-        // function updateSelect(schoolsObj) {
-        //     let htmlOutput = "";
-
-        //     htmlOutput += `<option value="">Select school</option>`;
-
-        //     if (schoolsObj.length !== 0) {
-        //         schoolsObj.forEach((schoolObj, index) => {
-        //             const state = Object.keys(schoolObj)[0];
-        //             htmlOutput += `<optgroup label="${state}">`;
-
-        //             for (let schoolID in schoolObj[state]) {
-        //                 htmlOutput += `<option>${schoolObj[state][schoolID].toLowerCase()}</option>`;
-        //             }
-
-        //             htmlOutput += `</optgroup>`;
-
-        //         });
+        // function showProgress(noOfPages){
+        //     if(noOfPages === 1){
+                
         //     }
-
-        //     $("#school_name").html(htmlOutput);
         // }
+
+        // showProgress(1);
     </script>
 </body>
 

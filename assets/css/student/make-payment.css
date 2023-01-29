@@ -1,3 +1,18 @@
+.make-payment-container{
+    padding: 0 10rem;
+    margin: 4rem 0 8rem;
+}
+
+.main-title{
+    font-size: 5rem;
+}
+
+.make-payment-notice{
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 .user-details h2{
     font-size: 2rem;
     margin-bottom: 10px;
@@ -31,6 +46,10 @@
     flex: 0 0 150px;
     display: flex;
     align-items: center;
+}
+
+.label i{
+    margin-right: 10px;
 }
 
 .total{
