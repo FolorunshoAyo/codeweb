@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="../assets/css/fonts.css">
     <!-- Enroll stylesheet -->
     <link rel="stylesheet" href="../assets/css/sign-up.css">
+    <!-- Toast CSS -->
+    <link rel="stylesheet" href="../assets/css/custom-toast.css">
     <!-- MEDIA QUERIES -->
     <link rel="stylesheet" href="../assets/css/media-queries/main-mediaquery.css">
 </head>
@@ -129,11 +131,17 @@
     <script src="../assets/js/jquery/jquery-3.6.min.js"></script>
     <!-- JQUERY MIGRATE SCRIPT (FOR OLDER JQUERY PACKAGES SUPPORT)-->
     <script src="../assets/js/jquery/jquery-migrate-1.4.1.min.js"></script>
+    <!-- CUSTOM ALERT JS -->
+    <script src="../assets/js/custom-toast/custom-toast.js"></script>
     <!-- TOASTER PLUGIN -->
     <!-- <script src="../auth-library/vendor/dist/sweetalert2.all.min.js"></script> -->
     <!-- JUST VALIDATE LIBRARY -->
     <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
     <script>
+        // TEST folorunsho's toast
+        // ftoast("success", "Testing ftoast", 4000);
+        // You can use my above function for a custom alert
+
         //FORM VALIDATION WITH VALIDATE.JS
 
         const validation = new JustValidate('#registeration-form', {
@@ -177,6 +185,20 @@
                 {
                     rule: 'email',
                     errorMessage: 'Email is invalid!',
+                },
+            ])
+            .addField('#uname', [
+                {
+                    rule: 'required',
+                    errorMessage: 'Field is required',
+                },
+                {
+                    rule: 'minLength',
+                    value: 6,
+                },
+                {
+                    rule: 'maxLength',
+                    value: 30,
                 },
             ])
             .addField('#pnum', [
@@ -249,31 +271,26 @@
                     processData: false,
                     dataType: 'json',
                     beforeSend: function () {
-                        $(".register-container button").html("Registering...");
+                        $(".register-container button").html("Signing up...");
                         $(".register-container button").attr("disabled", true);
                     },
                     success: function (response) {
                         setTimeout(() => {
                             if (response.success === 1) {
-                                // REDIRECT USER TO THE VERIFICATION PAGE
-                                window.location = "sign-in";
-
+                                ftoast("success", "You've successfully signed up").then((_) => {
+                                    // REDIRECT USER TO THE SIGN IN PAGE
+                                    window.location = "sign-in";
+                                });
                             } else {
                                 $(".register-container button").attr("disabled", false);
-                                $(".register-container button").html("Register");
+                                $(".register-container button").html("Sign Up");
 
                                 if (response.error_title === "fatal") {
                                     // REFRESH CURRENT PAGE
                                     location.reload();
                                 } else {
                                     // ALERT USER
-                                    Swal.fire({
-                                        title: response.error_title,
-                                        icon: "error",
-                                        text: response.error_message,
-                                        allowOutsideClick: false,
-                                        allowEscapeKey: false,
-                                    });
+                                    ftoast("error", response.error_message);
                                 }
                             }
                         }, 1500);
