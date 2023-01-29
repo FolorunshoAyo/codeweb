@@ -38,19 +38,21 @@
                 <div class="registeration-form-container">
                     <form action="controllers/sign-up-process.php" method="post" id="registeration-form">
                         
-                        <div class="form-group-container">
+                    <div class="form-groupings">
+                        <div class="form-group-container w-100">
                             <div class="form-group animate">
                                 <input type="email" name="email" id="email" class="form-input"  placeholder=" " required>
                                 <label for="email">Email</label>
                             </div>
                         </div>
 
-                        <div class="form-group-container">
+                        <div class="form-group-container w-100">
                             <div class="form-group animate">
                                 <input type="password" name="pwd" id="pwd" class="form-input"  placeholder=" " required>
                                 <label for="pwd">Password</label>
                             </div>
                         </div>
+                    </div>
 
                         <div class="forgot-password-container">
                             <a href="#">Forgot password?</a>
@@ -73,7 +75,7 @@
             </div>
         </div>
     </section>
-    <aside>&copy; Codeweb 2023</aside>
+    <aside class="copy-sign">&copy; Codeweb 2023</aside>
     <!-- FONT AWESOME JIT SCRIPT-->
     <script src="https://kit.fontawesome.com/3ae896f9ec.js" crossorigin="anonymous"></script>
     <!-- JQUERY SCRIPT -->
