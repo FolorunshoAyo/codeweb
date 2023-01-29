@@ -40,8 +40,8 @@
                         
                         <div class="form-group-container">
                             <div class="form-group animate">
-                                <input type="email" name="email" id="email" class="form-input"  placeholder=" " required>
-                                <label for="email">Email</label>
+                                <input type="text" name="username" id="username" class="form-input"  placeholder=" " required>
+                                <label for="username">Username</label>
                             </div>
                         </div>
 
@@ -57,7 +57,7 @@
                         </div>
 
                         <div class="register-container">
-                            <button type="submit">Sign In</button>
+                            <button type="submit" name="submit">Sign In</button>
                         </div>
                     </form>
                 </div>
@@ -81,7 +81,7 @@
     <!-- JQUERY MIGRATE SCRIPT (FOR OLDER JQUERY PACKAGES SUPPORT)-->
     <script src="../assets/js/jquery/jquery-migrate-1.4.1.min.js"></script>
     <!-- TOASTER PLUGIN -->
-    <!-- <script src="../auth-library/vendor/dist/sweetalert2.all.min.js"></script> -->
+    <script src="../auth-library/vendor/dist/sweetalert2.all.min.js"></script>
     <!-- JUST VALIDATE LIBRARY -->
     <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
     <script>
@@ -92,58 +92,54 @@
         });
 
         validation
-        .addField('#fname', [
-            {
-                rule: 'required',
-                errorMessage: "Field is required"
-            },
-            {
-            rule: 'minLength',
-            value: 3,
-            },
-            {
-            rule: 'maxLength',
-            value: 30,
-            },
-        ])
-        .addField('#lname', [
-            {
-                rule: 'required',
-                errorMessage: "Field is required"
-            },
-            {
-            rule: 'minLength',
-            value: 3,
-            },
-            {
-            rule: 'maxLength',
-            value: 30,
-            },
-        ])
-        .addField('#email', [
+        // .addField('#fname', [
+        //     {
+        //         rule: 'required',
+        //         errorMessage: "Field is required"
+        //     },
+        //     {
+        //     rule: 'minLength',
+        //     value: 3,
+        //     },
+        //     {
+        //     rule: 'maxLength',
+        //     value: 30,
+        //     },
+        // ])
+        // .addField('#lname', [
+        //     {
+        //         rule: 'required',
+        //         errorMessage: "Field is required"
+        //     },
+        //     {
+        //     rule: 'minLength',
+        //     value: 3,
+        //     },
+        //     {
+        //     rule: 'maxLength',
+        //     value: 30,
+        //     },
+        // ])
+        .addField('#username', [
             {
             rule: 'required',
             errorMessage: 'Field is required',
             },
-            {
-            rule: 'email',
-            errorMessage: 'Email is invalid!',
-            },
         ])
-        .addField('#pnum', [
-            {
-                rule: 'required',
-                errorMessage: "Field is required"
-            },
-            {
-            rule: 'minLength',
-            value: 11,
-            },
-            {
-            rule: 'maxLength',
-            value: 11,
-            },
-        ])
+        // .addField('#pnum', [
+        //     {
+        //         rule: 'required',
+        //         errorMessage: "Field is required"
+        //     },
+        //     {
+        //     rule: 'minLength',
+        //     value: 11,
+        //     },
+        //     {
+        //     rule: 'maxLength',
+        //     value: 11,
+        //     },
+        // ])
         .addField('#pwd', [
             {
                 rule: 'minLength',
@@ -154,34 +150,34 @@
                 errorMessage: "Please provide a password"
             }
         ])
-        .addField('#cpwd', [
-            {
-                rule: 'minLength',
-                value: 6,
-            },
-            {
-                rule: 'required',
-                errorMessage: "Field is required"
-            },
-            {
-                validator: (value, fields) => {
-                if (fields['#pwd'] && fields['#pwd'].elem) {
-                    const repeatPasswordValue = fields['#pwd'].elem.value;
+        // .addField('#cpwd', [
+        //     {
+        //         rule: 'minLength',
+        //         value: 6,
+        //     },
+        //     {
+        //         rule: 'required',
+        //         errorMessage: "Field is required"
+        //     },
+        //     {
+        //         validator: (value, fields) => {
+        //         if (fields['#pwd'] && fields['#pwd'].elem) {
+        //             const repeatPasswordValue = fields['#pwd'].elem.value;
 
-                    return value === repeatPasswordValue;
-                }
+        //             return value === repeatPasswordValue;
+        //         }
 
-                return true;
-                },
-                errorMessage: 'Passwords should be the same',
-            }
-        ])
-        .addField('#agree_to_terms', [
-            {
-                rule: 'required',
-                errorMessage: 'Please agree to the terms'
-            }
-        ])
+        //         return true;
+        //         },
+        //         errorMessage: 'Passwords should be the same',
+        //     }
+        // ])
+        // .addField('#agree_to_terms', [
+        //     {
+        //         rule: 'required',
+        //         errorMessage: 'Please agree to the terms'
+        //     }
+        // ])
         .onSuccess(() => {
             const form = document.getElementById('registeration-form');
 
@@ -192,7 +188,7 @@
             //SENDING FORM DATA TO THE SERVER
             $.ajax({
                 type: "post",
-                url: 'authentication/register.php',
+                url: 'controllers/sign-in-process.php',
                 data: formData,
                 cache: false,
                 contentType: false,
@@ -207,7 +203,19 @@
                 setTimeout(() => {
                         if (response.success === 1) {
                             // REDIRECT USER TO THE VERIFICATION PAGE
-                            window.location = "authentication/send-code?a=send";
+                            // window.location = "authentication/send-code?a=send";
+                            if(response.redirect=='make_payment'){
+                                window.location.href='make-payment.php'
+                            }
+                            if(response.redirect=='application_form'){
+                                window.location.href='enroll.php'
+                            }
+                            if(response.redirect=='select_course'){
+                                window.location.href='select_course.php'
+                            }
+                            if(response.redirect=='student_dashboard'){
+                                window.location.href='student_dashboard.php'
+                            }
 
                         } else {
                             $(".register-container button").setAttr("disabled", false);
