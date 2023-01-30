@@ -1,6 +1,6 @@
 .make-payment-container{
     padding: 0 10rem;
-    margin: 4rem 0 8rem;
+    margin: 3rem 0 8rem;
 }
 
 .main-title{
@@ -13,17 +13,22 @@
     margin-bottom: 20px;
 }
 
-.user-details h2{
+.details h2{
     font-size: 2rem;
     margin-bottom: 10px;
 }
 
-.user-details p{
+.details p{
     font-size: 1.5rem;
 }
 
-.order-details{
+.details{
     margin: 40px 0 10px;
+}
+
+
+.order-details.course{
+    margin-top: 40px;
 }
 
 .order-info, .handling-info{

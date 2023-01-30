@@ -41,14 +41,14 @@
             Folorunsho
         </div>
         
-        <div class="progress-container">
+        <div class="progress-container hide" style="display: none;">
             <div class="progress progress-1">
                 <div class="progress-circle active">
                     1
                 </div>
                 <span class="progress-text">Buy Application Form</span>
             </div>
-            <div class="progress-line progress-line-1">
+            <div class="progress-line progress-line-1 active">
                 <div class="progress-thumb"></div>
             </div>
             <div class="progress progress-2">
@@ -75,12 +75,12 @@
     <main>
         <section class="make-payment-section">
             <div class="make-payment-container">
-                <h1 class="main-title">Make payment</h1>
+                <h1 class="main-title">Course Payment</h1>
 
-                <p class="make-payment-notice">Pay form fee to enroll</p>
+                <p class="make-payment-notice">Pay course fee to become a student</p>
 
-                <div class="user-details">
-                    <h2><b>User Details</b></h2>
+                <div class="details">
+                    <h2><b>Applicant Details</b></h2>
 
                     <p>
                         First name and Last name <br>
@@ -90,17 +90,28 @@
                     </p>
                 </div>
 
-                <div class="order-details">
+                <div class="details">
+                    <h2><b>Course Payment</b></h2>
+
+                    <p>
+                        Course-title: Some title <br><br>
+                        Course fee: NGN 250000.00 <br><br>
+                        Course fee paid: NGN 0.00 <br><br>
+                        Type of payment: One time payment
+                    </p>
+                </div>
+
+                <div class="order-details course">
                     <div class="order-info">
                         <div class="label">
                             <i class="fa fa-plus"></i>
-                            <span>Form Fee:</span>
+                            <span>Fee to pay:</span>
                         </div>
                         <div class="value">
-                            <span>NGN 1,500</span>
+                            <span>NGN 250000.00</span>
                         </div>
                     </div>
-                    <div class="handling-info">
+                    <!-- <div class="handling-info">
                         <div class="label">
                             <i class="fa fa-hand"></i>
                             <span>Handling Fee:</span>
@@ -108,10 +119,10 @@
                         <div class="value">
                             <span>NGN 500</span>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="total">
                         <span><b>Total:</b></span>
-                        <span>NGN 2,000</span>
+                        <span>NGN 250000.00</span>
                     </div>
                 </div>
 

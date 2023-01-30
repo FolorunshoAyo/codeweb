@@ -65,7 +65,7 @@
         </div>
 
         <div class="status-container">
-            Status: Appliciant
+            Status: Applicant
         </div>
     </header>
     <main>

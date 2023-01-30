@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="../assets/css/base.css">
     <!-- Codeweb Form -->
     <link rel="stylesheet" href="../assets/css/fonts.css">
+    <!-- CUSTOM TOAST CSS -->
+    <link rel="stylesheet" href="../assets/css/custom-toast.css">
     <!-- ENROLL STYLESHEET  -->
     <link rel="stylesheet" href="../assets/css/form.css" type="text/css">
     <!-- STUDENT HEADER STYLESHEET -->
@@ -69,7 +71,7 @@
         </div>
 
         <div class="status-container">
-            Status: Appliciant
+            Status: Applicant
         </div>
     </header>
     <main>
@@ -89,7 +91,7 @@
                                 <div class="card">
                                     <div class="title-container">
                                         <p>Web #1</p>
-                                        <span class="course-price">₦400k</span>
+                                        <span class="course-price">₦120k</span>
                                     </div>
                                     <div class="more-info-container">
                                         <h3 class="course-title">Web development using the LAMP stack (PHP)</h3>
@@ -112,7 +114,7 @@
                                 <div class="card">
                                     <div class="title-container">
                                         <p>Web #2</p>
-                                        <span class="course-price">₦400k</span>
+                                        <span class="course-price">₦150k</span>
                                     </div>
                                     <div class="more-info-container">
                                         <h3 class="course-title">Web development using the .NET framework</h3>
@@ -120,7 +122,7 @@
                                             This class provides a comprehensive introduction to the .NET framework, including its architecture, components, and programming concepts. Students will learn how to develop, deploy, and run applications using .NET technologies such as C#, ASP.NET, and Windows Forms. Topics covered include: .NET architecture, Common Language Runtime (CLR), .NET class libraries, C# language basics, ASP.NET Web Forms, and Windows Forms development.
                                             By the end of the course, students will have a solid understanding of the .NET framework and be able to build applications for Windows and the web.
                                         </p>
-                                        <p class="course-duration">Duration: 4 months</p>
+                                        <p class="course-duration">Duration: 6 months</p>
                                     </div>
                                     <div class="radio-btn-container">
                                         <div class="outer-circle course-select">
@@ -137,7 +139,7 @@
                                 <div class="card">
                                     <div class="title-container">
                                         <p>Mobile #1</p>
-                                        <span class="course-price">₦400k</span>
+                                        <span class="course-price">₦250k</span>
                                     </div>
                                     <div class="more-info-container">
                                         <h3 class="course-title">Mobile development with flutter</h2>
@@ -165,7 +167,7 @@
                                 <div class="card">
                                     <div class="title-container">
                                         <p>Mobile #2</p>
-                                        <span class="course-price">₦400k</span>
+                                        <span class="course-price">₦250k</span>
                                     </div>
                                     <div class="more-info-container">
                                         <h3 class="course-title">Mobile development with Xamarin</h3>
@@ -174,7 +176,7 @@
 
                                             Throughout the course, students will work on hands-on projects to apply their newfound skills and develop their own Xamarin apps. By the end of the course, students will have a solid understanding of Xamarin and the skills necessary to create their own mobile apps.
                                         </p>
-                                        <p class="course-duration">Duration: 4 months</p>
+                                        <p class="course-duration">Duration: 6 months</p>
                                     </div>
                                     <div class="radio-btn-container">
                                         <div class="outer-circle course-select">
@@ -191,14 +193,14 @@
                                 <div class="card">
                                     <div class="title-container">
                                         <p>Networking</p>
-                                        <span class="course-price">₦400k</span>
+                                        <span class="course-price">₦150k</span>
                                     </div>
                                     <div class="more-info-container">
                                         <h3 class="course-title">CCNA/CCNP Networking course</h3>
                                         <p class="course-description">
-                                            The CCNA CCNP Network class is an introductory course designed for students who are looking to start their journey in the field of networking. This class covers the fundamentals of computer networking and prepares students for the CCNA and CCNP certification exams. Students will learn about the basics of networking protocols, such as TCP/IP, and will be introduced to common networking devices such as routers and switches. Additionally, students will learn about network security, wireless networking, and network management. This course is hands-on, with students working on real-world scenarios and lab exercises to reinforce the concepts taught in class. Whether you are looking to enter the world of networking or are seeking to expand your current knowledge, this CCNA CCNP Network class is the perfect starting point.
+                                            The CCNA/CCNP Network class is an introductory course designed for students who are looking to start their journey in the field of networking. This class covers the fundamentals of computer networking and prepares students for the CCNA and CCNP certification exams. Students will learn about the basics of networking protocols, such as TCP/IP, and will be introduced to common networking devices such as routers and switches. Additionally, students will learn about network security, wireless networking, and network management. This course is hands-on, with students working on real-world scenarios and lab exercises to reinforce the concepts taught in class. Whether you are looking to enter the world of networking or are seeking to expand your current knowledge, this CCNA/CCNP Network class is the perfect starting point.
                                         </p>
-                                        <p class="course-duration">Duration: 4 months</p>
+                                        <p class="course-duration">Duration: 6 months</p>
                                     </div>
                                     <div class="radio-btn-container">
                                         <div class="outer-circle course-select">
@@ -220,11 +222,11 @@
                             <label for="payment-plan-1" class="payment-label">
                                 <div class="payment-card">
                                     <div class="image-container">
-                                        <img src="images/1674998447.png" alt="Icon">
+                                        <img src="../assets/images/one-time-purchase-icon.png" alt="Icon">
                                     </div>
                                     <div class="payment-text-container">
-                                        <h3>One - Time Purchase</h3>
-                                        <p>Set up a one time payment<p>
+                                        <h3>Full payment</h3>
+                                        <p>Make a full, one time payment.<p>
                                     </div>
                                     <div class="radio-container">
                                         <div class="outer-circle">
@@ -240,11 +242,11 @@
                             <label for="payment-plan-2" class="payment-label">
                                 <div class="payment-card">
                                     <div class="image-container">
-                                        <img src="images/1674998447.png" alt="Icon">
+                                        <img src="../assets/images/payment-plan-icon.png" alt="Icon">
                                     </div>
                                     <div class="payment-text-container">
-                                        <h3>Payment Plan</h3>
-                                        <p>Set a fixed number of monthly payments<p>
+                                        <h3>Monthly Payment</h3>
+                                        <p>Pay fees monthly.<p>
                                     </div>
                                     <div class="radio-container">
                                         <div class="outer-circle">
@@ -258,7 +260,7 @@
                     </div>
 
                     <div class="enroll-form-container">
-                        <button type="submit">Save and continue</button>
+                        <button role="button" type="button">Save and continue</button>
                     </div>
                 </form>
             </div>
@@ -312,86 +314,42 @@
     <script src="../assets/js/jquery/jquery-migrate-1.4.1.min.js"></script>
     <!-- TOASTER PLUGIN -->
     <!-- <script src="../auth-library/vendor/dist/sweetalert2.all.min.js"></script> -->
-    <!-- JUST VALIDATE LIBRARY -->
-    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
-    <!-- Flutterwave script -->
-    <script src="https://checkout.flutterwave.com/v3.js"></script>
+    <!-- CUSTOM TOAST -->
+    <script src="../assets/js/custom-toast/custom-toast.js"></script>
     <script>
-        function makePayment(x, final_amt) {
-            FlutterwaveCheckout({
-                public_key: "FLWPUBK_TEST-9907ef66591a80edfb5c7ea51208031d-X",
-                tx_ref: x,
-                amount: final_amt,
-                currency: "NGN",
-                payment_options: "card, banktransfer, ussd",
-                redirect_url: `https://localhost/codeweb/student/controllers/auth-form-payment`,
+        $(".enroll-form-container button").on("click", function () {
+            const form = document.getElementById("select-course-form");
+            
+            const formData = new FormData(form);
 
-                customer: {
-                    email: "info@codeweb.ng",
-                    phone_number: "123456789",
-                    name: "CODEWEB",
-                },
-                customizations: {
-                    title: "Form Payment",
-                    description: '',
-                    logo: "https://localhost/codeweb/assets/images/logo.jpg",
-                },
-            });
-        }
-
-        function generateTransaction_ref() {
-            var randm = Math.floor((Math.random() * 100000000) + 1);
-            var tran = "TRX-";
-            return tran + randm;
-        }
-
-        $(".pay-btn-container button").on("click", function () {
-            // GENERATING TRANSACTION REF:
-            const tranx_ref = generateTransaction_ref();
-
-            const formData = new FormData();
-
-            formData.append("submit", true);
-            formData.append("tx_ref", tranx_ref);
+            for([key, value] of formData.entries()){
+                console.log(`${key}: ${value}`);
+            }
 
 
-            makePayment(tranx_ref, "2000");
 
-            // $.ajax({
-            //     url: 'controllers/initiate-payment.php',
-            //     type: 'post',
-            //     data: formData,
-            //     processData: false,
-            //     contentType: false,
-            //     beforeSend: function () {
-            //         $(this).html("loading...");
-            //     },
-            //     success: function (response) {
-            //         response = JSON.parse(response);
-
-            //         if (response.success === 1) {
-
-            //             makePayment(tranx_ref, "2000");
-
-            //         } else {
-            //             // ALERT THE USER UPON FAILED REQUEST/RESPONSE
-            //             console.error(response.error_message);
-            //         }
-            //     }
-            // });
+            if(formData.get("selected-course") === null && formData.get("payment-plan") === null){
+                ftoast("error", "Please select a course and a payment option", 4000);
+            }else if(formData.get("selected-course") === null){
+                ftoast("error", "Please select a course", 4000);
+            }else if(formData.get("payment-plan") === null){
+                ftoast("error", "Please choose a payment plan");
+            }else{
+                sendData({
+                    paymentPlan: formData.get("payment-plan"),
+                    selectedCourse: formData.get("selected-course"),
+                    submit: true
+                })
+            }
         });
 
-        function sendData(){
-            const form = document.getElementById('registeration-form');
-
-            // GATHERING FORM DATA
-            const formData = new FormData(form);
-            formData.append("submit", true);
+        function sendData(data){
+            const formData = JSON.stringify(data);
             
             //SENDING FORM DATA TO THE SERVER
             $.ajax({
                 type: "post",
-                url: 'authentication/register.php',
+                url: 'controllers/generate-course-payment-details.php',
                 data: formData,
                 cache: false,
                 contentType: false,
@@ -399,8 +357,8 @@
                 processData: false,
                 dataType: 'json',
                 beforeSend: function () {
-                    $(".register-container button").html("Registering...");
-                    $(".register-container button").attr("disabled", true);
+                    $(".enroll-form-container button").html("Processing...");
+                    $(".enroll-form-container button").attr("disabled", true);
                 },
                 success: function (response) {
                 setTimeout(() => {
@@ -409,35 +367,21 @@
                             window.location = "authentication/send-code?a=send";
 
                         } else {
-                            $(".register-container button").setAttr("disabled", false);
-                            $(".register-container button").html("Register");
+                            $(".enroll-form-container button").attr("disabled", false);
+                            $(".enroll-form-container button").html("Save and continue");
 
                             if(response.error_title === "fatal"){
                                 // REFRESH CURRENT PAGE
                                 location.reload();
                             }else{
                                 // ALERT USER
-                                Swal.fire({
-                                    title: response.error_title,
-                                    icon: "error",
-                                    text: response.error_message,
-                                    allowOutsideClick: false,
-                                    allowEscapeKey: false,
-                                });
+                               ftoast("error", response.error_message, 4000);
                             }
                         }
                     }, 1500);
                 },
             });
         };
-
-        // function showProgress(noOfPages){
-        //     if(noOfPages === 1){
-                
-        //     }
-        // }
-
-        // showProgress(1);
     </script>
 </body>
 
