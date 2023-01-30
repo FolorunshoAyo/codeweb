@@ -33,8 +33,8 @@
 <body>
     <header class="make-payment-header">
         <div class="person-container">
-            <i class="fa fa-user-circle"></i>
-            Damilola
+            <img src="images/1674998447.png" alt="profile avatar">
+            Folorunsho
         </div>
         
         <div class="progress-container">
@@ -148,26 +148,89 @@
 
                             <div class="form-group-container">
                                 <div class="form-group animate">
-                                    <select name="state" id="state" class="form-input"  placeholder=" " required>
-                                        <option value="">Select residential state</option>
-                                    </select>
+                                    <input type="text" name="state" id="state" class="form-input"  placeholder=" " required>
                                     <label for="state">State</label>
                                 </div>
                             </div>
 
                             <div class="form-group-container">
                                 <div class="form-group animate">
-                                    <input type="text" name="pcode" id="pcode" class="form-input"  placeholder=" " required>
-                                    <label for="pcode">Postal Code</label>
+                                    <input type="text" name="country" id="country" class="form-input"  placeholder=" " required>
+                                    <label for="country">Country</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="form-title">Guardian Information</h2>
+
+                        <div class="address-info-container form-groupings">
+                            <div class="form-group-container">
+                                <div class="form-group animate">
+                                    <input type="text" name="gfname" id="gfname" class="form-input" placeholder=" " required>
+                                    <label for="gfname">First name</label>
                                 </div>
                             </div>
 
                             <div class="form-group-container">
                                 <div class="form-group animate">
-                                    <select name="country" id="country" class="form-input"  placeholder=" " required>
-                                        <option value="">Select country of residence</option>
-                                    </select>
-                                    <label for="country">Country</label>
+                                    <input type="text" name="glname" id="glname" class="form-input"  placeholder=" " required>
+                                    <label for="glname">Last name</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group-container">
+                                <div class="form-group animate">
+                                    <input type="text" name="gpnum" id="gpnum" class="form-input" placeholder=" " required>
+                                    <label for="gpnum">Phone number</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group-container">
+                                <div class="form-group animate">
+                                    <input type="text" name="gemail" id="gemail" class="form-input"  placeholder=" " required>
+                                    <label for="gemail">Email</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group-container">
+                                <div class="form-group animate">
+                                    <input type="text" name="goccupation" id="goccupation" class="form-input"  placeholder=" " required>
+                                    <label for="goccupation">Occupation</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group-container">
+                                <div class="form-group animate">
+                                    <input type="text" name="grelationship" id="grelationship" class="form-input"  placeholder=" " required>
+                                    <label for="grelationship">Relationship</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group-container">
+                                <div class="form-group animate">
+                                    <input type="text" name="gaddress" id="gaddress" class="form-input"  placeholder=" " required>
+                                    <label for="gaddress">Address line (home)</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group-container">
+                                <div class="form-group animate">
+                                    <input type="text" name="gcity" id="gcity" class="form-input"  placeholder=" " required>
+                                    <label for="gcity">City</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group-container">
+                                <div class="form-group animate">
+                                    <input name="gstate" id="gstate" class="form-input"  placeholder=" " required>
+                                    <label for="gstate">State</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group-container">
+                                <div class="form-group animate">
+                                    <input type="text" name="gcountry" id="gcountry" class="form-input"  placeholder=" " required>
+                                    <label for="gcountry">Country</label>
                                 </div>
                             </div>
                         </div>
@@ -175,26 +238,26 @@
                         <h2 class="form-title">How did you hear about us?</h2>
 
                         <div class="personal-info-container form-groupings checkboxs">
-                            <label id="check-1"><input type="checkbox" id="check-1">Education Agent</label>
-                            <label id="check-2"><input type="checkbox" id="check-2">Career/Education fair</label>
-                            <label id="check-3"><input type="checkbox" id="check-3">Friends</label>
-                            <label id="check-4"><input type="checkbox" id="check-4">Family Member</label>
-                            <label id="check-5"><input type="checkbox" id="check-5">Career Adviser</label>
-                            <label id="check-6"><input type="checkbox" id="check-6">Billboard</label>
-                            <label id="check-7"><input type="checkbox" id="check-7">Google</label>
-                            <label id="check-8"><input type="checkbox" id="check-8">Print/Newspaper</label>
-                            <label id="check-9"><input type="checkbox" id="check-9">Social Media</label>
-                            <label id="check-10"><input type="checkbox" id="check-10">Word of mouth</label>
-                            <label id="check-11"><input type="checkbox" id="check-11">Other search engine</label>
-                            <label id="check-12"><input type="checkbox" id="check-12">Embassy</label>
-                            <label id="check-13"><input type="checkbox" id="check-13">Others</label>
+                            <label id="check-1"><input type="checkbox" id="check-1" name="leads[]">Education Agent</label>
+                            <label id="check-2"><input type="checkbox" id="check-2" name="leads[]">Career/Education fair</label>
+                            <label id="check-3"><input type="checkbox" id="check-3" name="leads[]">Friends</label>
+                            <label id="check-4"><input type="checkbox" id="check-4" name="leads[]">Family Member</label>
+                            <label id="check-5"><input type="checkbox" id="check-5" name="leads[]">Career Adviser</label>
+                            <label id="check-6"><input type="checkbox" id="check-6" name="leads[]">Billboard</label>
+                            <label id="check-7"><input type="checkbox" id="check-7" name="leads[]">Google</label>
+                            <label id="check-8"><input type="checkbox" id="check-8" name="leads[]">Print/Newspaper</label>
+                            <label id="check-9"><input type="checkbox" id="check-9" name="leads[]">Social Media</label>
+                            <label id="check-10"><input type="checkbox" id="check-10" name="leads[]">Word of mouth</label>
+                            <label id="check-11"><input type="checkbox" id="check-11" name="leads[]">Other search engine</label>
+                            <label id="check-12"><input type="checkbox" id="check-12" name="leads[]">Embassy</label>
+                            <label id="check-13"><input type="checkbox" id="check-13" name="leads[]">Others</label>
                         </div>
 
                         <!-- <div class="agreement-container">
                             <label for="agree"><input type="checkbox" id="agree_to_terms">Agree to terms and conditions</label>
                         </div> -->
 
-                        <div class="register-container">
+                        <div class="enroll-form-container">
                             <button type="submit">Submit</button>
                         </div>
                     </form>
@@ -249,32 +312,20 @@
     <!-- JQUERY MIGRATE SCRIPT (FOR OLDER JQUERY PACKAGES SUPPORT)-->
     <script src="../assets/js/jquery/jquery-migrate-1.4.1.min.js"></script>
     <!-- TOASTER PLUGIN -->
-    <script src="../auth-library/vendor/dist/sweetalert2.all.min.js"></script>
+    <!-- <script src="auth-library/vendor/dist/sweetalert2.all.min.js"></script> -->
+    <!-- CUSTOM TOAST -->
+    <script src="../assets/js/custom-toast/custom-toast.js"></script>
     <!-- JUST VALIDATE LIBRARY -->
-    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+    <script src="../assets/js/just-validate/justvalidate.min.js"></script>
     <script>
         //FORM VALIDATION WITH VALIDATE.JS
 
-        const validation = new JustValidate('#registeration-form', {
+        const validation = new JustValidate('#enroll-form', {
             errorFieldCssClass: 'is-invalid',
         });
 
         validation
         .addField('#fname', [
-            {
-                rule: 'required',
-                errorMessage: "Field is required"
-            },
-            {
-                rule: 'minLength',
-                value: 3,
-            },
-            {
-                rule: 'maxLength',
-                value: 30,
-            },
-        ])
-        .addField('#oname', [
             {
                 rule: 'required',
                 errorMessage: "Field is required"
@@ -301,6 +352,18 @@
             rule: 'maxLength',
             value: 30,
             },
+        ])
+        .addField('#dob', [
+            {
+                rule: 'required',
+                errorMessage: "Field is required"
+            }
+        ])
+        .addField('#sex', [
+            {
+                rule: 'required',
+                errorMessage: "Field is required"
+            }
         ])
         .addField('#email', [
             {
@@ -332,190 +395,114 @@
                 errorMessage: "Field is required"
             },
         ])
-        // .addField('#school_name', [
-        //     {
-        //         rule: 'required',
-        //         errorMessage: "Field is required"
-        //     },
-        // ])
-        // .addField('#aletter', [
-        //     {
-        //         rule: 'minFilesCount',
-        //         value: 1
-        //     },
-        //     {
-        //         rule: 'maxFilesCount',
-        //         value: 1
-        //     },
-        //     {
-        //         rule: 'files',
-        //         value: {
-        //         files: {
-        //             extensions: ['pdf'],
-        //             maxSize: 500000,
-        //             minSize: 1000,
-        //             types: ['application/pdf'],
-        //         },
-        //         },
-        //     },
-        // ])
-        // .addField('#dept', [
-        //     {
-        //         rule: 'required',
-        //         errorMessage: "Field is required"
-        //     },
-        // ])
-        // .addField('#level', [
-        //     {
-        //         rule: 'required',
-        //         errorMessage: "Field is required"
-        //     },
-        // ])
-        // .addField('#matricno', [
-        //     {
-        //         rule: 'required',
-        //         errorMessage: "Field is required"
-        //     },
-        // ])
-        // .addField('#school_id', [
-        //     {
-        //         rule: 'minFilesCount',
-        //         value: 1
-        //     },
-        //     {
-        //         rule: 'maxFilesCount',
-        //         value: 1
-        //     },
-        //     {
-        //         rule: 'files',
-        //         value: {
-        //         files: {
-        //             extensions: ['pdf'],
-        //             maxSize: 500000,
-        //             minSize: 1000,
-        //             types: ['application/pdf'],
-        //         },
-        //         }
-        //     },
-        // ])
-        // .addField('#gfullname', [
-        //     {
-        //         rule: 'required',
-        //         errorMessage: "Field is required"
-        //     }
-        // ])
-        // .addField('#goccupation', [
-        //     {
-        //         rule: 'required',
-        //         errorMessage: "Field is required"
-        //     },
-        // ])
-        // .addField('#grelationship', [
-        //     {
-        //         rule: 'required',
-        //         errorMessage: "Field is required"
-        //     }
-        // ])
-        // .addField('#gemail', [
-        //     {
-        //         rule: 'required',
-        //         errorMessage: 'Field is required',
-        //     },
-        //     {
-        //         rule: 'email',
-        //         errorMessage: 'Email is invalid!',
-        //     },
-        // ])
-        // .addField('#gphoneno', [
-        //     {
-        //         rule: 'minLength',
-        //         value: 11,
-        //     },
-        //     {
-        //         rule: 'maxLength',
-        //         value: 11,
-        //     },
-        //     {
-        //         rule: 'required',
-        //         errorMessage: "Field is required"
-        //     },
-        // ])
-        // .addField('#gaddress', [
-        //     {
-        //         rule: 'required',
-        //         errorMessage: "Field is required"
-        //     },
-        // ])
-        // .addField('#hfullname', [
-        //     {
-        //         rule: 'required',
-        //         errorMessage: "Field is required"
-        //     }
-        // ])
-        // .addField('#hemail', [
-        //     {
-        //         rule: 'required',
-        //         errorMessage: 'Field is required',
-        //     },
-        //     {
-        //         rule: 'email',
-        //         errorMessage: 'Email is invalid!',
-        //     },
-        // ])
-        // .addField('#hphoneno', [
-        //     {
-        //         rule: 'minLength',
-        //         value: 11,
-        //     },
-        //     {
-        //         rule: 'maxLength',
-        //         value: 11,
-        //     },
-        //     {
-        //         rule: 'required',
-        //         errorMessage: "Field is required"
-        //     }
-        // ])
-        .addField('#pwd', [
-            {
-                rule: 'minLength',
-                value: 6,
-            },
+        .addField('#city', [
             {
                 rule: 'required',
-                errorMessage: "Please provide a password"
-            }
-        ])
-        .addField('#cpwd', [
-            {
-                rule: 'minLength',
-                value: 6,
+                errorMessage: "Field is required"
             },
+        ])
+        .addField('#state', [
+            {
+                rule: 'required',
+                errorMessage: "Field is required"
+            },
+        ])
+        .addField('#country', [
+            {
+                rule: 'required',
+                errorMessage: "Field is required"
+            },
+        ])
+        .addField('#gfname', [
             {
                 rule: 'required',
                 errorMessage: "Field is required"
             },
             {
-                validator: (value, fields) => {
-                    if (fields['#pwd'] && fields['#pwd'].elem) {
-                        const repeatPasswordValue = fields['#pwd'].elem.value;
-
-                        return value === repeatPasswordValue;
-                    }
-
-                    return true;
-                },
-                errorMessage: 'Passwords should be the same',
-            }
+                rule: 'minLength',
+                value: 3,
+            },
+            {
+                rule: 'maxLength',
+                value: 30,
+            },
         ])
-        .addField('#agree_to_terms', [
+        .addField('#glname', [
             {
                 rule: 'required',
-                errorMessage: 'Please agree to the terms'
+                errorMessage: "Field is required"
+            },
+            {
+                rule: 'minLength',
+                value: 3,
+            },
+            {
+                rule: 'maxLength',
+                value: 30,
+            },
+        ])
+        .addField('#goccupation', [
+            {
+                rule: 'required',
+                errorMessage: "Field is required"
+            },
+        ])
+        .addField('#grelationship', [
+            {
+                rule: 'required',
+                errorMessage: "Field is required"
             }
         ])
+        .addField('#gemail', [
+            {
+                rule: 'required',
+                errorMessage: 'Field is required',
+            },
+            {
+                rule: 'email',
+                errorMessage: 'Email is invalid!',
+            },
+        ])
+        .addField('#gpnum', [
+            {
+                rule: 'minLength',
+                value: 11,
+            },
+            {
+                rule: 'maxLength',
+                value: 11,
+            },
+            {
+                rule: 'required',
+                errorMessage: "Field is required"
+            },
+        ])
+        .addField('#gaddress', [
+            {
+                rule: 'required',
+                errorMessage: "Field is required"
+            },
+        ])
+        .addField('#gcity', [
+            {
+                rule: 'required',
+                errorMessage: "Field is required"
+            },
+        ])
+        .addField('#gstate', [
+            {
+                rule: 'required',
+                errorMessage: "Field is required"
+            },
+        ])
+        .addField('#gcountry', [
+            {
+                rule: 'required',
+                errorMessage: "Field is required"
+            },
+        ])
         .onSuccess(() => {
-            const form = document.getElementById('registeration-form');
+            const form = document.getElementById('enroll-form');
 
             // GATHERING FORM DATA
             const formData = new FormData(form);
@@ -524,7 +511,7 @@
             //SENDING FORM DATA TO THE SERVER
             $.ajax({
                 type: "post",
-                url: 'controller/enroll-process.php',
+                url: 'controller/application-form-process.php',
                 data: formData,
                 cache: false,
                 contentType: false,
@@ -532,15 +519,18 @@
                 processData: false,
                 dataType: 'json',
                 beforeSend: function () {
-                    $(".register-container button").html("Enrolling...");
+                    $(".register-container button").html("Submiting...");
                     $(".register-container button").attr("disabled", true);
                 },
                 success: function (response) {
                 setTimeout(() => {
                         if (response.success === 1) {
                             // REDIRECT USER TO THE VERIFICATION PAGE
-                            window.location = "success";
-
+                            // ALERT THE USER  UPON SUCCESFUL APPLICATION
+                            ftoast("success", "You have applied successfully", 4000).then((_) => {
+                                //REDIRECT TO SELECT COURSE PAGE
+                                window.location = "select-course.php";
+                            });
                         } else {
                             $(".register-container button").attr("disabled", false);
                             $(".register-container button").html("Submit");

@@ -37,8 +37,8 @@
 <body>
     <header class="make-payment-header">
         <div class="person-container">
-            <i class="fa fa-user-circle"></i>
-            Damilola
+            <img src="images/1674998447.png" alt="profile avatar">
+            Folorunsho
         </div>
         
         <div class="progress-container">

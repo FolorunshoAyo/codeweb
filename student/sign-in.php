@@ -19,15 +19,18 @@
     <link rel="stylesheet" href="../assets/css/fonts.css">
     <!-- initial config css file -->
     <link rel="stylesheet" href="../assets/css/base.css">
-    <!-- Codeweb Form -->
+    <!-- FONTS CSS -->
     <link rel="stylesheet" href="../assets/css/fonts.css">
-    <!-- Enroll stylesheet -->
+    <!-- Toast CSS (codeweb) -->
+    <link rel="stylesheet" href="../assets/css/custom-toast.css">
+    <!-- Codeweb Form -->
     <link rel="stylesheet" href="../assets/css/sign-up.css">
     <!-- MEDIA QUERIES -->
     <link rel="stylesheet" href="../assets/css/media-queries/main-mediaquery.css">
 </head>
 
-<body>
+<!-- The auth class is for styling purposes only -->
+<body class="auth">
     <section class="registeration-section">
         <header>
             Not a member yet? <a href="./sign-up">Create an account</a>
@@ -37,7 +40,7 @@
                 <h1 class="title">Sign in</h1>
 
                 <div class="registeration-form-container">
-                    <form action="controllers/sign-in-process.php" method="post" id="registeration-form">
+                    <form  method="post" id="signin-form">
 
                         <div class="form-groupings">
                             <div class="form-group-container w-100">
@@ -86,25 +89,25 @@
     <!-- JQUERY MIGRATE SCRIPT (FOR OLDER JQUERY PACKAGES SUPPORT)-->
     <script src="../assets/js/jquery/jquery-migrate-1.4.1.min.js"></script>
     <!-- TOASTER PLUGIN -->
-    <script src="../auth-library/vendor/dist/sweetalert2.all.min.js"></script>
+    <!-- <script src="auth-library/vendor/dist/sweetalert2.all.min.js"></script> -->
+    <!-- CUSTOM TOAST -->
+    <script src="../assets/js/custom-toast/custom-toast.js"></script>
     <!-- JUST VALIDATE LIBRARY -->
-    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+    <script src="../assets/js/just-validate/justvalidate.min.js"></script>
     <script>
         //FORM VALIDATION WITH VALIDATE.JS
 
-        const validation = new JustValidate('#registeration-form', {
+        const validation = new JustValidate('#signin-form', {
             errorFieldCssClass: 'is-invalid',
         });
 
         validation
-          
             .addField('#username', [
                 {
                     rule: 'required',
                     errorMessage: 'Field is required',
                 },
             ])
-          
             .addField('#pwd', [
                 {
                     rule: 'minLength',
@@ -115,9 +118,8 @@
                     errorMessage: "Please provide a password"
                 }
             ])
-           
             .onSuccess(() => {
-                const form = document.getElementById('registeration-form');
+                const form = document.getElementById('signin-form');
 
                 // GATHERING FORM DATA
                 const formData = new FormData(form);
@@ -126,7 +128,7 @@
                 //SENDING FORM DATA TO THE SERVER
                 $.ajax({
                     type: "post",
-                    url: 'authentication/register.php',
+                    url: 'controllers/sign-in-process.php',
                     data: formData,
                     cache: false,
                     contentType: false,
@@ -134,37 +136,37 @@
                     processData: false,
                     dataType: 'json',
                     beforeSend: function () {
-                        $(".register-container button").html("Registering...");
+                        $(".register-container button").html("Signing in...");
                         $(".register-container button").attr("disabled", true);
                     },
                     success: function (response) {
                         setTimeout(() => {
                             if (response.success === 1) {
-                                // REDIRECT USER TO THE VERIFICATION PAGE
-                                window.location = "authentication/send-code?a=send";
-                               } else {
-                                     $(".register-container button").setAttr("disabled", false);
-                                    $(".register-container button").html("Register");
+                                if(reponse.redirect === "make_payment"){
+                                    window.location = "make-form-payment";
+                                }else if(response.redirect === "application_form"){
+                                    window.location = "application-form"
+                                }else if(reponse.redirect === "select_course"){
+                                    window.location = "select-course";
+                                }else{
+                                    window.location = "dashboard/"
+                                }
+                            } else {
+                                $(".register-container button").attr("disabled", false);
+                                $(".register-container button").html("Sign In");
  
                                 if(response.error_title === "fatal"){
-                                // REFRESH CURRENT PAGE
+                                    // REFRESH CURRENT PAGE
                                     location.reload();
-                                 }else{
-                                     // ALERT USER
-                                      Swal.fire({
-                                    title: response.error_title,
-                                      icon: "error",
-                                    text: response.error_message,
-                                      allowOutsideClick: false,
-                                    allowEscapeKey: false,
-                                        });
-                                            }
-                                       }
-
-    }, 1500);
-    },
-    });
-    });
+                                }else{
+                                    // ALERT USER
+                                    ftoast("error", response.error_message, 4000);
+                                }
+                            }
+                        }, 1500);
+                    },
+                });
+            });
     </script>
 </body>
 

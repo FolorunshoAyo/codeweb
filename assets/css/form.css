@@ -90,6 +90,7 @@
     border-radius: 5px;
     border: 1px solid var(--primary-color);
     padding: 1rem;
+    font-size: 1.5rem;
     outline: none;
 }
 
@@ -252,12 +253,12 @@
     accent-color: var(--primary-color);
 }
 
-.register-container{
+.enroll-form-container{
     margin-top: 30px;
     text-align: center;
 }
 
-.register-container button{
+.enroll-form-container button{
     width: 60%;
     padding: 2rem;
     background-color: transparent;
@@ -269,7 +270,7 @@
     transition: all .5s ease;
 }
 
-.register-container button:hover{
+.enroll-form-container button:hover{
     background-color: var(--primary-color);
     color: var(--white);
 }

@@ -197,6 +197,9 @@
         margin-top: 3rem;
     }
     
+    .select-course-container{
+        padding: 0 7rem;
+    }
 } 
 
 /* < 815px */ 
@@ -272,7 +275,7 @@
         flex: 0 0 100%;
     }
 
-    body{
+    body.auth{
         overflow-x: hidden;
         overflow-y: auto;
         background-color: #fafafa;
@@ -414,6 +417,14 @@
 
     .hot-offer-container{
         width: 1000px;
+    }
+
+    .form-groupings.courses .form-group-container{
+        flex: 0 0 100%;
+    }
+
+    .form-groupings.payment-plans .form-group-container{
+        flex: 0 0 100%;
     }
 } 
 

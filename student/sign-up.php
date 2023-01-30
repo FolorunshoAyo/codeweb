@@ -23,13 +23,14 @@
     <link rel="stylesheet" href="../assets/css/fonts.css">
     <!-- Enroll stylesheet -->
     <link rel="stylesheet" href="../assets/css/sign-up.css">
-    <!-- Toast CSS -->
+    <!-- Toast CSS (codeweb) -->
     <link rel="stylesheet" href="../assets/css/custom-toast.css">
     <!-- MEDIA QUERIES -->
     <link rel="stylesheet" href="../assets/css/media-queries/main-mediaquery.css">
 </head>
 
-<body>
+<!-- The auth class is for styling purposes only -->
+<body class="auth">
     <section class="registeration-section">
         <header>
             Have an account? <a href="./sign-in">Sign in</a>
@@ -39,7 +40,7 @@
                 <h1 class="title">Sign Up</h1>
 
                 <div class="registeration-form-container">
-                    <form id="registeration-form">
+                    <form id="signup-form">
                         <div class="personal-info-container form-groupings">
 
                             <div class="form-group-container">
@@ -136,15 +137,11 @@
     <!-- TOASTER PLUGIN -->
     <!-- <script src="../auth-library/vendor/dist/sweetalert2.all.min.js"></script> -->
     <!-- JUST VALIDATE LIBRARY -->
-    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+    <script src="../assets/js/just-validate/justvalidate.min.js"></script>
     <script>
-        // TEST folorunsho's toast
-        // ftoast("success", "Testing ftoast", 4000);
-        // You can use my above function for a custom alert
-
         //FORM VALIDATION WITH VALIDATE.JS
 
-        const validation = new JustValidate('#registeration-form', {
+        const validation = new JustValidate('#signup-form', {
             errorFieldCssClass: 'is-invalid',
         });
 
@@ -254,7 +251,7 @@
                 }
             ])
             .onSuccess(() => {
-                const form = document.getElementById('registeration-form');
+                const form = document.getElementById('signup-form');
 
                 // GATHERING FORM DATA
                 const formData = new FormData(form);

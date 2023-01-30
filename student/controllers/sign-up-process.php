@@ -4,13 +4,13 @@ require(dirname(__DIR__) . '/auth-library/resources.php');
 
 if (isset($_POST['submit'])) {
 	// PERSONAL INFO
-	$first_name = $db->real_escape_string($_POST['fname']);
-	$last_name = $db->real_escape_string($_POST['lname']);
-	$username = $db->real_escape_string($_POST['uname']);
-	$email = $db->real_escape_string($_POST['email']);
-	$phone_no = $db->real_escape_string($_POST['pnum']);
-	$password = $db->real_escape_string($_POST['pwd']);
-	$confirm_password = $db->real_escape_string($_POST['cpwd']);
+	$first_name = filter_var($db->real_escape_string($_POST['fname']), FILTER_SANITIZE_STRING);
+	$last_name = filter_var($db->real_escape_string($_POST['lname']), FILTER_SANITIZE_STRING);
+	$username = filter_var($db->real_escape_string($_POST['uname']), FILTER_SANITIZE_STRING);
+	$email = filter_var($db->real_escape_string($_POST['email']), FILTER_SANITIZE_STRING);
+	$phone_no = filter_var($db->real_escape_string($_POST['pnum']), FILTER_SANITIZE_STRING);
+	$password = filter_var($db->real_escape_string($_POST['pwd']), FILTER_SANITIZE_STRING);
+	$confirm_password = filter_var($db->real_escape_string($_POST['cpwd']), FILTER_SANITIZE_STRING);
 	
 
 	//Check if all fields are empty
