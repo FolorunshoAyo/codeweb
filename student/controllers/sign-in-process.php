@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
 					//this user is made payment for the application form but has not filled the form.
 					//redirect user to the application form
 					json_encode(array('success' => 1, 'redirect' => 'application_form'));
-					header("Location:../make-payment.php");
+					header("Location:../application_form.php");
 					
 
 				}elseif ($row['is_applicant'] == '1' && $row['is_student']=='0') {
