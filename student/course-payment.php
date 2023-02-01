@@ -91,13 +91,14 @@
                 </div>
 
                 <div class="details">
-                    <h2><b>Course Payment</b></h2>
+                    <h2><b>Course Information</b></h2>
 
                     <p>
                         Course-title: Some title <br><br>
-                        Course fee: NGN 250000.00 <br><br>
+                        Course fee: NGN 250,000.00 <br><br>
                         Course fee paid: NGN 0.00 <br><br>
-                        Type of payment: One time payment
+                        Type of payment: Monthly Payment <br><br>
+                        Month(s) paid: 2
                     </p>
                 </div>
 
@@ -108,7 +109,7 @@
                             <span>Fee to pay:</span>
                         </div>
                         <div class="value">
-                            <span>NGN 250000.00</span>
+                            <span>NGN 250,000.00</span>
                         </div>
                     </div>
                     <!-- <div class="handling-info">
@@ -122,7 +123,7 @@
                     </div> -->
                     <div class="total">
                         <span><b>Total:</b></span>
-                        <span>NGN 250000.00</span>
+                        <span>NGN 250,000.00</span>
                     </div>
                 </div>
 

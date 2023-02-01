@@ -48,7 +48,7 @@ body{
 .title{
     color: var(--primary-color);
     font-size: 4rem;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     font-family: 'KyivType Sans', sans-serif;
 }
 
@@ -65,7 +65,7 @@ body{
 
 .form-groupings .form-group-container{
     flex: 0 0 48%;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .form-groupings .form-group-container.w-100{
@@ -209,7 +209,7 @@ body{
 }
 
 .register-container{
-    margin-top: 50px;
+    margin-top: 40px;
     text-align: center;
 }
 
@@ -221,7 +221,6 @@ body{
     border-radius: 5px;
     background-color: transparent;
     border: 2px solid var(--primary-color);
-    margin-bottom: 20px;
     cursor: pointer;
     transition: .3s;
 }
