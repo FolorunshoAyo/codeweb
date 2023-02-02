@@ -1,4 +1,9 @@
 /* DASHBOARD MENU STYLING */
+body{
+    background-image: none;
+    background-color: #ffffff; 
+}
+
 .dash-menu{
     width: 75px;
     position: fixed;
@@ -226,7 +231,7 @@ li a span.nav-item-badge{
     margin: 20px 0 0 75px;
     padding: 0 2rem;
     transition: .5s;
-    border-bottom: 1px solid var(--primary-color);
+    border-bottom: 4px solid var(--primary-color);
 }
 
 .side-menu-bottom{

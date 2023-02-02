@@ -18,7 +18,7 @@
   <title>Student Dashboard</title>
 </head>
 
-<body style="background-color: #fafafa">
+<body>
   <div class="dash-wrapper">
     <div class="mobile-backdrop"></div>
     <aside class="dash-menu">
@@ -72,7 +72,7 @@
           <li title="finance" class="nav-item">
             <a href="javascript:void(0)">
               <i class="fa fa-money"></i>
-              <span>Money</span>
+              <span>Finance</span>
             </a>
             <span class="nav-pill"></span>
           </li>
