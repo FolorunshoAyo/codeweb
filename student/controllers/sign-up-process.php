@@ -40,9 +40,8 @@ if (isset($_POST['submit'])) {
 				//Proceed to register if the email and phoneno does not exists
 			    $hash_pass = password_hash($confirm_password, PASSWORD_DEFAULT);
 			    //Save student information
-			    $statement_personal = $db->prepare("INSERT INTO users(first_name, last_name, username, password, email, phone_no) VALUES(?,?,?,?,?,?)");
-				$statement_personal->bind_param("ssssss", $first_name, $last_name, $username, $hash_pass, $email, $phone_no);
-				
+			    $statement_personal = $db->prepare("INSERT INTO users(first_name, last_name, username, password, email, phone_no, image) VALUES(?,?,?,?,?,?,?)");
+				$statement_personal->bind_param("sssssss", $first_name, $last_name, $username, $hash_pass, $email, $phone_no, $file_name);
 				if($statement_personal->execute()){
 					echo json_encode(array('success' => 1));
 				}
