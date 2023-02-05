@@ -14,9 +14,6 @@ if (isset($_POST['submit'])) {
 	$country = filter_var($db->real_escape_string($_POST['country']), FILTER_SANITIZE_STRING);
 	$applicant_leads = $_POST['leads'];
 
-	// CREATE A CUTOM IMAGE FOR THE USER
-	$file_name = make_avatar($user_details['first_name']);
-
 	// CLEAN AND GATHER GUARDIAN INFORMATION
 	$gfname = filter_var($db->real_escape_string($_POST['gfname']), FILTER_SANITIZE_STRING);
 	$glname = filter_var($db->real_escape_string($_POST['glname']), FILTER_SANITIZE_STRING);
@@ -51,8 +48,8 @@ if (isset($_POST['submit'])) {
 		echo json_encode(array('success' => 0, 'error_title' => "Form error", 'error_message' => "All fields are required"));
 		exit();
 	} else {
-		$sql_insert_student = $db->prepare("INSERT INTO students(user_id, profile_avatar, sex, date_of_birth, address, city, state, country, leads) VALUES(?,?,?,?,?,?,?,?,?)");
-		$sql_insert_student->bind_param("issssssss", $user_id, $file_name, $sex, $dob, $address, $city, $state, $country, $leads);
+		$sql_insert_student = $db->prepare("INSERT INTO students(user_id, sex, date_of_birth, address, city, state, country, leads) VALUES(?,?,?,?,?,?,?,?,?)");
+		$sql_insert_student->bind_param("issssssss", $user_id, $sex, $dob, $address, $city, $state, $country, $leads);
 		$student_id = $db->insert_id;
 
 		$sql_insert_guardian = $db->prepare("INSERT INTO guardians(student_id, first_name, last_name, phone_no, email, occupation, relationship, address, city, state, country) VALUES(?,?,?,?,?,?,?,?,?,?,?)");

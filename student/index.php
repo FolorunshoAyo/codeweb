@@ -140,13 +140,14 @@
                         $(".register-container button").attr("disabled", true);
                     },
                     success: function (response) {
+                        ftoast("success", "Login successful", 1000);
                         setTimeout(() => {
                             if (response.success === 1) {
-                                if(reponse.redirect === "make_payment"){
+                                if(response.redirect === "make_payment"){
                                     window.location = "make-form-payment";
                                 }else if(response.redirect === "application_form"){
                                     window.location = "application-form"
-                                }else if(reponse.redirect === "select_course"){
+                                }else if(response.redirect === "select_course"){
                                     window.location = "select-course";
                                 }else{
                                     window.location = "dashboard/"
@@ -163,6 +164,13 @@
                                     ftoast("error", response.error_message, 4000);
                                 }
                             }
+                        }, 1500);
+                    },
+                    error: function () {
+                        $(".register-container button").attr("disabled", false);
+                        $(".register-container button").html("Sign In");
+                        setTimeout(() => {
+                            ftoast("Unable to process request. Please check your internet connection and try again");
                         }, 1500);
                     },
                 });

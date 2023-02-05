@@ -1,6 +1,6 @@
 <?php
 require(dirname(__DIR__) . '/auth-library/resources.php');
-Auth::User("login");
+// Auth::User("login");
 
 if (isset($_GET["transaction_id"]) && isset($_GET["status"]) && isset($_GET["tx_ref"])) {
 	$trans_id = $_GET['transaction_id'];
@@ -40,16 +40,14 @@ if (isset($_GET["transaction_id"]) && isset($_GET["status"]) && isset($_GET["tx_
 		
 		$sql_update_form_payment = $db->query("UPDATE users SET has_paid_form = '1' WHERE user_id ={$user_id}");
 
-		if ($sql_update_form_payment) {			
-			$_SESSION['payment'] = "success";
-			header("location: ../success");
+		if ($sql_update_form_payment) {
+			$_SESSION['reg_status'] = "1";		
+			header("location: ../payment-success");
 		}
 		else {
-			$_SESSION['payment'] = "failed";
 			header("location: ../error");
 		}
 	}else {
-		$_SESSION['payment'] = "failed";
 		header("location: ../error");
 	}
 

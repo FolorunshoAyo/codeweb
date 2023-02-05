@@ -39,8 +39,11 @@ if (isset($_POST['submit'])) {
 			else{
 				//Proceed to register if the email and phoneno does not exists
 			    $hash_pass = password_hash($confirm_password, PASSWORD_DEFAULT);
+
+				//CREATE AN IMAGE WITH THE USER NAME INITIAL
+				$file_name = make_avatar(strtoupper(substr($username, 0, 1)));
 			    //Save student information
-			    $statement_personal = $db->prepare("INSERT INTO users(first_name, last_name, username, password, email, phone_no, image) VALUES(?,?,?,?,?,?,?)");
+			    $statement_personal = $db->prepare("INSERT INTO users(first_name, last_name, username, passkey, email, phone_no, profile_avatar) VALUES(?,?,?,?,?,?,?)");
 				$statement_personal->bind_param("sssssss", $first_name, $last_name, $username, $hash_pass, $email, $phone_no, $file_name);
 				if($statement_personal->execute()){
 					echo json_encode(array('success' => 1));

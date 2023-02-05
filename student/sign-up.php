@@ -276,7 +276,7 @@
                             if (response.success === 1) {
                                 ftoast("success", "You've successfully signed up").then((_) => {
                                     // REDIRECT USER TO THE SIGN IN PAGE
-                                    window.location = "sign-in";
+                                    window.location = "./";
                                 });
                             } else {
                                 $(".register-container button").attr("disabled", false);
@@ -290,6 +290,13 @@
                                     ftoast("error", response.error_message);
                                 }
                             }
+                        }, 1500);
+                    },
+                    error: function () {
+                        $(".register-container button").attr("disabled", false);
+                        $(".register-container button").html("Sign Up");
+                        setTimeout(() => {
+                            ftoast("Unable to process request. Please check your internet connection and try again");
                         }, 1500);
                     },
                 });

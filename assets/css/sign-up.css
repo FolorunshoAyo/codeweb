@@ -65,7 +65,7 @@ body{
 
 .form-groupings .form-group-container{
     flex: 0 0 48%;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .form-groupings .form-group-container.w-100{

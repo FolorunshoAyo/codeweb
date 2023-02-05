@@ -1,7 +1,17 @@
 <?php 
-// require(__DIR__.'/auth-library/resources.php');
-// Auth::Route("student/");
-// $url = strval($url);
+    require(__DIR__.'/auth-library/resources.php');
+    Auth::User();
+    $url = strval($url);
+
+    $user_id = $_SESSION['user_id'];
+
+    $sql_get_user_details = $db->query("SELECT * FROM users WHERE user_id={$user_id}");
+
+    if($sql_get_user_details->num_rows){
+        $user_details = $sql_get_user_details->fetch_assoc();
+    }else{
+        header("location: sign-in");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,8 +43,8 @@
 <body>
     <header class="make-payment-header">
         <div class="person-container">
-            <img src="images/1674998447.png" alt="profile avatar">
-            Folorunsho
+            <img src="images/<?php echo $user_details['profile_avatar'] ?>" alt="profile avatar">
+            <?php echo ucfirst($user_details['username']) ?>
         </div>
         
         <div class="progress-container">

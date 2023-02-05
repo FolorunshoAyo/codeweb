@@ -12,25 +12,61 @@ if (isset($_POST['submit'])) {
 		$sql = $db->query("SELECT * FROM users WHERE username='{$username}'");
 		if ($sql->num_rows == 1) {
 			$row = $sql->fetch_assoc();
-			$passcode = $row['password'];
+			$passcode = $row['passkey'];
 			if (password_verify($password, $passcode)) {
 			// if ($password === $passcode) {
 				if($row['has_paid_form'] == '0' && $row['is_applicant']=='0') {
 					//this user had not paid for the application form
 					//sent to payment gateway to pay for application form
-					json_encode(array('success' => 1, 'redirect' => 'make_payment'));
+					$_SESSION['user_id'] = $row['user_id'];
+					$_SESSION['reg_status'] = "0";
+					echo json_encode(array('success' => 1, 'redirect' => 'make_payment'));
 				}elseif ($row['has_paid_form'] == '1' && $row['is_applicant'] == '0') {
-					//this user is made payment for the application form but has not filled the form.
+					//this user has made payment for the application form but has not filled the form.
 					//redirect user to the application form
-					json_encode(array('success' => 1, 'redirect' => 'application_form'));			
+					$_SESSION['user_id'] = $row['user_id'];
+					$_SESSION['reg_status'] = "1";
+					echo json_encode(array('success' => 1, 'redirect' => 'application_form'));			
 				}elseif ($row['is_applicant'] == '1' && $row['is_student']=='0') {
 					//this person has filled  the application form but has not selected any course of study
 					//redirect to select course page
-					json_encode(array('success' => 1, "redirect" => "select_course"));
+					$_SESSION['user_id'] = $row['user_id'];
+					$_SESSION['reg_status'] = "2";
+					echo json_encode(array('success' => 1, "redirect" => "select_course"));
 				// }elseif ($row['is_applicant'] == '1' && $row['is_student']=='1') {
 				}else{
-					//this  user has selected a course of study and has made payments.
-					json_encode(array('success' => 1, "redirect" => "student_dashboard"));
+					//this user has selected a course of study and has made payments.
+					$user_id = $row['user_id'];
+					$_SESSION['reg_status'] = "3";
+					$_SESSION['user_id'] = $user_id;
+
+					// CHECKING FOR OUTSTANDING FEES
+					$sql_get_student_details = $db->query("SELECT * FROM students WHERE user_id={$user_id}");
+					$student_id = $sql_get_student_details->fetch_assoc()['student_id'];
+					$sql_check_outstanding_payments = $db->query("SELECT * FROM course_lookup (INNER JOIN students ON course_lookup.student_id=students.student_id) (INNER JOIN courses ON course_lookup.course_id=courses.course_id) JOIN WHERE student_id ={$student_id} AND completed=0 ORDER BY id DESC LIMIT 1");
+					$outstanding_course_details = $sql_check_outstanding_payments->fetch_assoc();
+
+					if($sql_check_outstanding_payments->num_rows === 1){
+						if($outstanding_course_details['installment'] === "1"){
+							if($outstanding_course_details['months_paid'] === $outstanding_course_details['duration_in_months']){
+								echo json_encode(array('success' => 1, "redirect" => "student_dashboard"));
+							}else{
+								$due_time = strtotime($outstanding_course_details['last_payment'] . "+ 1 month");
+								$today = strtotime("now");
+		
+								// CHECKING IF USER PAYMENT IS PAST DUE
+								if($today >= $due_time){
+									echo json_encode(array("success" => 0, "error_title" => "Due Payment", "error_message" => "Your payment is due for the month. Pay now to access dashboard"));
+								}else{
+									echo json_encode(array('success' => 1, "redirect" => "student_dashboard"));
+								}
+							}
+						}else{
+							echo json_encode(array('success' => 1, "redirect" => "student_dashboard"));	
+						}
+					}else{
+						echo json_encode(array('success' => 1, "redirect" => "student_dashboard"));
+					}
 				}
                 
 			}else {
