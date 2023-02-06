@@ -11,7 +11,7 @@ class Auth
     {
         if (isset($_SESSION['user_id'])) {             
             header("Location: ".$_ENV['URL']. $url);
-        }else {
+        }else { 
         //Don't Redirect
         }
     }

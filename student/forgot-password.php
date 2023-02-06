@@ -37,7 +37,7 @@
                 <h1 class="title">Enter Email</h1>
                 <p style="font-size: 2rem; margin: -10px 0 20px;">A mail would be sent to you to reset your password</p>
                 <div class="registeration-form-container">
-                    <form id="signup-form">
+                    <form id="signup-form" action="controllers/verify_mail.php" method="post">
                         <div class="personal-info-container form-groupings">
 
                             <div class="form-group-container w-100">
@@ -105,41 +105,41 @@
                 formData.append("submit", true);
 
                 //SENDING FORM DATA TO THE SERVER
-                $.ajax({
-                    type: "post",
-                    url: 'controllers/verify-mail.php',
-                    data: formData,
-                    cache: false,
-                    contentType: false,
-                    enctype: 'multipart/form-data',
-                    processData: false,
-                    dataType: 'json',
-                    beforeSend: function () {
-                        $(".register-container button").html("Signing up...");
-                        $(".register-container button").attr("disabled", true);
-                    },
-                    success: function (response) {
-                        setTimeout(() => {
-                            if (response.success === 1) {
-                                ftoast("success", "You've successfully signed up").then((_) => {
-                                    // REDIRECT USER TO THE SIGN IN PAGE
-                                    window.location = "sign-in";
-                                });
-                            } else {
-                                $(".register-container button").attr("disabled", false);
-                                $(".register-container button").html("Sign Up");
+                // $.ajax({
+                //     type: "post",
+                //     url: 'controllers/verify-mail.php',
+                //     data: formData,
+                //     cache: false,
+                //     contentType: false,
+                //     enctype: 'multipart/form-data',
+                //     processData: false,
+                //     dataType: 'json',
+                //     beforeSend: function () {
+                //         $(".register-container button").html("Signing up...");
+                //         $(".register-container button").attr("disabled", true);
+                //     },
+                //     success: function (response) {
+                //         setTimeout(() => {
+                //             if (response.success === 1) {
+                //                 ftoast("success", "You've successfully signed up").then((_) => {
+                //                     // REDIRECT USER TO THE SIGN IN PAGE
+                //                     window.location = "sign-in";
+                //                 });
+                //             } else {
+                //                 $(".register-container button").attr("disabled", false);
+                //                 $(".register-container button").html("Sign Up");
 
-                                if (response.error_title === "fatal") {
-                                    // REFRESH CURRENT PAGE
-                                    location.reload();
-                                } else {
-                                    // ALERT USER
-                                    ftoast("error", response.error_message);
-                                }
-                            }
-                        }, 1500);
-                    },
-                });
+                //                 if (response.error_title === "fatal") {
+                //                     // REFRESH CURRENT PAGE
+                //                     location.reload();
+                //                 } else {
+                //                     // ALERT USER
+                //                     ftoast("error", response.error_message);
+                //                 }
+                //             }
+                //         }, 1500);
+                //     },
+                // });
             });
     </script>
 </body>
