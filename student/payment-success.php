@@ -48,11 +48,11 @@
                 <?php }else{ ?>
                     <p class="text"> You have successfully paid for this course </p>
                     <p class="text">Please hold on, you would be redirected in a few seconds.</p>
+                    <div class="success-container">
+                        <button>Download reciept</button>
+                        <button>Go to Dashboard</button>
+                    </div>
                 <?php } ?>
-                <div class="success-container">
-                    <button>Download reciept</button>
-                    <button>Go to Dashboard</button>
-                </div>
             </div>
         </div>
     </section>
@@ -72,7 +72,7 @@
             <?php
             }
             ?>
-        }, (2000));
+        }, 5000);
     </script>
 </body>
 

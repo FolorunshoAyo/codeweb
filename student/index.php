@@ -1,7 +1,7 @@
 <?php
-// require(__DIR__.'/auth-library/resources.php');
-// Auth::Route("student/");
-// $url = strval($url);
+    require(__DIR__.'/auth-library/resources.php');
+    Auth::Route();
+    $url = strval($url);
 ?>
 <!DOCTYPE html>
 <html lang="en">

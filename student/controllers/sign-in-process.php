@@ -37,8 +37,6 @@ if (isset($_POST['submit'])) {
 				}else{
 					//this user has selected a course of study and has made payments.
 					$user_id = $row['user_id'];
-					$_SESSION['reg_status'] = "3";
-					$_SESSION['user_id'] = $user_id;
 
 					// CHECKING FOR OUTSTANDING FEES
 					$sql_get_student_details = $db->query("SELECT * FROM students WHERE user_id={$user_id}");
@@ -58,13 +56,19 @@ if (isset($_POST['submit'])) {
 								if($today >= $due_time){
 									echo json_encode(array("success" => 0, "error_title" => "Due Payment", "error_message" => "Your payment is due for the month. Pay now to access dashboard"));
 								}else{
+									$_SESSION['reg_status'] = "3";
+									$_SESSION['user_id'] = $user_id;
 									echo json_encode(array('success' => 1, "redirect" => "student_dashboard"));
 								}
 							}
 						}else{
+							$_SESSION['reg_status'] = "3";
+							$_SESSION['user_id'] = $user_id;
 							echo json_encode(array('success' => 1, "redirect" => "student_dashboard"));	
 						}
 					}else{
+						$_SESSION['reg_status'] = "3";
+						$_SESSION['user_id'] = $user_id;
 						echo json_encode(array('success' => 1, "redirect" => "student_dashboard"));
 					}
 				}

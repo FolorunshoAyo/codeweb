@@ -30,6 +30,8 @@
     <link rel="stylesheet" href="../assets/css/base.css">
     <!-- Codeweb Form -->
     <link rel="stylesheet" href="../assets/css/fonts.css">
+    <!-- Codeweb Preloader  -->
+    <link rel="stylesheet" href="../assets/css/student/preloader.css">
     <!-- ENROLL STYLESHEET  -->
     <link rel="stylesheet" href="../assets/css/form.css" type="text/css">
     <!-- STUDENT HEADER STYLESHEET -->
@@ -45,6 +47,11 @@
 </head>
 
 <body>
+    <div class="preloader-wrapper">
+        <div class="loader">
+            C
+        </div>
+    </div>
     <header class="make-payment-header">
         <div class="person-container">
             <img src="images/<?php echo $user_details['profile_avatar'] ?>" alt="profile avatar">
@@ -183,25 +190,56 @@
     <!-- Flutterwave script -->
     <script src="https://checkout.flutterwave.com/v3.js"></script>
     <script>
-        function makePayment(x, final_amt) {
-            FlutterwaveCheckout({
-                public_key: "FLWPUBK_TEST-9907ef66591a80edfb5c7ea51208031d-X",
-                tx_ref: x,
-                amount: final_amt,
-                currency: "NGN",
-                payment_options: "card, banktransfer, ussd",
-                redirect_url: `https://localhost/codeweb/student/controllers/auth-form-payment`,
+        function makePayment(transaction_ref, final_amt) {
+            const formData = new FormData();
 
-                customer: {
-                    email: "info@codeweb.ng",
-                    phone_number: "123456789",
-                    name: "CODEWEB",
-                },
-                customizations: {
-                    title: "Form Payment",
-                    description: '',
-                    logo: "https://localhost/codeweb/assets/images/logo.jpg",
-                },
+            formData.append("submit", true);
+            formData.append("tx_ref", transaction_ref);
+            formData.append("amount", final_amt);
+
+            //SENDING FORM DATA TO THE SERVER
+            $.ajax({
+                type: "post",
+                url: 'controllers/create-deposit.php',
+                data: formData,
+                contentType: false,
+                processData: false,
+                dataType: 'json',
+                success: function (response) {
+                    if (response.success === 1) {
+                        FlutterwaveCheckout({
+                            // public_key: "FLWPUBK-8a73c7e27bc482383e107f69056d6c48-X",
+                            public_key: "FLWPUBK_TEST-9907ef66591a80edfb5c7ea51208031d-X",
+                            tx_ref: response.tx_ref,
+                            amount: response.amount_charged,
+                            currency: "NGN",
+                            payment_options: "card, banktransfer, ussd",
+                            redirect_url: `https://localhost/codeweb/student/controllers/auth-form-payment`,
+
+                            customer: {
+                                email: "info@codeweb.ng",
+                                phone_number: "123456789",
+                                name: "CODEWEB",
+                            },
+                            customizations: {
+                                title: "Form Payment",
+                                description: '',
+                                logo: "https://codeweb.ng/assets/images/logo.jpg",
+                            },
+                        });
+                        // ENABLE BUTTON TO TRY REPAYMENT
+                        $(".pay-btn-container button").attr("disabled", false);
+                    } else {
+                        // ALERT USER
+                        Swal.fire({
+                            title: response.error_title,
+                            icon: "error",
+                            text: response.error_message,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false,
+                        });
+                    }
+                }
             });
         }
 
@@ -212,6 +250,9 @@
         }
 
         $(".pay-btn-container button").on("click", function () {
+            // DISABLE BUTTON TO AVOID MULTIPLE CLICKS.
+            $(".pay-btn-container button").attr("disabled", true);
+            
             // GENERATING TRANSACTION REF:
             const tranx_ref = generateTransaction_ref();
 
@@ -274,13 +315,8 @@
             });
         };
 
-        // function showProgress(noOfPages){
-        //     if(noOfPages === 1){
-                
-        //     }
-        // }
-
-        // showProgress(1);
+         // REMOVE PRELOADER
+         setTimeout(() => $(".preloader-wrapper").addClass("loaded"), 3000);
     </script>
 </body>
 

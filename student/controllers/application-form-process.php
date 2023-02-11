@@ -6,25 +6,25 @@ if (isset($_POST['submit'])) {
 	$user_details = $_SESSION['user_details'];
 	// CLEAN AND GATHER PERSONAL INFORMATION
 	$user_id = $user_details['user_id'];
-	$sex = filter_var($db->real_escape_string($_POST['sex']), FILTER_SANITIZE_STRING);
-	$dob = filter_var($db->real_escape_string($_POST['dob']), FILTER_SANITIZE_STRING);
-	$address = filter_var($db->real_escape_string($_POST['address']), FILTER_SANITIZE_STRING);
-	$city = filter_var($db->real_escape_string($_POST['city']), FILTER_SANITIZE_STRING);
-	$state = filter_var($db->real_escape_string($_POST['state']), FILTER_SANITIZE_STRING);
-	$country = filter_var($db->real_escape_string($_POST['country']), FILTER_SANITIZE_STRING);
+	$sex = filter_var($db->real_escape_string($_POST['sex']), 513);
+	$dob = filter_var($db->real_escape_string($_POST['dob']), 513);
+	$address = filter_var($db->real_escape_string($_POST['address']), 513);
+	$city = filter_var($db->real_escape_string($_POST['city']), 513);
+	$state = filter_var($db->real_escape_string($_POST['state']), 513);
+	$country = filter_var($db->real_escape_string($_POST['country']), 513);
 	$applicant_leads = $_POST['leads'];
 
 	// CLEAN AND GATHER GUARDIAN INFORMATION
-	$gfname = filter_var($db->real_escape_string($_POST['gfname']), FILTER_SANITIZE_STRING);
-	$glname = filter_var($db->real_escape_string($_POST['glname']), FILTER_SANITIZE_STRING);
-	$gpnum = filter_var($db->real_escape_string($_POST['gpnum']), FILTER_SANITIZE_STRING);
-	$goccupation = filter_var($db->real_escape_string($_POST['goccupation']), FILTER_SANITIZE_STRING);
-	$grelationship = filter_var($db->real_escape_string($_POST['grelationship']), FILTER_SANITIZE_STRING);
-	$gemail = filter_var($db->real_escape_string($_POST['gemail']), FILTER_SANITIZE_STRING);
-	$gaddress = filter_var($db->real_escape_string($_POST['gaddress']), FILTER_SANITIZE_STRING);
-	$gcity = filter_var($db->real_escape_string($_POST['gcity']), FILTER_SANITIZE_STRING);
-	$gstate = filter_var($db->real_escape_string($_POST['gstate']), FILTER_SANITIZE_STRING);
-	$gcountry = filter_var($db->real_escape_string($_POST['gcountry']), FILTER_SANITIZE_STRING);
+	$gfname = filter_var($db->real_escape_string($_POST['gfname']), 513);
+	$glname = filter_var($db->real_escape_string($_POST['glname']), 513);
+	$gpnum = filter_var($db->real_escape_string($_POST['gpnum']), 513);
+	$goccupation = filter_var($db->real_escape_string($_POST['goccupation']), 513);
+	$grelationship = filter_var($db->real_escape_string($_POST['grelationship']), 513);
+	$gemail = filter_var($db->real_escape_string($_POST['gemail']), 513);
+	$gaddress = filter_var($db->real_escape_string($_POST['gaddress']), 513);
+	$gcity = filter_var($db->real_escape_string($_POST['gcity']), 513);
+	$gstate = filter_var($db->real_escape_string($_POST['gstate']), 513);
+	$gcountry = filter_var($db->real_escape_string($_POST['gcountry']), 513);
 	
 	$leads = "";
 

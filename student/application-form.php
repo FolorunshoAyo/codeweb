@@ -10,7 +10,7 @@
     if($sql_get_user_details->num_rows){
         $user_details = $sql_get_user_details->fetch_assoc();
     }else{
-        header("location: sign-in");
+        header("location: ./");
     }
 ?>
 <!DOCTYPE html>
@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="../assets/css/fonts.css">
     <!-- initial config css file -->
     <link rel="stylesheet" href="../assets/css/base.css">
+    <!-- Toast CSS (codeweb) -->
+    <link rel="stylesheet" href="../assets/css/custom-toast.css">
+    <!-- Codeweb Preloader  -->
+    <link rel="stylesheet" href="../assets/css/student/preloader.css">
     <!-- CODEWEB Form -->
     <link rel="stylesheet" href="../assets/css/form.css">
     <!-- STUDENT HEADER CSS -->
@@ -41,6 +45,11 @@
 </head>
 
 <body>
+    <div class="preloader-wrapper">
+        <div class="loader">
+            C
+        </div>
+    </div>
     <header class="make-payment-header">
         <div class="person-container">
             <img src="images/<?php echo $user_details['profile_avatar'] ?>" alt="profile avatar">
@@ -93,14 +102,14 @@
 
                             <div class="form-group-container">
                                 <div class="form-group animate">
-                                    <input type="text" name="fname" id="fname" class="form-input" placeholder=" " required>
+                                    <input type="text" name="fname" id="fname" class="form-input" value="<?php echo $user_details['first_name'] ?>" placeholder=" " required disabled>
                                     <label for="fname">First name</label>
                                 </div>
                             </div>
 
                             <div class="form-group-container">
                                 <div class="form-group animate">
-                                    <input type="text" name="lname" id="lname" class="form-input"  placeholder=" " required>
+                                    <input type="text" name="lname" id="lname" class="form-input" value="<?php echo $user_details['last_name'] ?>" placeholder=" " required disabled>
                                     <label for="lname">Last name</label>
                                 </div>
                             </div>
@@ -125,14 +134,14 @@
 
                             <div class="form-group-container">
                                 <div class="form-group animate">
-                                    <input type="email" name="email" id="email" class="form-input"  placeholder=" " required>
+                                    <input type="email" name="email" id="email" class="form-input"  value="<?php echo $user_details['email'] ?>" placeholder=" " required disabled>
                                     <label for="email">Email</label>
                                 </div>
                             </div>
 
                             <div class="form-group-container">
                                 <div class="form-group animate">
-                                    <input type="number" name="phoneno" id="phoneno" class="form-input"  placeholder=" " required>
+                                    <input type="number" name="phoneno" id="phoneno" class="form-input" value="<?php echo $user_details['phone_no'] ?>" placeholder=" " required disabled>
                                     <label for="phoneno">Phone number</label>
                                 </div>
                             </div>
@@ -312,7 +321,7 @@
             </div>
         </div>
         <div class="footer-copyright">
-            &copy; Copyright Codeweb <?php echo(date("Y"))?>.
+            &copy; Copyright Codeweb <?php echo(date("Y"))?>. 
         </div>
     </footer>
       <!-- FONT AWESOME JIT SCRIPT-->
@@ -595,6 +604,15 @@
 
         //     $("#school_name").html(htmlOutput);
         // }
+        // REMOVE PRELOADER
+        setTimeout(() => {
+            $(".preloader-wrapper").addClass("loaded");
+            <?php 
+                if(isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] == "https://localhost/codeweb/student/"){
+                    echo 'ftoast("success", "Welcome back ' . $user_details['username'] . '", 4000);';
+                } 
+            ?>
+        }, 3000);
     </script>
 </body>
 

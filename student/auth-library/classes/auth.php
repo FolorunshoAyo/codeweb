@@ -34,7 +34,7 @@ class Auth
         if (isset($_SESSION['user_id'])) {
             //Don't Redirect
         }else {
-            header("location: " . $_ENV['URL'] . "sign-in");
+            header("location: " . $_ENV['URL']);
         }
     }
 }

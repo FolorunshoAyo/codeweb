@@ -1,7 +1,17 @@
 <?php 
-// require(__DIR__.'/auth-library/resources.php');
-// Auth::Route("student/");
-// $url = strval($url);
+    require(__DIR__.'/auth-library/resources.php');
+    // Auth::User();
+    $url = strval($url);
+
+    $user_id = $_SESSION['user_id'];
+
+    $sql_get_user_details = $db->query("SELECT * FROM users WHERE user_id={$user_id}");
+
+    if($sql_get_user_details->num_rows){
+        $user_details = $sql_get_user_details->fetch_assoc();
+    }else{
+        header("location: ./");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,6 +30,8 @@
     <link rel="stylesheet" href="../assets/css/base.css">
     <!-- Codeweb Form -->
     <link rel="stylesheet" href="../assets/css/fonts.css">
+    <!-- Codeweb Preloader  -->
+    <link rel="stylesheet" href="../assets/css/student/preloader.css">
     <!-- CUSTOM TOAST CSS -->
     <link rel="stylesheet" href="../assets/css/custom-toast.css">
     <!-- ENROLL STYLESHEET  -->
@@ -37,6 +49,11 @@
 </head>
 
 <body>
+    <div class="preloader-wrapper">
+        <div class="loader">
+            C
+        </div>
+    </div>
     <header class="make-payment-header">
         <div class="person-container">
             <img src="images/1674998447.png" alt="profile avatar">
@@ -382,6 +399,16 @@
                 },
             });
         };
+
+        // REMOVE PRELOADER
+        setTimeout(() => {
+            $(".preloader-wrapper").addClass("loaded");
+            <?php 
+                if(isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] == "https://localhost/codeweb/student/"){
+                    echo 'ftoast("success", "Welcome back ' . $user_details['username'] . '", 4000);';
+                } 
+            ?>
+        }, 3000);
     </script>
 </body>
 

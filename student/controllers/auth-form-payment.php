@@ -1,6 +1,8 @@
 <?php
 require(dirname(__DIR__) . '/auth-library/resources.php');
-// Auth::User("login");
+Auth::User("");
+
+$user_id = $_SESSION['user_id'];
 
 if (isset($_GET["transaction_id"]) && isset($_GET["status"]) && isset($_GET["tx_ref"])) {
 	$trans_id = $_GET['transaction_id'];
@@ -17,8 +19,8 @@ if (isset($_GET["transaction_id"]) && isset($_GET["status"]) && isset($_GET["tx_
 	curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
 	//Set the API headers
 	curl_setopt($curl, CURLOPT_HTTPHEADER, [
+		// "Authorization: Bearer FLWSECK-39743e6c4b313849e1a091fb9e47b322-X",
 		"Authorization: Bearer FLWSECK_TEST-a2811a821fc0113cb78c03ca07632980-X",
-        // "Authorization: Bearer FLWSECK_TEST-1411985fdb559935058b820a616c6720-X",
 		"Content-Type: Application/json"
 	]);
 	//Run cURL
@@ -38,6 +40,7 @@ if (isset($_GET["transaction_id"]) && isset($_GET["status"]) && isset($_GET["tx_
 		$api_amount = $result->data->amount;
 		$api_charged_amount = $result->data->charged_amount;
 		
+		$sql_update_deposits = $db->query("UPDATE deposits SET deposit_status=1, deposit_amount={$api_amount} WHERE transaction_ref='{$api_tranx_ref}' AND user_id={$user_id}");
 		$sql_update_form_payment = $db->query("UPDATE users SET has_paid_form = '1' WHERE user_id ={$user_id}");
 
 		if ($sql_update_form_payment) {
