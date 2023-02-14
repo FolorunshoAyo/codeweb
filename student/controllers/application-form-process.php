@@ -3,9 +3,8 @@ require(dirname(__DIR__) . '/auth-library/resources.php');
 // Auth::User("");
 
 if (isset($_POST['submit'])) {
-	$user_details = $_SESSION['user_details'];
 	// CLEAN AND GATHER PERSONAL INFORMATION
-	$user_id = $user_details['user_id'];
+	$user_id = $_SESSION['user_id'];
 	$sex = filter_var($db->real_escape_string($_POST['sex']), 513);
 	$dob = filter_var($db->real_escape_string($_POST['dob']), 513);
 	$address = filter_var($db->real_escape_string($_POST['address']), 513);
@@ -30,7 +29,7 @@ if (isset($_POST['submit'])) {
 
 	// CHECK FOR RETRIEVED LEADS
 	if(!empty($applicant_leads)){
-		$count = 0;
+		$count = 1;
 		// Loop to store and display values of individual checked checkbox.
 		foreach($applicant_leads as $selected){
 			if(count($applicant_leads) === $count){
@@ -48,15 +47,18 @@ if (isset($_POST['submit'])) {
 		echo json_encode(array('success' => 0, 'error_title' => "Form error", 'error_message' => "All fields are required"));
 		exit();
 	} else {
-		$sql_insert_student = $db->prepare("INSERT INTO students(user_id, sex, date_of_birth, address, city, state, country, leads) VALUES(?,?,?,?,?,?,?,?,?)");
-		$sql_insert_student->bind_param("issssssss", $user_id, $sex, $dob, $address, $city, $state, $country, $leads);
-		$student_id = $db->insert_id;
-
-		$sql_insert_guardian = $db->prepare("INSERT INTO guardians(student_id, first_name, last_name, phone_no, email, occupation, relationship, address, city, state, country) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
-		$sql_insert_guardian->bind_param("issssssssss", $gfname, $glname, $gpnum, $gemail, $goccupation, $grelationship, $gaddress, $gcity, $gstate, $gcountry);
+		$sql_insert_student = $db->prepare("INSERT INTO students(user_id, sex, date_of_birth, address, city, state, country, leads) VALUES(?,?,?,?,?,?,?,?)");
+		$sql_insert_student->bind_param("isssssss", $user_id, $sex, $dob, $address, $city, $state, $country, $leads);
 
 		if ($sql_insert_student->execute()) {
+			$student_id = $db->insert_id;
+			$sql_insert_guardian = $db->prepare("INSERT INTO guardians(student_id, first_name, last_name, phone_no, email, occupation, relationship, address, city, state, country) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
+			$sql_insert_guardian->bind_param("issssssssss", $student_id, $gfname, $glname, $gpnum, $gemail, $goccupation, $grelationship, $gaddress, $gcity, $gstate, $gcountry);
+
 			if($sql_insert_guardian->execute()){
+				// UPDATE USER STATUS
+				$db->query("UPDATE users SET reg_status = '2' WHERE user_id = {$user_id}");
+				$_SESSION['reg_status'] = "1";
 				echo json_encode(array('success' => 1));
 			}
 		}

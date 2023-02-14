@@ -3,6 +3,8 @@
     Auth::User();
     $url = strval($url);
 
+    autoRedirect("application-form");
+
     $user_id = $_SESSION['user_id'];
 
     $sql_get_user_details = $db->query("SELECT * FROM users WHERE user_id={$user_id}");
@@ -257,19 +259,19 @@
                         <h2 class="form-title">How did you hear about us?</h2>
 
                         <div class="personal-info-container form-groupings checkboxs">
-                            <label id="check-1"><input type="checkbox" id="check-1" name="leads[]">Education Agent</label>
-                            <label id="check-2"><input type="checkbox" id="check-2" name="leads[]">Career/Education fair</label>
-                            <label id="check-3"><input type="checkbox" id="check-3" name="leads[]">Friends</label>
-                            <label id="check-4"><input type="checkbox" id="check-4" name="leads[]">Family Member</label>
-                            <label id="check-5"><input type="checkbox" id="check-5" name="leads[]">Career Adviser</label>
-                            <label id="check-6"><input type="checkbox" id="check-6" name="leads[]">Billboard</label>
-                            <label id="check-7"><input type="checkbox" id="check-7" name="leads[]">Google</label>
-                            <label id="check-8"><input type="checkbox" id="check-8" name="leads[]">Print/Newspaper</label>
-                            <label id="check-9"><input type="checkbox" id="check-9" name="leads[]">Social Media</label>
-                            <label id="check-10"><input type="checkbox" id="check-10" name="leads[]">Word of mouth</label>
-                            <label id="check-11"><input type="checkbox" id="check-11" name="leads[]">Other search engine</label>
-                            <label id="check-12"><input type="checkbox" id="check-12" name="leads[]">Embassy</label>
-                            <label id="check-13"><input type="checkbox" id="check-13" name="leads[]">Others</label>
+                            <label id="check-1"><input type="checkbox" id="check-1" name="leads[]" value="education agent">Education Agent</label>
+                            <label id="check-2"><input type="checkbox" id="check-2" name="leads[]" value="career/education fair">Career/Education fair</label>
+                            <label id="check-3"><input type="checkbox" id="check-3" name="leads[]" value="friends">Friends</label>
+                            <label id="check-4"><input type="checkbox" id="check-4" name="leads[]" value="family member">Family Member</label>
+                            <label id="check-5"><input type="checkbox" id="check-5" name="leads[]" value="career adviser">Career Adviser</label>
+                            <label id="check-6"><input type="checkbox" id="check-6" name="leads[]" value="billboard">Billboard</label>
+                            <label id="check-7"><input type="checkbox" id="check-7" name="leads[]" value="google">Google</label>
+                            <label id="check-8"><input type="checkbox" id="check-8" name="leads[]" value="print/newspaper">Print/Newspaper</label>
+                            <label id="check-9"><input type="checkbox" id="check-9" name="leads[]" value="social media">Social Media</label>
+                            <label id="check-10"><input type="checkbox" id="check-10" name="leads[]" value="word of mouth">Word of mouth</label>
+                            <label id="check-11"><input type="checkbox" id="check-11" name="leads[]" value="other search engine">Other search engine</label>
+                            <label id="check-12"><input type="checkbox" id="check-12" name="leads[]" value="embassy">Embassy</label>
+                            <label id="check-13"><input type="checkbox" id="check-13" name="leads[]" value="others">Others</label>
                         </div>
 
                         <!-- <div class="agreement-container">
@@ -530,16 +532,14 @@
             //SENDING FORM DATA TO THE SERVER
             $.ajax({
                 type: "post",
-                url: 'controller/application-form-process.php',
+                url: 'controllers/application-form-process',
                 data: formData,
-                cache: false,
                 contentType: false,
-                enctype: 'multipart/form-data',
                 processData: false,
                 dataType: 'json',
                 beforeSend: function () {
-                    $(".register-container button").html("Submiting...");
-                    $(".register-container button").attr("disabled", true);
+                    $(".enroll-form-container button").html("Submiting...");
+                    $(".enroll-form-container button").attr("disabled", true);
                 },
                 success: function (response) {
                 setTimeout(() => {
@@ -551,24 +551,15 @@
                                 window.location = "select-course.php";
                             });
                         } else {
-                            $(".register-container button").attr("disabled", false);
-                            $(".register-container button").html("Submit");
+                            $(".enroll-form-container button").attr("disabled", false);
+                            $(".enroll-form-container button").html("Submit");
 
                             if(response.error_title === "fatal"){
                                 // REFRESH CURRENT PAGE
                                 location.reload();
                             }else{
                                 // ALERT USER
-                                Swal.fire({
-                                    title: response.error_title,
-                                    icon: "error",
-                                    text: response.error_message,
-                                    allowOutsideClick: false,
-                                    allowEscapeKey: false,
-                                });
-                                // alert(`There was an error processing your form\n
-                                // Error title: ${response.error_title}\n 
-                                // Error message: ${response.error_message}\n`);
+                                ftoast("There was an error processing your form. Please try again.");
                             }
                         }
                     }, 1500);

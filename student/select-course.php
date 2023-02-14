@@ -1,7 +1,15 @@
 <?php 
     require(__DIR__.'/auth-library/resources.php');
-    // Auth::User();
+    Auth::User();
     $url = strval($url);
+
+    autoRedirect("select-course");
+
+    // NUMBER FORMATTER
+    // $human_readable = new \NumberFormatter(
+    //   'en_US', 
+    //   \NumberFormatter::PADDING_POSITION
+    // );
 
     $user_id = $_SESSION['user_id'];
 
@@ -56,8 +64,8 @@
     </div>
     <header class="make-payment-header">
         <div class="person-container">
-            <img src="images/1674998447.png" alt="profile avatar">
-            Folorunsho
+            <img src="images/<?php echo $user_details['profile_avatar'] ?>" alt="profile avatar">
+            <?php echo ucfirst($user_details['username']) ?>
         </div>
         
         <div class="progress-container">
@@ -102,20 +110,32 @@
                     <h2 class="form-title">Pick a course</h2>
 
                     <div class="form-groupings courses">
+                        <?php 
+                            $sql_get_all_courses = $db->query("SELECT * FROM courses ORDER BY category DESC");
+
+                            $web_count = $mobile_count = $network_count = 0;
+                            while($course_details = $sql_get_all_courses->fetch_assoc()){
+                        ?>
+                        <?php
+                            if($course_details['category'] === "web"){ 
+                                $web_count++;
+                                $sql_check_number_of_web_courses = $db->query("SELECT * FROM courses WHERE category='web'");
+                        ?>
                         <div class="form-group-container">
-                            <input type="radio" id="course-1" name="selected-course" value="1" class="radio-input">
-                            <label for="course-1" class="course-label">
+                            <input type="radio" id="course-<?php echo $course_details['course_id']?>" name="selected-course" value="<?php echo $course_details['course_id']?>" class="radio-input">
+                            <label for="course-<?php echo $course_details['course_id']?>" class="course-label">
                                 <div class="card">
                                     <div class="title-container">
-                                        <p>Web #1</p>
-                                        <span class="course-price">₦120k</span>
+                                        <p>Web <?php echo $sql_check_number_of_web_courses->num_rows === 1? "" : "#$web_count" ?></p>
+                                        <span class="course-price">₦ <?php echo number_format($course_details['course_  price']) ?></span>
                                     </div>
                                     <div class="more-info-container">
-                                        <h3 class="course-title">Web development using the LAMP stack (PHP)</h3>
-                                        <p class="course-description">
-                                            The LAMP stack class is designed for those who are interested in learning about the foundation of web development. The acronym LAMP stands for Linux, Apache, MySQL, and PHP and it refers to the software stack used to power dynamic websites. In this course, you will learn the basics of each component of the LAMP stack and how they work together to create dynamic web pages. The course will cover topics such as installing and configuring Linux, Apache, and PHP, as well as managing databases with MySQL. You will also learn how to design, develop and deploy simple dynamic web pages. By the end of the course, you will have a solid understanding of the LAMP stack and its applications in web development.
-                                        </p>
-                                        <p class="course-duration">Duration: 4 months</p>
+                                        <h3 class="course-title"><?= $course_details['name'] ?></h3>
+                                        <div class="course-description">
+                                            <?= $course_details['description'] ?>
+                                        </div>
+
+                                        <p class="course-duration">Duration: <?= $course_details['duration_in_months'] ?> months</p>
                                     </div>
                                     <div class="radio-btn-container">
                                         <div class="outer-circle course-select">
@@ -125,21 +145,26 @@
                                 </div>
                             </label>
                         </div>
+                        <?php
+                        }elseif($course_details['category'] === "mobile"){ 
+                            $mobile_count++;
+                            $sql_check_number_of_mobile_courses = $db->query("SELECT * FROM courses WHERE category='mobile'");
+                        ?>
                         <div class="form-group-container">
-                            <input type="radio" id="course-2" name="selected-course" value="2" class="radio-input">
-                            <label for="course-2" class="course-label">
+                            <input type="radio" id="course-<?php echo $course_details['course_id']?>" name="selected-course" value="<?php echo $course_details['course_id']?>" class="radio-input">
+                            <label for="course-<?php echo $course_details['course_id']?>" class="course-label">
                                 <div class="card">
                                     <div class="title-container">
-                                        <p>Web #2</p>
-                                        <span class="course-price">₦150k</span>
+                                        <p>Mobile <?php echo $sql_check_number_of_mobile_courses->num_rows === 1? "" : "#$mobile_count" ?></p>
+                                        <span class="course-price">₦ <?php echo number_format($course_details['course_price']) ?></span>
                                     </div>
                                     <div class="more-info-container">
-                                        <h3 class="course-title">Web development using the .NET framework</h3>
-                                        <p class="course-description">
-                                            This class provides a comprehensive introduction to the .NET framework, including its architecture, components, and programming concepts. Students will learn how to develop, deploy, and run applications using .NET technologies such as C#, ASP.NET, and Windows Forms. Topics covered include: .NET architecture, Common Language Runtime (CLR), .NET class libraries, C# language basics, ASP.NET Web Forms, and Windows Forms development.
-                                            By the end of the course, students will have a solid understanding of the .NET framework and be able to build applications for Windows and the web.
-                                        </p>
-                                        <p class="course-duration">Duration: 6 months</p>
+                                        <h3 class="course-title"><?= $course_details['name'] ?></h3>
+                                        <div class="course-description">
+                                            <?= $course_details['description'] ?>
+                                        </div>
+
+                                        <p class="course-duration">Duration: <?= $course_details['duration_in_months'] ?> months</p>
                                     </div>
                                     <div class="radio-btn-container">
                                         <div class="outer-circle course-select">
@@ -149,25 +174,26 @@
                                 </div>
                             </label>
                         </div>
-
+                        <?php
+                        }elseif($course_details['category'] === "networking"){ 
+                            $network_count++;
+                            $sql_check_number_of_networking_courses = $db->query("SELECT * FROM courses WHERE category='networking'");
+                        ?>
                         <div class="form-group-container">
-                            <input type="radio" id="course-3" name="selected-course" value="3" class="radio-input">
-                            <label for="course-3" class="course-label">
+                            <input type="radio" id="course-<?php echo $course_details['course_id']?>" name="selected-course" value="<?php echo $course_details['course_id']?>" class="radio-input">
+                            <label for="course-<?php echo $course_details['course_id']?>" class="course-label">
                                 <div class="card">
                                     <div class="title-container">
-                                        <p>Mobile #1</p>
-                                        <span class="course-price">₦250k</span>
+                                        <p>Networking <?php echo $sql_check_number_of_networking_courses->num_rows === 1? "" : "#$network_count" ?></p>
+                                        <span class="course-price">₦ <?php echo number_format($course_details['course_price']) ?></span>
                                     </div>
                                     <div class="more-info-container">
-                                        <h3 class="course-title">Mobile development with flutter</h2>
-                                        <p class="course-description">
-                                            Flutter is a popular open-source mobile application development framework created by Google. This class will introduce students to the basics of developing mobile apps using the Flutter framework.
+                                        <h3 class="course-title"><?= $course_details['name'] ?></h3>
+                                        <div class="course-description">
+                                            <?= $course_details['description'] ?>
+                                        </div>
 
-                                            Starting with a brief overview of the framework, students will then learn how to set up their development environment and create their first Flutter app. Throughout the class, students will be exposed to the Dart programming language and will learn how to create UI elements, handle user inputs, and integrate data sources into their app.
-
-                                            By the end of the class, students will have the knowledge and skills to develop a basic mobile app using Flutter, and will have a solid foundation for further development. Whether you're a beginner or have some programming experience, this class will provide a comprehensive introduction to Flutter and mobile app development.
-                                        </p>
-                                        <p class="course-duration">Duration: 4 months</p>
+                                        <p class="course-duration">Duration: <?= $course_details['duration_in_months'] ?> months</p>
                                     </div>
                                     <div class="radio-btn-container">
                                         <div class="outer-circle course-select">
@@ -177,57 +203,12 @@
                                 </div>
                             </label>
                         </div>
-
-                        <div class="form-group-container">
-                            <input type="radio" id="course-4" name="selected-course" value="4" class="radio-input">
-                            <label for="course-4" class="course-label">
-                                <div class="card">
-                                    <div class="title-container">
-                                        <p>Mobile #2</p>
-                                        <span class="course-price">₦250k</span>
-                                    </div>
-                                    <div class="more-info-container">
-                                        <h3 class="course-title">Mobile development with Xamarin</h3>
-                                        <p class="course-description">
-                                            In this class, students will learn the basics of Xamarin, a cross-platform mobile app development tool. Students will start by learning how to create a new Xamarin project and understand the components of a Xamarin app. Next, students will learn how to design and build user interfaces, as well as how to add and manage data. Finally, students will learn how to publish their app to the app stores.
-
-                                            Throughout the course, students will work on hands-on projects to apply their newfound skills and develop their own Xamarin apps. By the end of the course, students will have a solid understanding of Xamarin and the skills necessary to create their own mobile apps.
-                                        </p>
-                                        <p class="course-duration">Duration: 6 months</p>
-                                    </div>
-                                    <div class="radio-btn-container">
-                                        <div class="outer-circle course-select">
-                                            <div class="inner-circle"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </label>
-                        </div>
-
-                        <div class="form-group-container">
-                            <input type="radio" id="course-5" name="selected-course" value="5" class="radio-input">
-                            <label for="course-5" class="course-label">
-                                <div class="card">
-                                    <div class="title-container">
-                                        <p>Networking</p>
-                                        <span class="course-price">₦150k</span>
-                                    </div>
-                                    <div class="more-info-container">
-                                        <h3 class="course-title">CCNA/CCNP Networking course</h3>
-                                        <p class="course-description">
-                                            The CCNA/CCNP Network class is an introductory course designed for students who are looking to start their journey in the field of networking. This class covers the fundamentals of computer networking and prepares students for the CCNA and CCNP certification exams. Students will learn about the basics of networking protocols, such as TCP/IP, and will be introduced to common networking devices such as routers and switches. Additionally, students will learn about network security, wireless networking, and network management. This course is hands-on, with students working on real-world scenarios and lab exercises to reinforce the concepts taught in class. Whether you are looking to enter the world of networking or are seeking to expand your current knowledge, this CCNA/CCNP Network class is the perfect starting point.
-                                        </p>
-                                        <p class="course-duration">Duration: 6 months</p>
-                                    </div>
-                                    <div class="radio-btn-container">
-                                        <div class="outer-circle course-select">
-                                            <div class="inner-circle"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </label>
-                        </div>
-
+                        <?php
+                        }
+                        ?>
+                        <?php 
+                            }
+                        ?>
                     </div>
 
                     <h2 class="form-title">Set a payment plan</h2>
@@ -339,11 +320,6 @@
             
             const formData = new FormData(form);
 
-            for([key, value] of formData.entries()){
-                console.log(`${key}: ${value}`);
-            }
-
-
 
             if(formData.get("selected-course") === null && formData.get("payment-plan") === null){
                 ftoast("error", "Please select a course and a payment option", 4000);
@@ -361,16 +337,18 @@
         });
 
         function sendData(data){
-            const formData = JSON.stringify(data);
-            
+            const formData = new FormData();
+
+            formData.append("submit", true);
+            formData.append("payment-plan", data.paymentPlan);
+            formData.append("selected-course", data.selectedCourse);
+
             //SENDING FORM DATA TO THE SERVER
             $.ajax({
                 type: "post",
-                url: 'controllers/generate-course-payment-details.php',
+                url: 'controllers/select-course-process.php',
                 data: formData,
-                cache: false,
                 contentType: false,
-                enctype: 'multipart/form-data',
                 processData: false,
                 dataType: 'json',
                 beforeSend: function () {
@@ -380,9 +358,9 @@
                 success: function (response) {
                 setTimeout(() => {
                         if (response.success === 1) {
-                            // REDIRECT USER TO THE VERIFICATION PAGE
-                            window.location = "authentication/send-code?a=send";
-
+                            ftoast("success", response.message, 4000).then(_ => {
+                                window.location = "course-payment";
+                            });
                         } else {
                             $(".enroll-form-container button").attr("disabled", false);
                             $(".enroll-form-container button").html("Save and continue");

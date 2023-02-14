@@ -1,6 +1,6 @@
 <?php
     require(__DIR__.'/auth-library/resources.php');
-    Auth::Route();
+    // Auth::Route();
     $url = strval($url);
 ?>
 <!DOCTYPE html>
@@ -140,9 +140,9 @@
                         $(".register-container button").attr("disabled", true);
                     },
                     success: function (response) {
-                        ftoast("success", "Login successful", 1000);
                         setTimeout(() => {
                             if (response.success === 1) {
+                                ftoast("success", "Login successful", 1000);
                                 if(response.redirect === "make_payment"){
                                     window.location = "make-form-payment";
                                 }else if(response.redirect === "application_form"){
@@ -153,13 +153,21 @@
                                     window.location = "dashboard/"
                                 }
                             } else {
-                                $(".register-container button").attr("disabled", false);
-                                $(".register-container button").html("Sign In");
- 
                                 if(response.error_title === "fatal"){
+                                    $(".register-container button").attr("disabled", false);
+                                    $(".register-container button").html("Sign In");
                                     // REFRESH CURRENT PAGE
                                     location.reload();
                                 }else{
+                                    if(response.redirect === "course-payment"){
+                                        // ALERT USER
+                                        ftoast("error", response.error_message, 4000).then(_ => {
+                                            window.location="course-payment";;
+                                        });
+                                    }
+                                    
+                                    $(".register-container button").attr("disabled", false);
+                                    $(".register-container button").html("Sign In");
                                     // ALERT USER
                                     ftoast("error", response.error_message, 4000);
                                 }

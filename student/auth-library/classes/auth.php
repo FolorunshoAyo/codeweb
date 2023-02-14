@@ -32,9 +32,9 @@ class Auth
     static function  User()
     {
         if (isset($_SESSION['user_id'])) {
-            //Don't Redirect
+            // Don't redirect
         }else {
-            header("location: " . $_ENV['URL']);
+            header("Location: ".$_ENV['URL']);
         }
     }
 }

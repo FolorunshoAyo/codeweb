@@ -33,4 +33,19 @@
 	    return $file_name;
 	}
     
+    // Redirects user depending on registeration status
+    function autoRedirect($currPage){
+        if($_SESSION['reg_status'] === "0" && $currPage !== "make-form-payment"){
+            header("Location: ../student/make-form-payment");
+        }
+        if($_SESSION['reg_status'] === "1" && $currPage !== "application-form"){
+            header("Location: ../student/application-form");
+        }
+        if($_SESSION['reg_status'] === "2" && $currPage !== "select-course"){
+            header("Location: ../student/select-course");
+        }
+        if($_SESSION['reg_status'] === "3" && $currPage !== "course-payment"){
+            header("Location: ../student/course-payment");
+        }
+    }
 ?>

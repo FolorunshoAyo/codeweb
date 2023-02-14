@@ -1,7 +1,17 @@
 <?php 
-// require(__DIR__.'/auth-library/resources.php');
-// Auth::Route("student/");
-// $url = strval($url);
+    require(__DIR__.'/auth-library/resources.php');
+    Auth::User();
+    $url = strval($url);
+
+    $user_id = $_SESSION['user_id'];
+
+    $sql_get_user_details = $db->query("SELECT * FROM users WHERE user_id={$user_id}");
+
+    if($sql_get_user_details->num_rows){
+        $user_details = $sql_get_user_details->fetch_assoc();
+    }else{
+        header("location: ./");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,8 +47,8 @@
 <body>
     <header class="make-payment-header">
         <div class="person-container">
-            <img src="images/1674998447.png" alt="profile avatar">
-            Folorunsho
+            <img src="images/<?php echo $user_details['profile_avatar'] ?>" alt="profile avatar">
+            <?php echo ucfirst($user_details['username']) ?>
         </div>
         
         <div class="progress-container hide" style="display: none;">
@@ -83,22 +93,41 @@
                     <h2><b>Applicant Details</b></h2>
 
                     <p>
-                        First name and Last name <br>
-                        Address <br>
-                        Phone no <br>
-                        Email
+                        <?php echo $user_details['first_name'] . " " . $user_details['last_name'] ?><br><br>
+                        <?php echo $user_details['phone_no'] ?> <br><br>
+                        <?php echo $user_details['email'] ?>
                     </p>
                 </div>
 
                 <div class="details">
                     <h2><b>Course Information</b></h2>
+                    <?php 
+                        $sql_get_course_details = $db->query("SELECT * FROM course_lookup INNER JOIN courses ON course_lookup.course_id=courses.course_id WHERE user_id = {$user_id} AND completed=0");
+                        $sql_get_last_payment_info = $db->query("SELECT * FROM course_payments WHERE user_id={$user_id} ORDER BY payment_id DESC LIMIT 1");
 
+                        $course_details = $sql_get_course_details->fetch_assoc();
+                        $isInstallment = $course_details['installment'];
+                        
+                    ?>
                     <p>
-                        Course-title: Some title <br><br>
-                        Course fee: NGN 250,000.00 <br><br>
-                        Course fee paid: NGN 0.00 <br><br>
-                        Type of payment: Monthly Payment <br><br>
-                        Month(s) paid: 2
+                        Course-title: <?php echo $course_details['name'] ?> <br><br>
+                        Course fee: NGN <?php echo number_format($course_details['course_price'], 2) ?><br><br>
+                        Type of payment: <?php echo $isInstallment === "1"? "Monthly Payment" : "One time payment" ?><br><br>
+                        <?php
+                            if($sql_get_last_payment_info->num_rows === 1){
+                                $last_payment_details = $sql_get_last_payment_info->fetch_assoc();
+                        ?>
+                        Month(s) paid: <?php echo $last_payment_details['months_paid'] ?><br><br>
+                        <?php
+                            $course_id = $course_details['course_id'];
+                            $sql_sum_of_payments = $db->query("SELECT SUM(amount_paid) as total_payments FROM course_payments WHERE user_id={$user_id} AND course_id={$course_id}");
+                            $total_payments_for_course = $sql_sum_of_payments->fetch_assoc()['total_payments'];
+                        ?>
+                        Course fee paid: <?php echo "NGN " . $total_payments_for_course ?><br><br>
+                        Remaining balance: <?php echo "NGN " . (intval($course_details['course_price']) - intval($total_payments_for_course)); ?>
+                        <?php
+                            }
+                        ?>
                     </p>
                 </div>
 

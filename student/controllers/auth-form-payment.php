@@ -41,7 +41,7 @@ if (isset($_GET["transaction_id"]) && isset($_GET["status"]) && isset($_GET["tx_
 		$api_charged_amount = $result->data->charged_amount;
 		
 		$sql_update_deposits = $db->query("UPDATE deposits SET deposit_status=1, deposit_amount={$api_amount} WHERE transaction_ref='{$api_tranx_ref}' AND user_id={$user_id}");
-		$sql_update_form_payment = $db->query("UPDATE users SET has_paid_form = '1' WHERE user_id ={$user_id}");
+		$sql_update_form_payment = $db->query("UPDATE users SET reg_status = '1' WHERE user_id ={$user_id}");
 
 		if ($sql_update_form_payment) {
 			$_SESSION['reg_status'] = "1";		
