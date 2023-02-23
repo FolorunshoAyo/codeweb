@@ -41,55 +41,64 @@
 </head>
 
 <body>
-    <header>
-        <div class="header-container">
-            <div class="logo-container">
-                <a href="./">
-                    <img src="assets/images/logo.jpg" alt="Logo" class="logo image">
-                </a>
-            </div>
+<header id="header">
+    <div class="header-container">
+      <div class="logo-container">
+        <a href="./">
+          <img src="assets/images/logo.jpg" alt="Logo" class="logo image" />
+        </a>
+      </div>
 
-            <nav class="nav-link-container">
-                <ul class="nav-links">
-                    <li class="nav-link-item">
-                        <a href="ourschool" class="nav-link">our school</a>
-                    </li>
-                    <li class="nav-link-item">
-                        <a href="laptopsales" class="nav-link">laptop sales</a>
-                    </li>
-                    <li class="nav-link-item">
-                        <a href="studentxtra" class="nav-link">studentXtra</a>
-                    </li>
-                    <li class="nav-link-item">
-                        <a href="itconsumables" class="nav-link active">IT consumables</a>
-                    </li>
-                </ul>
-            </nav>
+      <nav class="nav-link-container">
+        <ul class="nav-links">
+          <li class="nav-link-item">
+            <a href="./ourschool" class="nav-link">our school</a>
+          </li>
+          <li class="nav-link-item">
+            <a href="./laptopsales" class="nav-link">Laptop Sales</a>
+          </li>
+          <li class="nav-link-item">
+            <a href="../cash-and-carry/" class="nav-link">Our store</a>
+          </li>
+          <li class="nav-link-item">
+            <a href="./studentxtra" class="nav-link">studentXtra</a>
+          </li>
+          <li class="nav-link-item">
+            <a href="./itconsumables" class="nav-link active">IT consumables</a>
+          </li>
+        </ul>
+      </nav>
 
-            <div class="burger-menu">
-                <div class="line line1"></div>
-                <div class="line line2"></div>
-                <div class="line line3"></div>
-            </div>
+      <div class="burger-menu-container">
+        <div class="burger-menu"></div>
+      </div>
 
-            <div class="mobile-menu">
-                <ul class="mobile-list">
-                    <li class="mobile-list-item">
-                        <a href="ourschool" class="mobile-nav-link">our school</a>
-                    </li>
-                    <li class="mobile-list-item">
-                        <a href="laptopsales" class="mobile-nav-link">laptop sales</a>
-                    </li>
-                    <li class="mobile-list-item">
-                        <a href="studentxtra" class="mobile-nav-link">studentXtra</a>
-                    </li>
-                    <li class="mobile-list-item">
-                        <a href="itconsumables" class="mobile-nav-link">IT consumables</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </header>
+      <!-- User Icon -->
+      <!-- <div class="person logged_in">
+          <a href="./login"><i class="fa fa-user-circle"></i> Joseph</a>
+        </div> -->
+
+      <div class="mobile-menu">
+        <ul class="mobile-list">
+          <li class="mobile-list-item">
+            <a href="ourschool" class="mobile-nav-link">our school</a>
+          </li>
+          <li class="mobile-list-item">
+            <a href="laptopsales" class="mobile-nav-link">Laptop Sales</a>
+          </li>
+          <li class="mobile-list-item">
+            <a href="../cash-and-carry/" class="mobile-nav-link">Our store</a>
+          </li>
+          <li class="mobile-list-item">
+            <a href="studentxtra" class="mobile-nav-link">studentXtra</a>
+          </li>
+          <li class="mobile-list-item">
+            <a href="itconsumables" class="mobile-nav-link">IT consumables</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
     <main>
         <div class="scrollup-btn-container">
             <button class="scrollup-btn"><i class="fa fa-arrow-up"></i></button>
@@ -192,7 +201,7 @@
                     </div>
                     <div class="address-map">
                         <div class="map-image-container">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.2212122221085!2d3.508265014449789!3d6.619418423878078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bef6a38287927%3A0x1d0603c6a5bfa317!2sCodeWeb%20Coding%20Academy!5e0!3m2!1sen!2sng!4v1673872992209!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.2212122221085!2d3.508265014449789!3d6.619418423878078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bef6a38287927%3A0x1d0603c6a5bfa317!2sCodeWeb%20Coding%20Academy!5e0!3m2!1sen!2sng!4v1673872992209!5m2!1sen!2sng" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
@@ -248,7 +257,7 @@
     <script src="assets/js/slick/slick.js"></script>
     <script>
         $(function () {
-            const burgerMenu = $(".burger-menu");
+            const burgerMenu = $(".burger-menu-container");
             const mobileNav = $(".mobile-menu");
             const scrollUpBtnCnt = $(".scrollup-btn-container");
 

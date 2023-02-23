@@ -23,17 +23,17 @@
     <!-- FOOTER CSS -->
     <link rel="stylesheet" href="assets/css/sections/footer.css" type="text/css" />
     <!-- CUSTOM CSS (HOME)-->
-    <link rel="stylesheet" href="assets/css/home.css" type="text/css">
-     <!-- OUR SCHOOL STYLESHEET -->
-     <link rel="stylesheet" href="assets/css/ourschool.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/home.css" type="text/css" type="text/css">
+    <!-- OUR SCHOOL STYLESHEET -->
+    <link rel="stylesheet" href="assets/css/ourschool.css" type="text/css">
     <!-- MEDIA QUERIES -->
-    <link rel="stylesheet" href="assets/css/media-queries/main-mediaquery.css">
+    <link rel="stylesheet" href="assets/css/media-queries/main-mediaquery.css" type="text/css">
     <style>
-        .nav-link-item a{
+        .nav-link-item a {
             color: var(--black);
         }
 
-        .nav-link.active{
+        .nav-link.active {
             color: var(--primary-color);
         }
     </style>
@@ -41,36 +41,42 @@
 </head>
 
 <body>
-    <header>
+    <header id="header">
         <div class="header-container">
             <div class="logo-container">
                 <a href="./">
-                    <img src="assets/images/logo.jpg" alt="Logo" class="logo image">
+                    <img src="assets/images/logo.jpg" alt="Logo" class="logo image" />
                 </a>
             </div>
-    
+
             <nav class="nav-link-container">
                 <ul class="nav-links">
                     <li class="nav-link-item">
-                        <a href="ourschool" class="nav-link active">our school</a>
+                        <a href="./ourschool" class="nav-link active">our school</a>
                     </li>
                     <li class="nav-link-item">
-                        <a href="laptopsales" class="nav-link">laptop sales</a>
+                        <a href="./laptopsales" class="nav-link">Laptop Sales</a>
                     </li>
                     <li class="nav-link-item">
-                        <a href="studentxtra" class="nav-link">studentXtra</a>
+                        <a href="../cash-and-carry/" class="nav-link">Our store</a>
                     </li>
                     <li class="nav-link-item">
-                        <a href="itconsumables" class="nav-link">IT consumables</a>
+                        <a href="./studentxtra" class="nav-link">studentXtra</a>
+                    </li>
+                    <li class="nav-link-item">
+                        <a href="./itconsumables" class="nav-link">IT consumables</a>
                     </li>
                 </ul>
             </nav>
-    
-            <div class="burger-menu">
-                <div class="line line1"></div>
-                <div class="line line2"></div>
-                <div class="line line3"></div>
+
+            <div class="burger-menu-container">
+                <div class="burger-menu"></div>
             </div>
+
+            <!-- User Icon -->
+            <!-- <div class="person logged_in">
+          <a href="./login"><i class="fa fa-user-circle"></i> Joseph</a>
+        </div> -->
 
             <div class="mobile-menu">
                 <ul class="mobile-list">
@@ -79,6 +85,9 @@
                     </li>
                     <li class="mobile-list-item">
                         <a href="laptopsales" class="mobile-nav-link">laptop sales</a>
+                    </li>
+                    <li class="mobile-list-item">
+                        <a href="../cash-and-carry/" class="mobile-nav-link">our store</a>
                     </li>
                     <li class="mobile-list-item">
                         <a href="studentxtra" class="mobile-nav-link">studentXtra</a>
@@ -106,7 +115,7 @@
         </section>
         <section class="our-school-slider-section">
             <!-- Slide show here-->
-            <div class="slider"> 
+            <div class="slider">
                 <div>
                     <img src="assets/images/modern-wooden-kitchen-interior-steel-kitchen-faucet 2.png" alt="A lady training a student using a system">
                 </div>
@@ -127,7 +136,7 @@
                             <span class="hot-offer-text">Hot offer!!!</span> First 10 students to enroll in any course gets 20%
                             off total fee.
                         </div>
-    
+
                         <div>
                             <span class="hot-offer-text">Hot offer!!!</span> First 10 students to enroll in any course gets 20%
                             off total fee.
@@ -138,8 +147,7 @@
                     <div class="row">
                         <div class="col3 col-sm-12">
                             <div class="service-group">
-                                <img src="assets/images/old-wood-grain-background 2.png"
-                                    alt="A lady training a student using a system" class="service-group-image">
+                                <img src="assets/images/old-wood-grain-background 2.png" alt="A lady training a student using a system" class="service-group-image">
                                 <h3 class="service-group-title">Software Development</h3>
 
                                 <ul class="service-group-list">
@@ -160,8 +168,7 @@
                         </div>
                         <div class="col3 col-sm-12">
                             <div class="service-group">
-                                <img src="assets/images/wood-texture-design-decoration 1.png"
-                                    alt="A lady training a student using a system" class="service-group-image">
+                                <img src="assets/images/wood-texture-design-decoration 1.png" alt="A lady training a student using a system" class="service-group-image">
                                 <h3 class="service-group-title">Graphic design</h3>
 
                                 <ul class="service-group-list">
@@ -182,8 +189,7 @@
                         </div>
                         <div class="col3 col-sm-12">
                             <div class="service-group">
-                                <img src="assets/images/pale-oak-wood-texture-design-background 1.png"
-                                    alt="A lady training a student using a system" class="service-group-image">
+                                <img src="assets/images/pale-oak-wood-texture-design-background 1.png" alt="A lady training a student using a system" class="service-group-image">
                                 <h3 class="service-group-title">Tech Consumables</h3>
 
                                 <ul class="service-group-list">
@@ -208,10 +214,10 @@
         </section>
         <section class="enroll-section">
             <div class="enroll-container">
-               <h1 class="main-title">Enroll now</h1>
-               <p class="enroll-text">With us, you can:</p>
+                <h1 class="main-title">Enroll now</h1>
+                <p class="enroll-text">With us, you can:</p>
 
-               <div class="enrollment-reasons-container">
+                <div class="enrollment-reasons-container">
                     <ul class="enrollment-reasons">
                         <li class="enrollment-reason-list-item">
                             <i class="fas fa-check"></i>
@@ -232,9 +238,9 @@
                     </ul>
 
                     <div class="enroll-btn-container">
-                            <button class="enroll-btn">Enroll</button>
+                        <a href="#" class="enroll-btn">Enroll</a>
                     </div>
-               </div>
+                </div>
             </div>
         </section>
     </main>
@@ -286,11 +292,11 @@
     <script src="assets/js/jquery/jquery-migrate-1.4.1.min.js"></script>
     <script src="assets/js/slick/slick.js"></script>
     <script>
-       $(function(){
-            const burgerMenu = $(".burger-menu");
+        $(function() {
+            const burgerMenu = $(".burger-menu-container");
             const mobileNav = $(".mobile-menu");
             const scrollUpBtnCnt = $(".scrollup-btn-container");
-            
+
             $('.slider').slick({
                 dots: true,
                 infinite: true,
@@ -308,21 +314,23 @@
             //HEADER STICKY FUNCTIONALITY
             // Jquery handler for displaying sticky header upon scroll.
             $(window).on("scroll", () => {
-            let header = $("header");
-            let currentPagePosition = $(window).scrollTop();
+                let header = $("header");
+                let currentPagePosition = $(window).scrollTop();
 
-            if(currentPagePosition > 400){
-                scrollUpBtnCnt.fadeIn();
-            }else{
-                scrollUpBtnCnt.fadeOut();
-            }
+                if (currentPagePosition > 400) {
+                    scrollUpBtnCnt.fadeIn();
+                } else {
+                    scrollUpBtnCnt.fadeOut();
+                }
 
-            header[0].classList.toggle("sticky", $(window)[0].scrollY > 180);
+                header[0].classList.toggle("sticky", $(window)[0].scrollY > 180);
             });
 
             $('.scrollup-btn').on('click', function() {
-            $('html, body').animate({scrollTop : 0},800);
-            return false;
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 800);
+                return false;
             });
 
             // Event Handler for Burger Menu Toggle

@@ -34,7 +34,7 @@
 /* HERO HOMEPAGE START */
 
 .hero-section{
-    margin: 80px 0 100px;
+    margin: 80px 0 120px;
 }
 
 .hero-container{
@@ -73,6 +73,12 @@
     border: 1px solid var(--white);
     padding: 0.8rem 1rem;
     background-color: transparent;
+    cursor: pointer;
+    transition: all .3s ease-in;
+}
+
+.hero-btn:hover{
+    background-color: var(--secondary-color);
 }
 
 .hero-image-container{
@@ -94,15 +100,7 @@
 /* SERVICES SECTION START*/
 .services-section{
     padding: 0 3rem;
-    margin-bottom: 80px;
-}
-
-.main-title{
-    color: var(--primary-color);
-    font-size: 7rem;
-    margin-bottom: 30px;
-    text-align: center;
-    font-family: 'KyivType Sans', sans-serif;
+    margin-bottom: 120px;
 }
 
 .container{
@@ -167,7 +165,7 @@
 /* PORTFOLIO SECTION START */
 .portfolio-section{
     padding: 0 3rem;
-    margin-bottom: 80px;
+    margin-bottom: 120px;
 }
 
 .portfolio-container div{
@@ -224,7 +222,7 @@
     border-left: none;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-    margin-bottom: 80px;
+    margin-bottom: 120px;
 }
 
 .aboutus-container{
@@ -242,8 +240,11 @@
 }
 
 .aboutus-text-box .text{
-    font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 2rem;
+}
+
+.aboutus-text-box .text b{
+    color: var(--primary-color);
 }
 
 .aboutus-text-box .text:not(:last-child){
@@ -289,7 +290,7 @@
 
 .contactus-section{
     padding: 0 3rem;
-    margin-bottom: 80px;
+    margin-bottom: 120px;
 }
 
 .contactus-container .title{

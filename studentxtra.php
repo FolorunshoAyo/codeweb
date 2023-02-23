@@ -43,36 +43,42 @@
 </head>
 
 <body>
-    <header>
+    <header id="header">
         <div class="header-container">
             <div class="logo-container">
                 <a href="./">
-                    <img src="assets/images/logo.jpg" alt="Logo" class="logo image">
+                    <img src="assets/images/logo.jpg" alt="Logo" class="logo image" />
                 </a>
             </div>
 
             <nav class="nav-link-container">
                 <ul class="nav-links">
                     <li class="nav-link-item">
-                        <a href="ourschool" class="nav-link">our school</a>
+                        <a href="./ourschool" class="nav-link">our school</a>
                     </li>
                     <li class="nav-link-item">
-                        <a href="laptopsales" class="nav-link">laptop sales</a>
+                        <a href="./laptopsales" class="nav-link">Laptop Sales</a>
                     </li>
                     <li class="nav-link-item">
-                        <a href="studentxtra" class="nav-link active">studentXtra</a>
+                        <a href="../cash-and-carry/" class="nav-link">Our store</a>
                     </li>
                     <li class="nav-link-item">
-                        <a href="itconsumables" class="nav-link">IT consumables</a>
+                        <a href="./studentxtra" class="nav-link active">studentXtra</a>
+                    </li>
+                    <li class="nav-link-item">
+                        <a href="./itconsumables" class="nav-link">IT consumables</a>
                     </li>
                 </ul>
             </nav>
 
-            <div class="burger-menu">
-                <div class="line line1"></div>
-                <div class="line line2"></div>
-                <div class="line line3"></div>
+            <div class="burger-menu-container">
+                <div class="burger-menu"></div>
             </div>
+
+            <!-- User Icon -->
+            <!-- <div class="person logged_in">
+          <a href="./login"><i class="fa fa-user-circle"></i> Joseph</a>
+        </div> -->
 
             <div class="mobile-menu">
                 <ul class="mobile-list">
@@ -80,7 +86,10 @@
                         <a href="ourschool" class="mobile-nav-link">our school</a>
                     </li>
                     <li class="mobile-list-item">
-                        <a href="laptopsales" class="mobile-nav-link">laptop sales</a>
+                        <a href="laptopsales" class="mobile-nav-link">Laptop Sales</a>
+                    </li>
+                    <li class="mobile-list-item">
+                        <a href="../cash-and-carry/" class="mobile-nav-link">Our store</a>
                     </li>
                     <li class="mobile-list-item">
                         <a href="studentxtra" class="mobile-nav-link">studentXtra</a>
@@ -100,13 +109,13 @@
             <div class="student-slider-container">
                 <div class="student-slider slider">
                     <div>
-                        <img src="assets/images/students-1.jpg" alt="#" class="rounded">
+                        <img src="assets/images/study-group-african-people.jpg" alt="#" class="rounded">
                     </div>
                     <div>
                         <img src="assets/images/students-2.png" alt="#" class="rounded">
                     </div>
                     <div>
-                        <img src="assets/images/students-3.jpg" alt="#" class="rounded">
+                        <img src="assets/images/group-five-african-college-students-spending-time-together-campus-university-yard-black-afro-friends-studying-gives-high-five-each-other.jpg" alt="#" class="rounded">
                     </div>
                 </div>
             </div>
@@ -145,23 +154,23 @@
                     <div class="enquiries-textbox">
                         <h1 class="main-title">For more enquiries</h2>
 
-                        <p class="enquiries-text">Get in touch with us and we would be sure to get back to you</p>
+                            <p class="enquiries-text">Get in touch with us and we would be sure to get back to you</p>
 
-                        <div class="address-info">
-                            <div class="contact-info">
-                                <i class="fas fa-phone"></i>
-                                +234 70 267 904 25
+                            <div class="address-info">
+                                <div class="contact-info">
+                                    <i class="fas fa-phone"></i>
+                                    +234 70 267 904 25
+                                </div>
+                                <div class="contact-info">
+                                    <i class="fas fa-envelope"></i>
+                                    support@codeweb.com
+                                </div>
+                                <div class="contact-info">
+                                    <i class="fas fa-location-arrow"></i>
+                                    Shop 120, Activities center, LASPOTECH,
+                                    Ikorodu Lagos.
+                                </div>
                             </div>
-                            <div class="contact-info">
-                                <i class="fas fa-envelope"></i>
-                                support@codeweb.com
-                            </div>
-                            <div class="contact-info">
-                                <i class="fas fa-location-arrow"></i>
-                                Shop 120, Activities center, LASPOTECH,
-                                Ikorodu Lagos.
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -216,8 +225,8 @@
     <script src="assets/js/jquery/jquery-migrate-1.4.1.min.js"></script>
     <script src="assets/js/slick/slick.js"></script>
     <script>
-        $(function () {
-            const burgerMenu = $(".burger-menu");
+        $(function() {
+            const burgerMenu = $(".burger-menu-container");
             const mobileNav = $(".mobile-menu");
             const scrollUpBtnCnt = $(".scrollup-btn-container");
 
@@ -241,9 +250,9 @@
                 let header = $("header");
                 let currentPagePosition = $(window).scrollTop();
 
-                if(currentPagePosition > 400){
+                if (currentPagePosition > 400) {
                     scrollUpBtnCnt.fadeIn();
-                }else{
+                } else {
                     scrollUpBtnCnt.fadeOut();
                 }
 
@@ -251,8 +260,10 @@
             });
 
             $('.scrollup-btn').on('click', function() {
-            $('html, body').animate({scrollTop : 0},800);
-            return false;
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 800);
+                return false;
             });
 
             // Event Handler for Burger Menu Toggle

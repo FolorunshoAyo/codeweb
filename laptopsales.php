@@ -41,36 +41,42 @@
 </head>
 
 <body>
-    <header>
+    <header id="header">
         <div class="header-container">
             <div class="logo-container">
                 <a href="./">
-                    <img src="assets/images/logo.jpg" alt="Logo" class="logo image">
+                    <img src="assets/images/logo.jpg" alt="Logo" class="logo image" />
                 </a>
             </div>
 
             <nav class="nav-link-container">
                 <ul class="nav-links">
                     <li class="nav-link-item">
-                        <a href="ourschool" class="nav-link">our school</a>
+                        <a href="./ourschool" class="nav-link">our school</a>
                     </li>
                     <li class="nav-link-item">
-                        <a href="laptopsales" class="nav-link active">laptop sales</a>
+                        <a href="./laptopsales" class="nav-link active">Laptop Sales</a>
                     </li>
                     <li class="nav-link-item">
-                        <a href="studentxtra" class="nav-link">studentXtra</a>
+                        <a href="../cash-and-carry/" class="nav-link">Our store</a>
                     </li>
                     <li class="nav-link-item">
-                        <a href="itconsumables" class="nav-link">IT consumables</a>
+                        <a href="./studentxtra" class="nav-link">studentXtra</a>
+                    </li>
+                    <li class="nav-link-item">
+                        <a href="./itconsumables" class="nav-link">IT consumables</a>
                     </li>
                 </ul>
             </nav>
 
-            <div class="burger-menu">
-                <div class="line line1"></div>
-                <div class="line line2"></div>
-                <div class="line line3"></div>
+            <div class="burger-menu-container">
+                <div class="burger-menu"></div>
             </div>
+
+            <!-- User Icon -->
+            <!-- <div class="person logged_in">
+          <a href="./login"><i class="fa fa-user-circle"></i> Joseph</a>
+        </div> -->
 
             <div class="mobile-menu">
                 <ul class="mobile-list">
@@ -78,7 +84,10 @@
                         <a href="ourschool" class="mobile-nav-link">our school</a>
                     </li>
                     <li class="mobile-list-item">
-                        <a href="laptopsales" class="mobile-nav-link">laptop sales</a>
+                        <a href="laptopsales" class="mobile-nav-link">Laptop Sales</a>
+                    </li>
+                    <li class="mobile-list-item">
+                        <a href="../cash-and-carry/" class="mobile-nav-link">Our store</a>
                     </li>
                     <li class="mobile-list-item">
                         <a href="studentxtra" class="mobile-nav-link">studentXtra</a>
@@ -445,8 +454,8 @@
     <script src="assets/js/jquery/jquery-migrate-1.4.1.min.js"></script>
     <script src="assets/js/slick/slick.js"></script>
     <script>
-        $(function () {
-            const burgerMenu = $(".burger-menu");
+        $(function() {
+            const burgerMenu = $(".burger-menu-container");
             const mobileNav = $(".mobile-menu");
             const scrollUpBtnCnt = $(".scrollup-btn-container");
 
@@ -478,8 +487,7 @@
                 slidesToScroll: 1,
                 autoplay: true,
                 autoplaySpeed: 3000,
-                responsive: [
-                    {
+                responsive: [{
                         breakpoint: 1024,
                         settings: {
                             slidesToShow: 3,
@@ -519,30 +527,32 @@
             });
 
             //CHANGING ALL ARROW BUTTONS TO ARROWS
-            $(".slick-next").each(function () {
+            $(".slick-next").each(function() {
                 $(this).html("<i class='fas fa-arrow-right'></i>");
             });
-            $(".slick-prev").each(function () {
+            $(".slick-prev").each(function() {
                 $(this).html("<i class='fas fa-arrow-left'></i>")
             });
 
-           //HEADER STICKY FUNCTIONALITY
+            //HEADER STICKY FUNCTIONALITY
             // Jquery handler for displaying sticky header upon scroll.
             $(window).on("scroll", () => {
                 let header = $("header");
                 let currentPagePosition = $(window).scrollTop();
 
-                if(currentPagePosition > 400){
+                if (currentPagePosition > 400) {
                     scrollUpBtnCnt.fadeIn();
-                }else{
+                } else {
                     scrollUpBtnCnt.fadeOut();
                 }
 
                 header[0].classList.toggle("sticky", $(window)[0].scrollY > 180);
-                });
+            });
 
-                $('.scrollup-btn').on('click', function() {
-                $('html, body').animate({scrollTop : 0},800);
+            $('.scrollup-btn').on('click', function() {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 800);
                 return false;
             });
 
