@@ -138,7 +138,7 @@
                             <span>Fee to pay:</span>
                         </div>
                         <div class="value">
-                            <span>NGN 250,000.00</span>
+                            <span>NGN <?= number_format($course_details['course_price'], 2) ?></span>
                         </div>
                     </div>
                     <!-- <div class="handling-info">
@@ -152,7 +152,7 @@
                     </div> -->
                     <div class="total">
                         <span><b>Total:</b></span>
-                        <span>NGN 250,000.00</span>
+                        <span>NGN <?= number_format($course_details['course_price'], 2) ?></span>
                     </div>
                 </div>
 
@@ -246,37 +246,34 @@
         $(".pay-btn-container button").on("click", function () {
             // GENERATING TRANSACTION REF:
             const tranx_ref = generateTransaction_ref();
-
+            const btnEl = $(this);
             const formData = new FormData();
 
             formData.append("submit", true);
             formData.append("tx_ref", tranx_ref);
 
+            $.ajax({
+                url: 'controllers/initiate-payment.php',
+                type: 'post',
+                data: formData,
+                processData: false,
+                contentType: false,
+                beforeSend: function () {
+                    btnEl.html("loading...");
+                },
+                success: function (response) {
+                    response = JSON.parse(response);
 
-            makePayment(tranx_ref, "2000");
+                    if (response.success === 1) {
 
-            // $.ajax({
-            //     url: 'controllers/initiate-payment.php',
-            //     type: 'post',
-            //     data: formData,
-            //     processData: false,
-            //     contentType: false,
-            //     beforeSend: function () {
-            //         $(this).html("loading...");
-            //     },
-            //     success: function (response) {
-            //         response = JSON.parse(response);
+                        makePayment(tranx_ref, response.amount_charged);
 
-            //         if (response.success === 1) {
-
-            //             makePayment(tranx_ref, "2000");
-
-            //         } else {
-            //             // ALERT THE USER UPON FAILED REQUEST/RESPONSE
-            //             console.error(response.error_message);
-            //         }
-            //     }
-            // });
+                    } else {
+                        // ALERT THE USER UPON FAILED REQUEST/RESPONSE
+                        console.error(response.error_message);
+                    }
+                }
+            });
         });
 
         function sendData(){

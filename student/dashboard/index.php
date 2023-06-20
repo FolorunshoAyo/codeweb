@@ -1,3 +1,20 @@
+<?php
+require(__DIR__ . '/auth-library/resources.php');
+Auth::User();
+$url = strval($url);
+
+
+$user_id = $_SESSION['user_id'];
+
+$sql_get_user_details = $db->query("SELECT * FROM users WHERE user_id={$user_id}");
+
+if ($sql_get_user_details->num_rows) {
+  $user_details = $sql_get_user_details->fetch_assoc();
+} else {
+  header("location: ./");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -100,7 +117,7 @@
           </div>
         </div>
       </header>
-      
+      <main></main>
     </section>
   </div>
 

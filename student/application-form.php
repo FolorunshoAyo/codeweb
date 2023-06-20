@@ -548,7 +548,7 @@
                             // ALERT THE USER  UPON SUCCESFUL APPLICATION
                             ftoast("success", "You have applied successfully", 4000).then((_) => {
                                 //REDIRECT TO SELECT COURSE PAGE
-                                window.location = "select-course.php";
+                                location.href = "select-course";
                             });
                         } else {
                             $(".enroll-form-container button").attr("disabled", false);

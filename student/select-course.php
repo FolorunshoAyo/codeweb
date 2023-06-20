@@ -127,7 +127,7 @@
                                 <div class="card">
                                     <div class="title-container">
                                         <p>Web <?php echo $sql_check_number_of_web_courses->num_rows === 1? "" : "#$web_count" ?></p>
-                                        <span class="course-price">₦ <?php echo number_format($course_details['course_  price']) ?></span>
+                                        <span class="course-price">₦ <?php echo number_format($course_details['course_price']) ?></span>
                                     </div>
                                     <div class="more-info-container">
                                         <h3 class="course-title"><?= $course_details['name'] ?></h3>

@@ -43,8 +43,8 @@ if (isset($_POST['submit'])) {
 				//CREATE AN IMAGE WITH THE USER NAME INITIAL
 				$file_name = make_avatar(strtoupper(substr($username, 0, 1)));
 			    //Save student information
-			    $statement_personal = $db->prepare("INSERT INTO users(first_name, last_name, username, passkey, email, phone_no, profile_avatar) VALUES(?,?,?,?,?,?,?)");
-				$statement_personal->bind_param("sssssss", $first_name, $last_name, $username, $hash_pass, $email, $phone_no, $file_name);
+			    $statement_personal = $db->prepare("INSERT INTO users(first_name, last_name, username, passkey, email, phone_no, profile_avatar, reg_status) VALUES(?,?,?,?,?,?,?,?)");
+				$statement_personal->bind_param("ssssssss", $first_name, $last_name, $username, $hash_pass, $email, $phone_no, $file_name, "0");
 				if($statement_personal->execute()){
 					echo json_encode(array('success' => 1));
 				}

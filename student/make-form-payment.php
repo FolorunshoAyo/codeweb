@@ -207,6 +207,7 @@
                 dataType: 'json',
                 success: function (response) {
                     if (response.success === 1) {
+
                         FlutterwaveCheckout({
                             // public_key: "FLWPUBK-8a73c7e27bc482383e107f69056d6c48-X",
                             public_key: "FLWPUBK_TEST-9907ef66591a80edfb5c7ea51208031d-X",
