@@ -3,6 +3,8 @@
     Auth::User();
     $url = strval($url);
 
+    autoRedirect("course-payment");
+
     $user_id = $_SESSION['user_id'];
 
     $sql_get_user_details = $db->query("SELECT * FROM users WHERE user_id={$user_id}");
@@ -11,6 +13,10 @@
         $user_details = $sql_get_user_details->fetch_assoc();
     }else{
         header("location: ./");
+    }
+
+    if(isset($_SESSION['months_paid']) && isset($_SESSION['is_installment']) && isset($_SESSION['course_duration']) && isset($_SESSION['course_id'])){
+        unset( $_SESSION['months_paid'],  $_SESSION['is_installment'], $_SESSION['course_duration'], $_SESSION['course_id']);
     }
 ?>
 <!DOCTYPE html>
@@ -30,6 +36,8 @@
     <link rel="stylesheet" href="../assets/css/base.css">
     <!-- Codeweb Form -->
     <link rel="stylesheet" href="../assets/css/fonts.css">
+    <!-- Codeweb Preloader  -->
+    <link rel="stylesheet" href="../assets/css/student/preloader.css">
     <!-- ENROLL STYLESHEET  -->
     <link rel="stylesheet" href="../assets/css/form.css" type="text/css">
     <!-- STUDENT HEADER STYLESHEET -->
@@ -45,9 +53,14 @@
 </head>
 
 <body>
+    <div class="preloader-wrapper loaded">
+        <div class="loader">
+            C
+        </div>
+    </div>
     <header class="make-payment-header">
         <div class="person-container">
-            <img src="images/<?php echo $user_details['profile_avatar'] ?>" alt="profile avatar">
+        <span class="first-name-initial"><?= substr($user_details['username'],0,1)?></span>
             <?php echo ucfirst($user_details['username']) ?>
         </div>
         
@@ -114,17 +127,19 @@
                         Course fee: NGN <?php echo number_format($course_details['course_price'], 2) ?><br><br>
                         Type of payment: <?php echo $isInstallment === "1"? "Monthly Payment" : "One time payment" ?><br><br>
                         <?php
+                            $months_paid = "0";
                             if($sql_get_last_payment_info->num_rows === 1){
                                 $last_payment_details = $sql_get_last_payment_info->fetch_assoc();
+                                $months_paid = $last_payment_details['months_paid'];
                         ?>
-                        Month(s) paid: <?php echo $last_payment_details['months_paid'] ?><br><br>
+                        Month(s) paid: <?php echo $months_paid ?> of <?= $course_details['duration_in_months'] ?> months<br><br>
                         <?php
                             $course_id = $course_details['course_id'];
                             $sql_sum_of_payments = $db->query("SELECT SUM(amount_paid) as total_payments FROM course_payments WHERE user_id={$user_id} AND course_id={$course_id}");
                             $total_payments_for_course = $sql_sum_of_payments->fetch_assoc()['total_payments'];
                         ?>
-                        Course fee paid: <?php echo "NGN " . $total_payments_for_course ?><br><br>
-                        Remaining balance: <?php echo "NGN " . (intval($course_details['course_price']) - intval($total_payments_for_course)); ?>
+                        Course fee paid: <?php echo "NGN " . number_format($total_payments_for_course, 2) ?><br><br>
+                        Remaining balance: <?php echo "NGN " . number_format((intval($course_details['course_price']) - intval($total_payments_for_course)), 2); ?>
                         <?php
                             }
                         ?>
@@ -137,8 +152,11 @@
                             <i class="fa fa-plus"></i>
                             <span>Fee to pay:</span>
                         </div>
+                        <?php
+                            $fee_to_pay = $isInstallment === "1"? number_format($course_details['course_price'] / $course_details['duration_in_months'], 2) : number_format($course_details['course_price'], 2);
+                        ?>
                         <div class="value">
-                            <span>NGN <?= number_format($course_details['course_price'], 2) ?></span>
+                            <span>NGN <?= $fee_to_pay ?></span>
                         </div>
                     </div>
                     <!-- <div class="handling-info">
@@ -152,7 +170,7 @@
                     </div> -->
                     <div class="total">
                         <span><b>Total:</b></span>
-                        <span>NGN <?= number_format($course_details['course_price'], 2) ?></span>
+                        <span>NGN <?= $fee_to_pay ?></span>
                     </div>
                 </div>
 
@@ -219,10 +237,10 @@
             FlutterwaveCheckout({
                 public_key: "FLWPUBK_TEST-9907ef66591a80edfb5c7ea51208031d-X",
                 tx_ref: x,
-                amount: final_amt,
+                amount: Number(final_amt),
                 currency: "NGN",
                 payment_options: "card, banktransfer, ussd",
-                redirect_url: `https://localhost/codeweb/student/controllers/auth-form-payment`,
+                redirect_url: `https://localhost/codeweb/student/controllers/auth-course-payment`,
 
                 customer: {
                     email: "info@codeweb.ng",
@@ -251,6 +269,12 @@
 
             formData.append("submit", true);
             formData.append("tx_ref", tranx_ref);
+            // formData.append("amount", "<?= $fee_to_pay ?>");
+            formData.append("amount", "2000");
+            formData.append("months_paid", "<?=  $months_paid ?>");
+            formData.append("is_installment", "<?= $isInstallment ?>");
+            formData.append("course_duration", "<?= $course_details['duration_in_months'] ?>");
+            formData.append("course_id", "<?= $course_details['course_id'] ?>");
 
             $.ajax({
                 url: 'controllers/initiate-payment.php',
@@ -260,6 +284,7 @@
                 contentType: false,
                 beforeSend: function () {
                     btnEl.html("loading...");
+                    $(".preloader-wrapper").removeClass("loaded");
                 },
                 success: function (response) {
                     response = JSON.parse(response);

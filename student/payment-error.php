@@ -1,16 +1,7 @@
 <?php
-require(__DIR__ . '/auth-library/resources.php');
-// Auth::Route();
-$url = strval($url);
-
-if (!isset($_SESSION['reg_status'])) {
-    autoRedirect("payment-success");
-} else {
-    $reg_status = $_SESSION['reg_status'];
-    $receipt = $_SESSION['receipt'];
-}
-
-
+    require(__DIR__ . '/auth-library/resources.php');
+    // Auth::Route();
+    $url = strval($url);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,63 +38,40 @@ if (!isset($_SESSION['reg_status'])) {
         <div class="registeration-wrapper" style="height: 100vh;">
             <div class="info-container">
                 <div class="icon-container">
-                    <img src="../assets/images/check-icon.png" alt="check-icon">
+                    <i class="fa fa-ban"></i>
                 </div>
 
-                <h1 class="title title--info">Success</h1>
+                <h1 class="title title--info">Payment Error</h1>
 
-                <?php if ($reg_status === "1") { ?>
-                    <p class="text">You have successfully paid for the form.</p>
-                    <?php
-                } else {
-                    $isInstallment = $_SESSION['is_installment'];
-                    if ($isInstallment === "1") {
-                        $months_paid = $_SESSION['months_paid'];
-                        $course_duration = $_SESSION['course_duration'];
-                    ?>
-                        <p class="text"> <?php echo intval($months_paid) === intval($course_duration) ? "You have completed payment for this course" : "You have paid $months_paid months out of $course_duration months for this course" ?> </p>
-                    <?php
-                    } else {
-                    ?>
-                        <p class="text"> You have successfully paid for this course </p>
-                <?php
-                    }
-                }
-                ?>
-                <p class="text">Click on proceed to go <?= $reg_status === "1" ? "to application form" : "to dashboard" ?></p>
-                <div class="success-container">
-                    <a href="receipts/<?= $receipt ?>" download>Download reciept</a>
-                    <a href="<?= $reg_status === "1" ? "application-form" : "dashboard/" ?>">Proceed</a>
-                </div>
+                <p class="text">Your payment was unsuccessful</p>
+                <p class="text">Please hold on, you would be redirected in a few seconds.</p>
+                <!-- <div class="success-container">
+                    <button>Download reciept</button>
+                    <button>Go to Dashboard</button>
+                </div> -->
             </div>
         </div>
     </section>
     <aside class="copy-sign">&copy; Codeweb 2023</aside>
     <!-- FONT AWESOME JIT SCRIPT-->
     <script src="https://kit.fontawesome.com/3ae896f9ec.js" crossorigin="anonymous"></script>
-    <!--
     <script>
         setTimeout(() => {
             <?php
-            if ($reg_status === "1") {
+            if ($_SESSION['reg_status'] === "1") {
             ?>
                 window.location = "application-form";
             <?php
-            } else {
+            } elseif($_SESSION['reg_status'] === "3") {
             ?>
-                window.location = "dashboard/";
+                window.location = "course-payment";
             <?php
-            }
+            }else{
             ?>
+            window.location = "dashboard/"
+            <?php }?>
         }, 5000);
     </script>
-    -->
 </body>
-<?php
-if ($reg_status === "3") {
-    unset($_SESSION['reg_status']);
-    unset($_SESSION['receipt']);
-}
-?>
 
 </html>

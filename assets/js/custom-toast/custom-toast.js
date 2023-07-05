@@ -25,7 +25,7 @@ function ftoast(icon, message, duration = 3000){
                 alertEl.remove();
 
                 resolve("done");
-            }, 2000);
+            }, 800);
         },
         duration);
     });

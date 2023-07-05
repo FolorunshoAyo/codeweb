@@ -29,7 +29,7 @@ if ($sql_get_user_details->num_rows) {
   <!-- ADMIN DASHBOARD MENU CSS -->
   <link rel="stylesheet" href="../../assets/css/dashboard/student-dash-menu.css" />
   <!-- ADMIN DASHBOARD STYLESHEET -->
-  <link rel="stylesheet" href="../../assets/css/dashboard/student-dash/index.css" />
+  <link rel="stylesheet" href="../../assets/css/dashboard/student-dash/academic-details.css" />
   <!-- DASHHBOARD MEDIA QUERIES -->
   <link rel="stylesheet" href="../../assets/css/media-queries/student-dash-mediaquery.css" />
   <title>Student Dashboard</title>
@@ -42,7 +42,7 @@ if ($sql_get_user_details->num_rows) {
     ?>
     <section class="page-wrapper">
       <header class="dash-header">
-        <h1 class="welcome-message">Dashboard
+        <h1 class="welcome-message">Academic details
         </h1>
         <div class="profile-container">
           <div class="first-name-initial">
@@ -56,34 +56,15 @@ if ($sql_get_user_details->num_rows) {
       </header>
       <main>
         <div class="main-wrapper">
-          <h2 class="dash-main-title">Notifications</h2>
+          <div class="course-preview-section">
+            <div class="course-preview-overlay"></div>
+            <img src="../../assets/images/php-logo.png" alt="Course Logo">
+          </div>
+          <h2 class="course-title">PHP DEVELOPMENT</h2>
 
-          <table class="notification-table">
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Notice</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <b>Welcome to codeweb</b>
-                </td>
-                <td>
-                  We are glad to have you as a student.
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <b>Navigation</b>
-                </td>
-                <td>
-                  You can navigate your dashboard by clicking on the various links on the sidebar
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <p>Overview</p>
+          <p>Course Content</p>
+          <p>Instructir</p>
         </div>
       </main>
     </section>

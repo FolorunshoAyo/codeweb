@@ -64,7 +64,7 @@
     </div>
     <header class="make-payment-header">
         <div class="person-container">
-            <img src="images/<?php echo $user_details['profile_avatar'] ?>" alt="profile avatar">
+        <span class="first-name-initial"><?= substr($user_details['username'],0,1)?></span>
             <?php echo ucfirst($user_details['username']) ?>
         </div>
         

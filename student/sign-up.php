@@ -21,16 +21,24 @@
     <link rel="stylesheet" href="../assets/css/base.css">
     <!-- Codeweb Form -->
     <link rel="stylesheet" href="../assets/css/fonts.css">
+    <!-- Codeweb Preloader  -->
+    <link rel="stylesheet" href="../assets/css/student/preloader.css">
     <!-- Enroll stylesheet -->
     <link rel="stylesheet" href="../assets/css/sign-up.css">
     <!-- Toast CSS (codeweb) -->
     <link rel="stylesheet" href="../assets/css/custom-toast.css">
     <!-- MEDIA QUERIES -->
     <link rel="stylesheet" href="../assets/css/media-queries/main-mediaquery.css">
+    <title>Codeweb Student - Sign Up</title>
 </head>
 
 <!-- The auth class is for styling purposes only -->
 <body class="auth">
+    <div class="preloader-wrapper loaded">
+        <div class="loader">
+            C
+        </div>
+    </div>
     <section class="registeration-section">
         <header>
             Have an account? <a href="./sign-in">Sign in</a>

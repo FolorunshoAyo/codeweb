@@ -53,12 +53,13 @@ if (isset($_POST['submit'])) {
 									$_SESSION['user_id'] = $user_id;
 									echo json_encode(array('success' => 1, "redirect" => "student_dashboard"));
 								}else{
-									$due_time = strtotime($outstanding_course_details['last_payment'] . "+ 1 month");
+									$due_time = strtotime($last_payment_details['paid_at'] . "+ 1 month");
 									$today = strtotime("now");
 			
 									// CHECKING IF USER PAYMENT IS PAST DUE
 									if($today >= $due_time){
-										echo json_encode(array("success" => 0, "error_title" => "Due Payment", "error_message" => "Your payment is due for the month. Pay now to access dashboard"));
+										$_SESSION['reg_status'] = "3";
+										echo json_encode(array("success" => 0, "error_title" => "Due Payment", "error_message" => "Your payment is due for the month. Pay now to access dashboard", "redirect" => "course-payment"));
 									}else{
 										echo json_encode(array('success' => 1, "redirect" => "student_dashboard"));
 									}

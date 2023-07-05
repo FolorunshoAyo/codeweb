@@ -6,8 +6,10 @@
         $transaction_ref = $_POST['tx_ref'];
         $amount = $_POST['amount'];
 
-        $sql_deposit = $db->prepare("INSERT INTO deposits(transaction_ref, user_id, deposit_amount) VALUES(?,?,?)");
-        $sql_deposit->bind_param("sii", $transaction_ref, $user_id, $amount);
+        $deposit_for = "1";
+
+        $sql_deposit = $db->prepare("INSERT INTO deposits(transaction_ref, user_id, deposit_amount, deposit_for) VALUES(?,?,?,?)");
+        $sql_deposit->bind_param("siis", $transaction_ref, $user_id, $amount, $deposit_for);
 
         if($sql_deposit->execute()){
             echo json_encode(array("success" => 1, "amount_charged" => $amount, "tx_ref" => $transaction_ref));
