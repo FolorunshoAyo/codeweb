@@ -1,6 +1,11 @@
 <?php
     require(__DIR__.'/auth-library/resources.php');
-    // Auth::Route();
+    Auth::Route();
+
+    if(isset($_SESSION['reg_status'])){
+        autoRedirect("index");
+    }
+    
     $url = strval($url);
 ?>
 <!DOCTYPE html>
@@ -21,16 +26,24 @@
     <link rel="stylesheet" href="../assets/css/base.css">
     <!-- FONTS CSS -->
     <link rel="stylesheet" href="../assets/css/fonts.css">
+    <!-- Codeweb Preloader  -->
+    <link rel="stylesheet" href="../assets/css/student/preloader.css">
     <!-- Toast CSS (codeweb) -->
     <link rel="stylesheet" href="../assets/css/custom-toast.css">
     <!-- Codeweb Form -->
     <link rel="stylesheet" href="../assets/css/sign-up.css">
     <!-- MEDIA QUERIES -->
     <link rel="stylesheet" href="../assets/css/media-queries/main-mediaquery.css">
+    <title>Codeweb Student - Sign In</title>
 </head>
 
 <!-- The auth class is for styling purposes only -->
 <body class="auth">
+    <div class="preloader-wrapper loaded">
+        <div class="loader">
+            C
+        </div>
+    </div>
     <section class="registeration-section">
         <header>
             Not a member yet? <a href="./sign-up">Create an account</a>

@@ -1,8 +1,12 @@
 <?php
 include(dirname(__DIR__)."/call.php");
+
+$url = $_ENV['URL'];
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
+
 require dirname(__DIR__).'/PHPMailer/autoload.php';
 
 require dirname(__DIR__).'/PHPMailer/PHPMailer/src/Exception.php';

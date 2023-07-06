@@ -54,7 +54,7 @@
     </div>
     <header class="make-payment-header">
         <div class="person-container">
-            <img src="images/<?php echo $user_details['profile_avatar'] ?>" alt="profile avatar">
+        <span class="first-name-initial"><?= substr($user_details['username'],0,1)?></span>
             <?php echo ucfirst($user_details['username']) ?>
         </div>
         
@@ -548,7 +548,7 @@
                             // ALERT THE USER  UPON SUCCESFUL APPLICATION
                             ftoast("success", "You have applied successfully", 4000).then((_) => {
                                 //REDIRECT TO SELECT COURSE PAGE
-                                window.location = "select-course.php";
+                                location.href = "select-course";
                             });
                         } else {
                             $(".enroll-form-container button").attr("disabled", false);

@@ -58,7 +58,7 @@ if (isset($_POST['submit'])) {
 			if($sql_insert_guardian->execute()){
 				// UPDATE USER STATUS
 				$db->query("UPDATE users SET reg_status = '2' WHERE user_id = {$user_id}");
-				$_SESSION['reg_status'] = "1";
+				$_SESSION['reg_status'] = "2";
 				echo json_encode(array('success' => 1));
 			}
 		}

@@ -29,7 +29,7 @@ if ($sql_get_user_details->num_rows) {
   <!-- ADMIN DASHBOARD MENU CSS -->
   <link rel="stylesheet" href="../../assets/css/dashboard/student-dash-menu.css" />
   <!-- ADMIN DASHBOARD STYLESHEET -->
-  <link rel="stylesheet" href="../../assets/css/dashboard/student-dash/index.css" />
+  <link rel="stylesheet" href="../../assets/css/dashboard/student-dash/all-courses.css" />
   <!-- DASHHBOARD MEDIA QUERIES -->
   <link rel="stylesheet" href="../../assets/css/media-queries/student-dash-mediaquery.css" />
   <title>Student Dashboard</title>
@@ -42,7 +42,7 @@ if ($sql_get_user_details->num_rows) {
     ?>
     <section class="page-wrapper">
       <header class="dash-header">
-        <h1 class="welcome-message">Dashboard
+        <h1 class="welcome-message">All courses
         </h1>
         <div class="profile-container">
           <div class="first-name-initial">
@@ -56,34 +56,54 @@ if ($sql_get_user_details->num_rows) {
       </header>
       <main>
         <div class="main-wrapper">
-          <h2 class="dash-main-title">Notifications</h2>
+          <div class="course-lists-container">
+            <ul>
+                <?php
+                    $sql_get_all_courses = $db->query("SELECT * FROM courses");
 
-          <table class="notification-table">
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Notice</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <b>Welcome to codeweb</b>
-                </td>
-                <td>
-                  We are glad to have you as a student.
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <b>Navigation</b>
-                </td>
-                <td>
-                  You can navigate your dashboard by clicking on the various links on the sidebar
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                    while($course_details = $sql_get_all_courses->fetch_assoc()){
+                ?>
+                <li>
+                    <div class="course-image-container">
+                        <img src="../../assets/images/<?= $course_details['course_logo'] ?>" alt="course logo">
+                    </div>
+                    <div class="course-info-container">
+                        <p>
+                          <span class="label">Title:</span>
+                          <span class="value"><?= $course_details['name'] ?></span>
+                        </p>
+                        <p>
+                          <span class="label">Duration:</span>
+                          <span class="value"><?= $course_details['duration_in_months'] ?> month(s)</span>
+                        </p>
+                        <p>
+                          <span class="label">Instructor:</span>
+                          <?php
+                          $staff_id = $course_details['staff_id'];
+
+                          $sql_get_staff_name = $db->query("SELECT first_name, last_name FROM staffs WHERE staff_id = {$staff_id}");
+
+                          $staff_details = $sql_get_staff_name->fetch_assoc();
+                          ?>
+                          <span class="value"><?= $staff_details['last_name'] . " " . $staff_details['first_name'] ?></span>
+                        </p>
+                    </div>
+                    <?php
+                      $course_id = $course_details['course_id'];
+                      $sql_user_course_check = $db->query("SELECT * FROM course_lookup WHERE user_id = {$user_id} AND course_id = {$course_id}");
+
+                      if($sql_user_course_check->num_rows > 0){
+                        $user_course_check_result = $sql_user_course_check->fetch_assoc();
+
+                        echo $user_course_check_result['completed'] === "0"? '<span class="status-badge">ongoing</span>' : "";  
+                      }
+                    ?>
+                </li>
+                <?php
+                    }
+                ?>
+            </ul>
+          </div>
         </div>
       </main>
     </section>

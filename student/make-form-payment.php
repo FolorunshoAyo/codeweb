@@ -12,6 +12,8 @@
     }else{
         header("location: sign-in");
     }
+
+    autoRedirect("make-form-payment");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +56,7 @@
     </div>
     <header class="make-payment-header">
         <div class="person-container">
-            <img src="images/<?php echo $user_details['profile_avatar'] ?>" alt="profile avatar">
+            <span class="first-name-initial"><?= substr($user_details['username'],0,1)?></span>
             <?php echo ucfirst($user_details['username']) ?>
         </div>
         
@@ -100,9 +102,9 @@
                     <h2><b>User Details</b></h2>
 
                     <p>
-                        <?php echo $user_details['first_name'] . " " . $user_details['last_name'] ?><br><br>
-                        <?php echo $user_details['phone_no'] ?> <br><br>
-                        <?php echo $user_details['email'] ?>
+                        Name: <?php echo $user_details['first_name'] . " " . $user_details['last_name'] ?><br><br>
+                        Phone No: <?php echo $user_details['phone_no'] ?> <br><br>
+                        Email: <?php echo $user_details['email'] ?>
                     </p>
                 </div>
 
@@ -207,6 +209,7 @@
                 dataType: 'json',
                 success: function (response) {
                     if (response.success === 1) {
+
                         FlutterwaveCheckout({
                             // public_key: "FLWPUBK-8a73c7e27bc482383e107f69056d6c48-X",
                             public_key: "FLWPUBK_TEST-9907ef66591a80edfb5c7ea51208031d-X",
@@ -251,69 +254,22 @@
 
         $(".pay-btn-container button").on("click", function () {
             // DISABLE BUTTON TO AVOID MULTIPLE CLICKS.
-            $(".pay-btn-container button").attr("disabled", true);
+            $(this).attr("disabled", true);
+            $(this).html("loading...");
+
+            $(".preloader-wrapper").removeClass("loaded");
             
             // GENERATING TRANSACTION REF:
             const tranx_ref = generateTransaction_ref();
 
-            const formData = new FormData();
+            // const formData = new FormData();
 
-            formData.append("submit", true);
-            formData.append("tx_ref", tranx_ref);
+            // formData.append("submit", true);
+            // formData.append("tx_ref", tranx_ref);
 
 
             makePayment(tranx_ref, "2000");
         });
-
-        function sendData(){
-            const form = document.getElementById('registeration-form');
-
-            // GATHERING FORM DATA
-            const formData = new FormData(form);
-            formData.append("submit", true);
-            
-            //SENDING FORM DATA TO THE SERVER
-            $.ajax({
-                type: "post",
-                url: 'authentication/register.php',
-                data: formData,
-                cache: false,
-                contentType: false,
-                enctype: 'multipart/form-data',
-                processData: false,
-                dataType: 'json',
-                beforeSend: function () {
-                    $(".register-container button").html("Registering...");
-                    $(".register-container button").attr("disabled", true);
-                },
-                success: function (response) {
-                setTimeout(() => {
-                        if (response.success === 1) {
-                            // REDIRECT USER TO THE VERIFICATION PAGE
-                            window.location = "authentication/send-code?a=send";
-
-                        } else {
-                            $(".register-container button").setAttr("disabled", false);
-                            $(".register-container button").html("Register");
-
-                            if(response.error_title === "fatal"){
-                                // REFRESH CURRENT PAGE
-                                location.reload();
-                            }else{
-                                // ALERT USER
-                                Swal.fire({
-                                    title: response.error_title,
-                                    icon: "error",
-                                    text: response.error_message,
-                                    allowOutsideClick: false,
-                                    allowEscapeKey: false,
-                                });
-                            }
-                        }
-                    }, 1500);
-                },
-            });
-        };
 
          // REMOVE PRELOADER
          setTimeout(() => $(".preloader-wrapper").addClass("loaded"), 3000);

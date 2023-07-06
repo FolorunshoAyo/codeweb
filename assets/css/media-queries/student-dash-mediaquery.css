@@ -60,6 +60,14 @@
     .total-revenue-card{
         margin-right: 0px;
     }
+
+    .form-groupings .form-group-container{
+        flex: 0 0 100%;
+    }
+
+    .form-groupings .form-group-container{
+        flex: 0 0 100%;
+    }
 } 
 
 /* < 665px */ 
@@ -69,11 +77,13 @@
     }
 
     .menu-icon{
+        font-size: 15px;
         right: -60px;
+        top: -20px
     }
 
     .page-wrapper{
-        margin-left: 40px;
+        margin-left: 20px;
     }
 
     .dash-menu.expand{
@@ -90,10 +100,16 @@
 
     aside.expand .menu-icon{
         right: 5px;
+        top: 10px;
     }
 
     .page-wrapper{
         border: none;
+    }
+
+    .menu-list-container{
+        margin-top: 30px;
+        justify-content: flex-start;
     }
 } 
 
@@ -150,6 +166,31 @@
 
     .dash-header{
         padding: 15px 10px;
+    }
+
+    .course-lists-container{
+        margin-block-start: 2rem;
+    }
+
+    .course-lists-container ul li{
+        height: auto;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .course-image-container{
+        flex: 0 0 50px;
+        margin-right: 0px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .course-image-container img{
+        max-width: 50px;
+    }
+
+    .course-image-container img{
+        height: 50px;
     }
 }
 
