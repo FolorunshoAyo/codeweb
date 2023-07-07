@@ -269,8 +269,8 @@
 
             formData.append("submit", true);
             formData.append("tx_ref", tranx_ref);
-            // formData.append("amount", "<?= $fee_to_pay ?>");
-            formData.append("amount", "2000");
+            formData.append("amount", "<?= $fee_to_pay ?>");
+            // formData.append("amount", "2000");
             formData.append("months_paid", "<?=  $months_paid ?>");
             formData.append("is_installment", "<?= $isInstallment ?>");
             formData.append("course_duration", "<?= $course_details['duration_in_months'] ?>");

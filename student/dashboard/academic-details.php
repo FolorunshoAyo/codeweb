@@ -56,9 +56,8 @@ if ($sql_get_user_details->num_rows) {
       </header>
       <main>
         <div class="main-wrapper">
-          <div class="course-preview-section">
+          <div class="course-preview-section" style="background-image: url(../../assets/images/php-logo.png)">
             <div class="course-preview-overlay"></div>
-            <img src="../../assets/images/php-logo.png" alt="Course Logo">
           </div>
           <h2 class="course-title">PHP DEVELOPMENT</h2>
 

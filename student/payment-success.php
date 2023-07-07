@@ -44,7 +44,7 @@ if (!isset($_SESSION['reg_status'])) {
 
 <body>
     <section class="registeration-section" style="flex: 0 0 100%;">
-        <div class="registeration-wrapper" style="height: 100vh;">
+        <div class="registeration-wrapper" style="height: 100vh; align-items: stretch;">
             <div class="info-container">
                 <div class="icon-container">
                     <img src="../assets/images/check-icon.png" alt="check-icon">
@@ -72,7 +72,7 @@ if (!isset($_SESSION['reg_status'])) {
                 ?>
                 <p class="text">Click on proceed to go <?= $reg_status === "1" ? "to application form" : "to dashboard" ?></p>
                 <div class="success-container">
-                    <a href="receipts/<?= $receipt ?>" download>Download reciept</a>
+                    <a href="receipts/<?= $receipt ?>" download>Download Reciept</a>
                     <a href="<?= $reg_status === "1" ? "application-form" : "dashboard/" ?>">Proceed</a>
                 </div>
             </div>
