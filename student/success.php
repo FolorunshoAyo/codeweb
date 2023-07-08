@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="../assets/css/success.css">
     <!-- MEDIA QUERIES -->
     <link rel="stylesheet" href="../assets/css/media-queries/main-mediaquery.css">
+    <title>Success - Codeweb Student</title>
 </head>
 
 <body>

@@ -32,13 +32,13 @@ if ($sql_get_user_details->num_rows) {
   <link rel="stylesheet" href="../../assets/css/dashboard/student-dash/index.css" />
   <!-- DASHHBOARD MEDIA QUERIES -->
   <link rel="stylesheet" href="../../assets/css/media-queries/student-dash-mediaquery.css" />
-  <title>Student Dashboard</title>
+  <title>Home - Codeweb Student Dashboard</title>
 </head>
 
 <body>
   <div class="dash-wrapper">
     <?php
-      include("includes/student-dash-sidebar.php");
+    include("includes/student-dash-sidebar.php");
     ?>
     <section class="page-wrapper">
       <header class="dash-header">
@@ -46,11 +46,16 @@ if ($sql_get_user_details->num_rows) {
         </h1>
         <div class="profile-container">
           <div class="first-name-initial">
-            <?= substr($user_details['username'],0,1) ?>
+            <?= substr($user_details['username'], 0, 1) ?>
           </div>
           <div class="profile-details">
             <h2><?= $user_details['last_name'] . " " . $user_details['first_name'] ?></h2>
             <p>Student</p>
+          </div>
+          <div class="logout-container">
+            <a href="../logout">
+              <i class="fa fa-sign-out"></i>
+            </a>
           </div>
         </div>
       </header>

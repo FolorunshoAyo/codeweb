@@ -54,6 +54,7 @@
     <link rel="stylesheet" href="../assets/css/student/select-course.css" type="text/css">
     <!-- MEDIA QUERIES -->
     <link rel="stylesheet" href="../assets/css/media-queries/main-mediaquery.css">
+    <title>Select Course - Codeweb Student</title>
 </head>
 
 <body>

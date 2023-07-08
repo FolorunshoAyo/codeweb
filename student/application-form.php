@@ -44,6 +44,7 @@
     <link rel="stylesheet" href="../assets/css/home.css" type="text/css">
     <!-- MEDIA QUERIES -->
     <link rel="stylesheet" href="../assets/css/media-queries/main-mediaquery.css">
+    <title>Application Form - Codeweb Student</title>
 </head>
 
 <body>

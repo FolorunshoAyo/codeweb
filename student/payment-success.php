@@ -40,6 +40,7 @@ if (!isset($_SESSION['reg_status'])) {
     <link rel="stylesheet" href="../assets/css/success.css">
     <!-- MEDIA QUERIES -->
     <link rel="stylesheet" href="../assets/css/media-queries/main-mediaquery.css">
+    <title>Payment Success - Codeweb Student</title>
 </head>
 
 <body>

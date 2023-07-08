@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="../assets/css/sign-up.css">
     <!-- MEDIA QUERIES -->
     <link rel="stylesheet" href="../assets/css/media-queries/main-mediaquery.css">
-    <title>Codeweb Student - Sign In</title>
+    <title>Sign In - Codewb Student</title>
 </head>
 
 <!-- The auth class is for styling purposes only -->

@@ -1,8 +1,8 @@
 .course-preview-section{
-    margin-left: -20px;
-    width: calc(100% + 20px);
+    margin: 0 -20px;
+    width: calc(100% + 40px);
     position: relative;
-    height: 30vh;
+    height: 50vh;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: center center;
@@ -21,5 +21,31 @@
 .course-title{
     font-size: 3.5rem;
     margin: 20px 0;
-    color: var(--primary-color)
+}
+
+.description-wrapper{
+    margin-bottom: 100px;
+}
+
+h3{
+    margin: 20px 0;
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.info-wrapper{
+    font-size: 1.8rem;
+}
+
+.info-wrapper p{
+    font-weight: 600;
+}
+
+.info-wrapper ul{
+    margin-left: 20px;
+    list-style-type: decimal;
+}
+
+.info-wrapper ul li:hover{
+    color: initial;
 }

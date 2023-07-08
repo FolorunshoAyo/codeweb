@@ -50,6 +50,7 @@
     <link rel="stylesheet" href="../assets/css/student/make-payment.css" type="text/css">
     <!-- MEDIA QUERIES -->
     <link rel="stylesheet" href="../assets/css/media-queries/main-mediaquery.css">
+    <title>Course Payment - Codeweb Student</title>
 </head>
 
 <body>

@@ -34,7 +34,7 @@ if ($sql_get_user_details->num_rows) {
     <link rel="stylesheet" href="../../assets/css/dashboard/student-dash/personal-details.css" />
     <!-- DASHHBOARD MEDIA QUERIES -->
     <link rel="stylesheet" href="../../assets/css/media-queries/student-dash-mediaquery.css" />
-    <title>Student Dashboard</title>
+    <title>Personal Details - Codeweb Student Dashboard</title>
 </head>
 
 <body>
@@ -53,6 +53,11 @@ if ($sql_get_user_details->num_rows) {
                     <div class="profile-details">
                         <h2><?= $user_details['last_name'] . " " . $user_details['first_name'] ?></h2>
                         <p>Student</p>
+                    </div>
+                    <div class="logout-container">
+                        <a href="../logout">
+                            <i class="fa fa-sign-out"></i>
+                        </a>
                     </div>
                 </div>
             </header>
@@ -98,10 +103,10 @@ if ($sql_get_user_details->num_rows) {
 
                             <div class="form-group-container">
                                 <div class="form-group animate">
-                                    <select name="sex" id="sex"class="form-input" required disabled>
+                                    <select name="sex" id="sex" class="form-input" required disabled>
                                         <option value="">Choose sex</option>
-                                        <option value="M" <?= $student_primary_details['sex'] === "M"? "selected" : ""?>>Male</option>
-                                        <option value="F" <?= $student_primary_details['sex'] === "F"? "selected" : ""?>>Female</option>
+                                        <option value="M" <?= $student_primary_details['sex'] === "M" ? "selected" : "" ?>>Male</option>
+                                        <option value="F" <?= $student_primary_details['sex'] === "F" ? "selected" : "" ?>>Female</option>
                                     </select>
                                     <label for="sex">Sex</label>
                                 </div>
@@ -156,9 +161,9 @@ if ($sql_get_user_details->num_rows) {
                         </div>
 
                         <?php
-                            $sql_get_guardian_details = $db->query("SELECT * FROM guardians WHERE student_id = {$student_id}");
+                        $sql_get_guardian_details = $db->query("SELECT * FROM guardians WHERE student_id = {$student_id}");
 
-                            $student_guardian_details = $sql_get_guardian_details->fetch_assoc();
+                        $student_guardian_details = $sql_get_guardian_details->fetch_assoc();
                         ?>
 
                         <h2 class="form-title">Guardian Information</h2>
@@ -215,7 +220,7 @@ if ($sql_get_user_details->num_rows) {
 
                             <div class="form-group-container">
                                 <div class="form-group animate">
-                                    <input type="text" name="gcity" id="gcity" class="form-input" value="<?= $student_guardian_details['city'] ?>"placeholder=" " required disabled>
+                                    <input type="text" name="gcity" id="gcity" class="form-input" value="<?= $student_guardian_details['city'] ?>" placeholder=" " required disabled>
                                     <label for="gcity">City</label>
                                 </div>
                             </div>

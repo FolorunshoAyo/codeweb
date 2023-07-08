@@ -32,13 +32,13 @@ if ($sql_get_user_details->num_rows) {
   <link rel="stylesheet" href="../../assets/css/dashboard/student-dash/academic-details.css" />
   <!-- DASHHBOARD MEDIA QUERIES -->
   <link rel="stylesheet" href="../../assets/css/media-queries/student-dash-mediaquery.css" />
-  <title>Student Dashboard</title>
+  <title>Academic Details - Codeweb Student Dashboard</title>
 </head>
 
 <body>
   <div class="dash-wrapper">
     <?php
-      include("includes/student-dash-sidebar.php");
+    include("includes/student-dash-sidebar.php");
     ?>
     <section class="page-wrapper">
       <header class="dash-header">
@@ -46,24 +46,49 @@ if ($sql_get_user_details->num_rows) {
         </h1>
         <div class="profile-container">
           <div class="first-name-initial">
-            <?= substr($user_details['username'],0,1) ?>
+            <?= substr($user_details['username'], 0, 1) ?>
           </div>
           <div class="profile-details">
             <h2><?= $user_details['last_name'] . " " . $user_details['first_name'] ?></h2>
             <p>Student</p>
           </div>
+          <div class="logout-container">
+            <a href="../logout">
+              <i class="fa fa-sign-out"></i>
+            </a>
+          </div>
         </div>
       </header>
       <main>
         <div class="main-wrapper">
-          <div class="course-preview-section" style="background-image: url(../../assets/images/php-logo.png)">
+          <?php
+          $sql_get_active_course = $db->query("SELECT course_id FROM course_lookup WHERE user_id = {$user_id} AND completed = 0");
+
+          $active_course_id = $sql_get_active_course->fetch_assoc()['course_id'];
+
+          $sql_get_active_course_details = $db->query("SELECT courses.*, staffs.first_name as first_name, staffs.last_name as last_name FROM courses INNER JOIN staffs ON courses.staff_id = staffs.staff_id WHERE course_id = {$active_course_id}");
+
+          $course_details = $sql_get_active_course_details->fetch_assoc();
+          ?>
+          <div class="course-preview-section" style="background-image: url(../../assets/images/<?= $course_details['course_logo'] ?>)">
             <div class="course-preview-overlay"></div>
           </div>
-          <h2 class="course-title">PHP DEVELOPMENT</h2>
+          <div class="description-wrapper">
+            <h2 class="course-title"><?= $course_details['name'] ?></h2>
 
-          <p>Overview</p>
-          <p>Course Content</p>
-          <p>Instructir</p>
+            <h3>Overview</h3>
+            <div class="info-wrapper">
+              <?= $course_details['description'] ?>
+            </div>
+            <h3>Course Content</h3>
+            <div class="info-wrapper">
+              Coming soon
+            </div>
+            <h3>Instructor</h3>
+            <div class="info-wrapper">
+              <?= $course_details['last_name'] . " " . $course_details['first_name']  ?>
+            </div>
+          </div>
         </div>
       </main>
     </section>

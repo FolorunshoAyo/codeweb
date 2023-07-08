@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="../assets/css/custom-toast.css">
     <!-- MEDIA QUERIES -->
     <link rel="stylesheet" href="../assets/css/media-queries/main-mediaquery.css">
+    <title>Reset Password - Codeweb Student</title>
 </head>
 
 <!-- The auth class is for styling purposes only -->

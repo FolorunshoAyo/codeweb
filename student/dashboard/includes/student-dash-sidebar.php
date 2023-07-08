@@ -40,15 +40,15 @@
                 </a>
                 <span class="nav-pill"></span>
             </li>
-            <li title="academic details" class="nav-item">
+            <li title="academic details" class="nav-item <?= $script_name === "academic-details.php"? "active" : ""?>">
                 <a href="academic-details">
                     <i class="fa fa-book"></i>
                     <span>Academic Details</span>
                 </a>
                 <span class="nav-pill"></span>
             </li>
-            <li title="finance" class="nav-item">
-                <a href="javascript:void(0)">
+            <li title="finance" class="nav-item <?= $script_name === "finance.php"? "active" : ""?>">
+                <a href="finance">
                     <i class="fa fa-money"></i>
                     <span>Finance</span>
                 </a>
